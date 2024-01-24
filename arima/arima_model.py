@@ -180,12 +180,9 @@ class ARIMACalculatorParams:
         # Forecasting
         prediction = []
         # self.predict_length for Forecast
-        for _round in range(self.predict_length):
-            model = ARIMA(training_data, order=(self.p, self.d, self.q))
-            model_fit = model.fit()
-            output = model_fit.forecast(1)
-            yhat = output[0]
-            prediction.append(round(yhat, 4))
+        model = ARIMA(training_data, order=(self.p, self.d, self.q))
+        model_fit = model.fit()
+        prediction = model_fit.forecast(self.predict_length).tolist()
 
         return prediction
 
