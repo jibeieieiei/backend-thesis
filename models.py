@@ -1,10 +1,9 @@
-# import datetime
+import datetime
 
 from sqlalchemy import Column, Float, Integer
+from sqlalchemy.dialects.sqlite import DATETIME
 
 from database import Base
-
-# from sqlalchemy.dialects.sqlite import DATETIME
 
 
 class SET50Base():
@@ -162,25 +161,103 @@ class BacktestBase():
     TU_predict = Column(Float)
     WHA_predict = Column(Float)
 
-# class Price15T(SET50Base, Base):
-#     __tablename__ = "merge_close_15t"
-#     id = Column(Integer, primary_key=True)
-#     datetime = Column(DATETIME(
-#         storage_format="%(year)04d-%(month)02d-%(day)02d " +
-#         "%(hour)02d:%(minute)02d:%(second)02d"
-#     ), default=datetime.datetime.utcnow)
-
-#     def __repr__(self):
-#         return f"<Price15T id={self.id} datetime={self.datetime}>"
+# ---------------- Close & Volume Model ----------------
 
 
-# class Price1D(SET50Base, Base):
-#     __tablename__ = 'merge_close_1dd'
-#     id = Column(Integer, primary_key=True)
-#     datetime = Column(DATETIME(
-#         storage_format="%(year)04d-%(month)02d-%(day)02d " +
-#         "%(hour)02d:%(minute)02d:%(second)02d"
-#     ), default=datetime.datetime.utcnow)
+class MergeClose15T(SET50Base, Base):
+    __tablename__ = "merge_close_15t"
+    id = Column(Integer, primary_key=True)
+    datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d " +
+        "%(hour)02d:%(minute)02d:%(second)02d"
+    ), default=datetime.datetime.utcnow)
+
+    def __repr__(self):
+        return f"<MergeClose15T id={self.id} datetime={self.datetime}>"
+
+
+class MergeClose1H(SET50Base, Base):
+    __tablename__ = "merge_close_1h"
+    id = Column(Integer, primary_key=True)
+    datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d " +
+        "%(hour)02d:%(minute)02d:%(second)02d"
+    ), default=datetime.datetime.utcnow)
+
+    def __repr__(self):
+        return f"<MergeClose1H id={self.id} datetime={self.datetime}>"
+
+
+class MergeClose4H(SET50Base, Base):
+    __tablename__ = "merge_close_4h"
+    id = Column(Integer, primary_key=True)
+    datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d " +
+        "%(hour)02d:%(minute)02d:%(second)02d"
+    ), default=datetime.datetime.utcnow)
+
+    def __repr__(self):
+        return f"<MergeClose4H id={self.id} datetime={self.datetime}>"
+
+
+class MergeClose1D(SET50Base, Base):
+    __tablename__ = "merge_close_1d"
+    id = Column(Integer, primary_key=True)
+    datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d " +
+        "%(hour)02d:%(minute)02d:%(second)02d"
+    ), default=datetime.datetime.utcnow)
+
+    def __repr__(self):
+        return f"<MergeClose1D id={self.id} datetime={self.datetime}>"
+
+
+class MergeVolume15T(SET50Base, Base):
+    __tablename__ = "merge_volume_15t"
+    id = Column(Integer, primary_key=True)
+    datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d " +
+        "%(hour)02d:%(minute)02d:%(second)02d"
+    ), default=datetime.datetime.utcnow)
+
+    def __repr__(self):
+        return f"<MergeVolume15T id={self.id} datetime={self.datetime}>"
+
+
+class MergeVolume1H(SET50Base, Base):
+    __tablename__ = "merge_volume_1h"
+    id = Column(Integer, primary_key=True)
+    datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d " +
+        "%(hour)02d:%(minute)02d:%(second)02d"
+    ), default=datetime.datetime.utcnow)
+
+    def __repr__(self):
+        return f"<MergeVolume1H id={self.id} datetime={self.datetime}>"
+
+
+class MergeVolume4H(SET50Base, Base):
+    __tablename__ = "merge_volume_4h"
+    id = Column(Integer, primary_key=True)
+    datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d " +
+        "%(hour)02d:%(minute)02d:%(second)02d"
+    ), default=datetime.datetime.utcnow)
+
+    def __repr__(self):
+        return f"<MergeVolume4H id={self.id} datetime={self.datetime}>"
+
+
+class MergeVolume1D(SET50Base, Base):
+    __tablename__ = "merge_volume_1d"
+    id = Column(Integer, primary_key=True)
+    datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d " +
+        "%(hour)02d:%(minute)02d:%(second)02d"
+    ), default=datetime.datetime.utcnow)
+
+    def __repr__(self):
+        return f"<MergeVolume1D id={self.id} datetime={self.datetime}>"
 
 # ---------------- ARIMA Model ----------------
 
@@ -210,7 +287,7 @@ class ArimaClose4H(SET50Base, Base):
 
 
 class ArimaClose1D(SET50Base, Base):
-    __tablename__ = "arima_close_15d"
+    __tablename__ = "arima_close_1d"
     id = Column(Integer, primary_key=True)
 
     def __repr__(self):
@@ -315,5 +392,137 @@ class ArimaMSE1D(SET50Base, Base):
 
     def __repr__(self):
         return f"<ArimaMSE1D id={self.id}>"
-# class ArimaVolume15T(SET50Base, Base):
-#     pass
+
+# ---------------- LSTM Model ----------------
+
+
+class LSTMClose15T(SET50Base, Base):
+    __tablename__ = "lstm_close_15t"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<CloseLSTM15T id={self.id}>"
+
+
+class LSTMClose1H(SET50Base, Base):
+    __tablename__ = "lstm_close_1h"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<CloseLSTM1H id={self.id}>"
+
+
+class LSTMClose4H(SET50Base, Base):
+    __tablename__ = "lstm_close_4h"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<CloseLSTM4H id={self.id}>"
+
+
+class LSTMClose1D(SET50Base, Base):
+    __tablename__ = "lstm_close_1d"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<CloseLSTM1d id={self.id}>"
+
+
+class LSTMVolume15T(SET50Base, Base):
+    __tablename__ = "lstm_volume_15t"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<LSTMVolume15T id={self.id}>"
+
+
+class LSTMVolume1H(SET50Base, Base):
+    __tablename__ = "lstm_volume_1h"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<LSTMVolume1H id={self.id}>"
+
+
+class LSTMVolume4H(SET50Base, Base):
+    __tablename__ = "lstm_volume_4h"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<LSTMVolume4H id={self.id}>"
+
+
+class LSTMVolume1D(SET50Base, Base):
+    __tablename__ = "lstm_volume_1d"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<LSTMVolume1D id={self.id}>"
+
+# ------ Backtest ------
+
+
+class LSTMCloseBacktest15T(BacktestBase, Base):
+    __tablename__ = "lstm_close_backtest_15t"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<LSTMBacktestClose15T id={self.id}>"
+
+
+class LSTMCloseBacktest1H(BacktestBase, Base):
+    __tablename__ = "lstm_close_backtest_1h"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<LSTMBacktestClose1H id={self.id}>"
+
+
+class LSTMCloseBacktest4H(BacktestBase, Base):
+    __tablename__ = "lstm_close_backtest_4h"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<LSTMBacktestClose4H id={self.id}>"
+
+
+class LSTMCloseBacktest1D(BacktestBase, Base):
+    __tablename__ = "lstm_close_backtest_1d"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<LSTMBacktestClose1D id={self.id}>"
+
+# ------ MSE ERROR ------
+
+
+class LSTMMSE15T(SET50Base, Base):
+    __tablename__ = "lstm_mse_15t"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<LSTMMSE15t id={self.id}>"
+
+
+class LSTMMSE1H(SET50Base, Base):
+    __tablename__ = "lstm_mse_1h"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<LSTMMSE1H id={self.id}>"
+
+
+class LSTMMSE4H(SET50Base, Base):
+    __tablename__ = "lstm_mse_4h"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<LSTMMSE4H id={self.id}>"
+
+
+class LSTMMSE1D(SET50Base, Base):
+    __tablename__ = "lstm_mse_1d"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<LSTMMSE1D id={self.id}>"
