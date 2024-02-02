@@ -1,7 +1,11 @@
-import numpy as np
+import warnings
+
 import pandas as pd
 import pandas_ta as ta
+import vectorbtpro as vbt
 from sqlalchemy import create_engine
+
+warnings.filterwarnings("ignore")
 
 # SET 50
 stocks = [
@@ -52,23 +56,48 @@ class BacktestStrategy:
                                 "datetime": symbol+"_datetime"})
         ema_short = ta.ema(df[new_col], short)
         ema_long = ta.ema(df[new_col], long)
+        # -------Add EMA-------
+        df[symbol+'_ema_short'] = ema_short
+        df[symbol+'_ema_long'] = ema_long
         # -------Bullish-------
-        df[symbol+'_buy_signal'] = ema_short > ema_long
+        entries = ema_short > ema_long
+        df[symbol+'_buy_signal'] = entries
         # -------Bearish-------
+        exits = ema_short < ema_long
         df[symbol+'_sell_signal'] = ema_short < ema_long
-        return df
+        # -------Signal-------
+        pf = vbt.Portfolio.from_signals(df[f"{symbol}_close"], entries, exits)
+        stats = pf.stats().to_frame()
+        stats.columns = [symbol+'_stats']
+        # -------Trade History for green red signal-------
+        th = pf.get_trade_history()  # th: trade history
+        # INIT
+        green_filter = th.loc[th['Side'] == 'Buy']['Signal Index']
+        df[symbol+'_green_signal'] = False
+        df.loc[green_filter, symbol + '_green_signal'] = True
+
+        red_filter = th.loc[th['Side'] == 'Sell']['Signal Index']
+        df[symbol+'_red_signal'] = False
+        df.loc[red_filter, symbol + '_red_signal'] = True
+        return df, stats
 
 
 if __name__ == "__main__":
     engine = create_engine('sqlite:///./project.db', echo=False)
 
     # EMA_CROSS to DATABASE
+    # for tf in timeframe[:]:
     for tf in timeframe[:]:
         for col in columns[:]:
             _df = pd.DataFrame()
+            _stats = pd.DataFrame()
             for symbol in stocks[:]:
-                df = BacktestStrategy(symbol, tf, col).ema_cross()
+                df, stats = BacktestStrategy(symbol, tf, col).ema_cross()
                 _df = pd.concat([_df, df], axis=1)
+                cols = _stats.columns.to_list() + stats.columns.to_list()
+                _stats = pd.concat([_stats, stats], axis=1, ignore_index=True)
+                _stats.columns = cols
             _df.to_sql(name=f'ema_cross_{col.lower()}_{tf.lower()}',
                        con=engine, if_exists="replace")
             print(f"Backtest EMA_CROSS {tf} Done..")
+    # End EMA_CROSS --------------------------

@@ -113,3 +113,28 @@ def backtest_model(db: Session = Depends(get_db),
     res = db.execute(stmt)
 
     return [x._mapping for x in res]
+
+
+@app.get('/backtest_strategy')
+def backtest_strategy(db: Session = Depends(get_db),
+                      strategy: str = "EMACROSS",
+                      timeframe: str = "15T",
+                      symbol: str = "ADVANC",
+                      column: str = "Close"):
+    strategy, timeframe, symbol, column = strategy.upper(
+    ), timeframe.upper(), symbol.upper(), column.capitalize()
+
+    model_name = "models."+strategy+column+timeframe
+    model_strategy = eval(model_name)
+    filter1 = eval(model_name+f'.{symbol}_datetime')
+    filter2 = eval(model_name+f'.{symbol}_close')
+    filter3 = eval(model_name+f'.{symbol}_green_signal')
+    filter4 = eval(model_name+f'.{symbol}_red_signal')
+    filter5 = eval(model_name+f'.{symbol}_ema_short')
+    filter6 = eval(model_name+f'.{symbol}_ema_long')
+    stmt = select(
+        filter1, filter2, filter3, filter4, filter5, filter6
+    ).select_from(model_strategy)
+    res = db.execute(stmt)
+
+    return [x._mapping for x in res]
