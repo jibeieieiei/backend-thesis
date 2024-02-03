@@ -86,7 +86,6 @@ if __name__ == "__main__":
     engine = create_engine('sqlite:///./project.db', echo=False)
 
     # EMA_CROSS to DATABASE
-    # for tf in timeframe[:]:
     for tf in timeframe[:]:
         for col in columns[:]:
             _df = pd.DataFrame()
@@ -99,5 +98,12 @@ if __name__ == "__main__":
                 _stats.columns = cols
             _df.to_sql(name=f'ema_cross_{col.lower()}_{tf.lower()}',
                        con=engine, if_exists="replace")
+            # Edit Name Index of Stats
+            _index = [x.replace("[%]", "") for x in _stats.index.str.lower()]
+            _stats.index = [x.strip().replace(" ", "_") for x in _index]
+            _stats = _stats.astype(float)
+            _stats.reset_index(inplace=True)
+            _stats.to_sql(name=f'ema_cross_stats_{col.lower()}_{tf.lower()}',
+                          con=engine, if_exists="replace")
             print(f"Backtest EMA_CROSS {tf} Done..")
     # End EMA_CROSS --------------------------

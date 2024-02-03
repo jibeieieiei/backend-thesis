@@ -1,6 +1,6 @@
 import datetime
 
-from sqlalchemy import Boolean, Column, Float, Integer
+from sqlalchemy import Boolean, Column, Float, Integer, String
 from sqlalchemy.dialects.sqlite import DATETIME
 
 from database import Base
@@ -704,6 +704,58 @@ class BacktestStrategy():
     WHA_red_signal = Column(Boolean, unique=False, default=True)
 
 
+class StatsStrategy():
+    index = Column(String)
+    ADVANC_stats = Column(Float)
+    AOT_stats = Column(Float)
+    AWC_stats = Column(Float)
+    BANPU_stats = Column(Float)
+    BBL_stats = Column(Float)
+    BDMS_stats = Column(Float)
+    BEM_stats = Column(Float)
+    BGRIM_stats = Column(Float)
+    BH_stats = Column(Float)
+    BTS_stats = Column(Float)
+    CBG_stats = Column(Float)
+    CENTEL_stats = Column(Float)
+    COM7_stats = Column(Float)
+    CPALL_stats = Column(Float)
+    CPF_stats = Column(Float)
+    CPN_stats = Column(Float)
+    CRC_stats = Column(Float)
+    DELTA_stats = Column(Float)
+    EA_stats = Column(Float)
+    EGCO_stats = Column(Float)
+    GLOBAL_stats = Column(Float)
+    GPSC_stats = Column(Float)
+    GULF_stats = Column(Float)
+    HMPRO_stats = Column(Float)
+    INTUCH_stats = Column(Float)
+    IVL_stats = Column(Float)
+    KBANK_stats = Column(Float)
+    KCE_stats = Column(Float)
+    KTB_stats = Column(Float)
+    KTC_stats = Column(Float)
+    LH_stats = Column(Float)
+    MINT_stats = Column(Float)
+    MTC_stats = Column(Float)
+    OR_stats = Column(Float)
+    OSP_stats = Column(Float)
+    PTT_stats = Column(Float)
+    PTTEP_stats = Column(Float)
+    PTTGC_stats = Column(Float)
+    RATCH_stats = Column(Float)
+    SAWAD_stats = Column(Float)
+    SCB_stats = Column(Float)
+    SCC_stats = Column(Float)
+    SCGP_stats = Column(Float)
+    TISCO_stats = Column(Float)
+    TOP_stats = Column(Float)
+    TRUE_stats = Column(Float)
+    TTB_stats = Column(Float)
+    TU_stats = Column(Float)
+    WHA_stats = Column(Float)
+
 # ---------------- Close & Volume Model ----------------
 
 
@@ -1103,3 +1155,35 @@ class EMACROSSClose1D(BacktestStrategy, Base):
 
     def __repr__(self):
         return f"<EMACrossClose1D id={self.id}>"
+
+
+class EMACROSSStatsClose15T(StatsStrategy, Base):
+    __tablename__ = "ema_cross_stats_close_15t"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACROSSStatsClose15T id={self.id}>"
+
+
+class EMACROSSStatsClose1H(StatsStrategy, Base):
+    __tablename__ = "ema_cross_stats_close_1h"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACROSSStatsClose1H id={self.id}>"
+
+
+class EMACROSSStatsClose4H(StatsStrategy, Base):
+    __tablename__ = "ema_cross_stats_close_4h"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACROSSStatsClose4H id={self.id}>"
+
+
+class EMACROSSStatsClose1D(StatsStrategy, Base):
+    __tablename__ = "ema_cross_stats_close_1d"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACROSSStatsClose1D id={self.id}>"
