@@ -149,7 +149,7 @@ def backtest_stats(db: Session = Depends(get_db),
 
     strategy, timeframe, symbol, column = strategy.upper(
     ), timeframe.upper(), symbol.upper(), column.capitalize()
-    # EMACROSSStatsClose1D
+
     model_name = "models."+strategy+"Stats"+column+timeframe
     model_stats = eval(model_name)
     filter_index = eval(model_name+".index")
@@ -159,6 +159,42 @@ def backtest_stats(db: Session = Depends(get_db),
         filter_index,
         filter
     ).select_from(model_stats)
+    res = db.execute(stmt)
+
+    return [x._mapping for x in res]
+
+
+@app.get('/trading_stats_compare')
+def trading_stats_compare(db: Session = Depends(get_db),
+                          symbol: str = "ADVANC"):
+    symbol = symbol.upper()
+
+    model_name = "models.CompareTable"
+    model_compare = eval(model_name)
+    filter_index = eval(model_name+".index")
+    filter_symbol = eval(model_name+f".{symbol}_fund")
+    stmt = select(
+        filter_index,
+        filter_symbol
+    ).select_from(model_compare)
+    res = db.execute(stmt)
+
+    return [x._mapping for x in res]
+
+
+@app.get('/specific_info')
+def specific_info(db: Session = Depends(get_db),
+                  symbol: str = "ADVANC"):
+    symbol = symbol.upper()
+
+    model_name = "models.SpecificInfo"
+    model_spec = eval(model_name)
+    filter_index = eval(model_name+".index")
+    filter_symbol = eval(model_name+f".{symbol}")
+    stmt = select(
+        filter_index,
+        filter_symbol
+    ).select_from(model_spec)
     res = db.execute(stmt)
 
     return [x._mapping for x in res]
