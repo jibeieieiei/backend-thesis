@@ -2,6 +2,7 @@
 
 # import sqlalchemy
 from fastapi import Depends, FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 # from pydantic import BaseModel, Field
 from sqlalchemy import select
@@ -13,10 +14,27 @@ from sqlalchemy.orm import Session
 import models
 from database import SessionLocal, engine
 
+# SET50
+from stocks_symbol import stocks
+
 # from fastapi import HTTPException
 
-
 app = FastAPI()
+
+origins = [
+    "http://localhost.tiangolo.com",
+    "https://localhost.tiangolo.com",
+    "http://localhost",
+    "http://localhost:5173",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -29,12 +47,12 @@ def get_db():
         db.close()
 
 
-@app.get("/prediction")
+@app.get("/prediction_{prediction_model}_{timeframe}_{symbol}_{column}")
 def prediction(db: Session = Depends(get_db),
                prediction_model: str = "ARIMA",
-               column: str = "Close",
                timeframe: str = "15t",
-               symbol: str = "ADVANC"):
+               symbol: str = "ADVANC",
+               column: str = "Close"):
     # Handle error
     prediction_model = prediction_model.upper()
     column = column.capitalize()
@@ -70,7 +88,7 @@ def prediction(db: Session = Depends(get_db),
     return price_list
 
 
-@app.get("/mse_error")
+@app.get("/mse_error_{prediction_model}_{timeframe}_{symbol}")
 def mse_error(db: Session = Depends(get_db),
               prediction_model: str = "ARIMA",
               timeframe: str = "15t",
@@ -90,7 +108,7 @@ def mse_error(db: Session = Depends(get_db),
     return [x._mapping for x in res]
 
 
-@app.get('/backtest_model')
+@app.get('/backtest_model_{prediction_model}_{timeframe}_{symbol}_{column}')
 def backtest_model(db: Session = Depends(get_db),
                    prediction_model: str = "ARIMA",
                    timeframe: str = "15t",
@@ -115,7 +133,7 @@ def backtest_model(db: Session = Depends(get_db),
     return [x._mapping for x in res]
 
 
-@app.get('/backtest_strategy')
+@app.get('/backtest_strategy_{strategy}_{timeframe}_{symbol}_{column}')
 def backtest_strategy(db: Session = Depends(get_db),
                       strategy: str = "EMACROSS",
                       timeframe: str = "15T",
@@ -140,7 +158,7 @@ def backtest_strategy(db: Session = Depends(get_db),
     return [x._mapping for x in res]
 
 
-@app.get('/backtest_stats')
+@app.get('/backtest_stats_{strategy}_{timeframe}_{symbol}_{column}')
 def backtest_stats(db: Session = Depends(get_db),
                    strategy: str = "EMACROSS",
                    timeframe: str = "15T",
@@ -164,7 +182,7 @@ def backtest_stats(db: Session = Depends(get_db),
     return [x._mapping for x in res]
 
 
-@app.get('/trading_stats_compare')
+@app.get('/trading_stats_compare_{symbol}')
 def trading_stats_compare(db: Session = Depends(get_db),
                           symbol: str = "ADVANC"):
     symbol = symbol.upper()
@@ -182,7 +200,7 @@ def trading_stats_compare(db: Session = Depends(get_db),
     return [x._mapping for x in res]
 
 
-@app.get('/specific_info')
+@app.get('/specific_info_{symbol}')
 def specific_info(db: Session = Depends(get_db),
                   symbol: str = "ADVANC"):
     symbol = symbol.upper()
@@ -198,3 +216,8 @@ def specific_info(db: Session = Depends(get_db),
     res = db.execute(stmt)
 
     return [x._mapping for x in res]
+
+
+@app.get('/stocks_symbols')
+def stocks_symbol_set50():
+    return {'stocks': stocks}
