@@ -5,19 +5,11 @@ import pandas_ta as ta
 import vectorbtpro as vbt
 from sqlalchemy import create_engine
 
+from stocks_symbol import stocks
+
 warnings.filterwarnings("ignore")
 
 # SET 50
-stocks = [
-    'ADVANC', 'AOT', 'AWC', 'BANPU', 'BBL', 'BDMS', 'BEM', 'BGRIM', 'BH',
-    'BTS', 'CBG', 'CENTEL', 'COM7', 'CPALL', 'CPF', 'CPN', 'CRC', 'DELTA',
-    'EA', 'EGCO', 'GLOBAL', 'GPSC', 'GULF', 'HMPRO', 'INTUCH', 'IVL',
-    'KBANK', 'KCE', 'KTB', 'KTC', 'LH', 'MINT', 'MTC', 'OR',
-    'OSP', 'PTT', 'PTTEP', 'PTTGC', 'RATCH', 'SAWAD', 'SCB',
-    'SCC', 'SCGP', 'TISCO',
-    # 'TLI',
-    'TOP', 'TRUE', 'TTB', 'TU', 'WHA',
-]
 
 timeframe = ["15t", "1h", "4h", "1d"]
 
@@ -99,7 +91,8 @@ if __name__ == "__main__":
             _df.to_sql(name=f'ema_cross_{col.lower()}_{tf.lower()}',
                        con=engine, if_exists="replace")
             # Edit Name Index of Stats
-            _index = [x.replace("[%]", "") for x in _stats.index.str.lower()]
+            _index = [x.replace("[%]", "percent")
+                      for x in _stats.index.str.lower()]
             _stats.index = [x.strip().replace(" ", "_") for x in _index]
             _stats = _stats.astype(float)
             _stats.reset_index(inplace=True)
