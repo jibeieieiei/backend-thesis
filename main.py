@@ -144,16 +144,27 @@ def backtest_strategy(db: Session = Depends(get_db),
 
     model_name = "models."+strategy+column+timeframe
     model_strategy = eval(model_name)
-    filter1 = eval(model_name+f'.{symbol}_datetime')
-    filter2 = eval(model_name+f'.{symbol}_close')
-    filter3 = eval(model_name+f'.{symbol}_green_signal')
-    filter4 = eval(model_name+f'.{symbol}_red_signal')
-    filter5 = eval(model_name+f'.{symbol}_ema_short')
-    filter6 = eval(model_name+f'.{symbol}_ema_long')
-    stmt = select(
-        filter1, filter2, filter3, filter4, filter5, filter6
-    ).select_from(model_strategy)
-    res = db.execute(stmt)
+    if 'RSI' in model_name:
+        filter1 = eval(model_name+f'.{symbol}_datetime')
+        filter2 = eval(model_name+f'.{symbol}_close')
+        filter3 = eval(model_name+f'.{symbol}_green_signal')
+        filter4 = eval(model_name+f'.{symbol}_red_signal')
+        filter5 = eval(model_name+f'.{symbol}_rsi')
+        stmt = select(
+            filter1, filter2, filter3, filter4, filter5
+        ).select_from(model_strategy)
+        res = db.execute(stmt)
+    else:  # EMACROSS
+        filter1 = eval(model_name+f'.{symbol}_datetime')
+        filter2 = eval(model_name+f'.{symbol}_close')
+        filter3 = eval(model_name+f'.{symbol}_green_signal')
+        filter4 = eval(model_name+f'.{symbol}_red_signal')
+        filter5 = eval(model_name+f'.{symbol}_ema_short')
+        filter6 = eval(model_name+f'.{symbol}_ema_long')
+        stmt = select(
+            filter1, filter2, filter3, filter4, filter5, filter6
+        ).select_from(model_strategy)
+        res = db.execute(stmt)
 
     return [x._mapping for x in res]
 

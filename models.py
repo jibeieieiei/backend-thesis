@@ -162,7 +162,7 @@ class BacktestBase():
     WHA_predict = Column(Float)
 
 
-class BacktestStrategy():
+class BacktestStrategyEMA():
     ADVANC_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -704,6 +704,499 @@ class BacktestStrategy():
     WHA_red_signal = Column(Boolean, unique=False, default=True)
 
 
+class BacktestStrategyRSI():
+    ADVANC_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    ADVANC_close = Column(Float)
+    ADVANC_rsi = Column(Float)
+    ADVANC_buy_signal = Column(Boolean, unique=False, default=True)
+    ADVANC_sell_signal = Column(Boolean, unique=False, default=True)
+    ADVANC_green_signal = Column(Boolean, unique=False, default=True)
+    ADVANC_red_signal = Column(Boolean, unique=False, default=True)
+    AOT_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    AOT_close = Column(Float)
+    AOT_rsi = Column(Float)
+    AOT_buy_signal = Column(Boolean, unique=False, default=True)
+    AOT_sell_signal = Column(Boolean, unique=False, default=True)
+    AOT_green_signal = Column(Boolean, unique=False, default=True)
+    AOT_red_signal = Column(Boolean, unique=False, default=True)
+    AWC_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    AWC_close = Column(Float)
+    AWC_rsi = Column(Float)
+    AWC_buy_signal = Column(Boolean, unique=False, default=True)
+    AWC_sell_signal = Column(Boolean, unique=False, default=True)
+    AWC_green_signal = Column(Boolean, unique=False, default=True)
+    AWC_red_signal = Column(Boolean, unique=False, default=True)
+    BANPU_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    BANPU_close = Column(Float)
+    BANPU_rsi = Column(Float)
+    BANPU_buy_signal = Column(Boolean, unique=False, default=True)
+    BANPU_sell_signal = Column(Boolean, unique=False, default=True)
+    BANPU_green_signal = Column(Boolean, unique=False, default=True)
+    BANPU_red_signal = Column(Boolean, unique=False, default=True)
+    BBL_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    BBL_close = Column(Float)
+    BBL_rsi = Column(Float)
+    BBL_buy_signal = Column(Boolean, unique=False, default=True)
+    BBL_sell_signal = Column(Boolean, unique=False, default=True)
+    BBL_green_signal = Column(Boolean, unique=False, default=True)
+    BBL_red_signal = Column(Boolean, unique=False, default=True)
+    BDMS_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    BDMS_close = Column(Float)
+    BDMS_rsi = Column(Float)
+    BDMS_buy_signal = Column(Boolean, unique=False, default=True)
+    BDMS_sell_signal = Column(Boolean, unique=False, default=True)
+    BDMS_green_signal = Column(Boolean, unique=False, default=True)
+    BDMS_red_signal = Column(Boolean, unique=False, default=True)
+    BEM_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    BEM_close = Column(Float)
+    BEM_rsi = Column(Float)
+    BEM_buy_signal = Column(Boolean, unique=False, default=True)
+    BEM_sell_signal = Column(Boolean, unique=False, default=True)
+    BEM_green_signal = Column(Boolean, unique=False, default=True)
+    BEM_red_signal = Column(Boolean, unique=False, default=True)
+    BGRIM_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    BGRIM_close = Column(Float)
+    BGRIM_rsi = Column(Float)
+    BGRIM_buy_signal = Column(Boolean, unique=False, default=True)
+    BGRIM_sell_signal = Column(Boolean, unique=False, default=True)
+    BGRIM_green_signal = Column(Boolean, unique=False, default=True)
+    BGRIM_red_signal = Column(Boolean, unique=False, default=True)
+    BH_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    BH_close = Column(Float)
+    BH_rsi = Column(Float)
+    BH_buy_signal = Column(Boolean, unique=False, default=True)
+    BH_sell_signal = Column(Boolean, unique=False, default=True)
+    BH_green_signal = Column(Boolean, unique=False, default=True)
+    BH_red_signal = Column(Boolean, unique=False, default=True)
+    BTS_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    BTS_close = Column(Float)
+    BTS_rsi = Column(Float)
+    BTS_buy_signal = Column(Boolean, unique=False, default=True)
+    BTS_sell_signal = Column(Boolean, unique=False, default=True)
+    BTS_green_signal = Column(Boolean, unique=False, default=True)
+    BTS_red_signal = Column(Boolean, unique=False, default=True)
+    CBG_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    CBG_close = Column(Float)
+    CBG_rsi = Column(Float)
+    CBG_buy_signal = Column(Boolean, unique=False, default=True)
+    CBG_sell_signal = Column(Boolean, unique=False, default=True)
+    CBG_green_signal = Column(Boolean, unique=False, default=True)
+    CBG_red_signal = Column(Boolean, unique=False, default=True)
+    CENTEL_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    CENTEL_close = Column(Float)
+    CENTEL_rsi = Column(Float)
+    CENTEL_buy_signal = Column(Boolean, unique=False, default=True)
+    CENTEL_sell_signal = Column(Boolean, unique=False, default=True)
+    CENTEL_green_signal = Column(Boolean, unique=False, default=True)
+    CENTEL_red_signal = Column(Boolean, unique=False, default=True)
+    COM7_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    COM7_close = Column(Float)
+    COM7_rsi = Column(Float)
+    COM7_buy_signal = Column(Boolean, unique=False, default=True)
+    COM7_sell_signal = Column(Boolean, unique=False, default=True)
+    COM7_green_signal = Column(Boolean, unique=False, default=True)
+    COM7_red_signal = Column(Boolean, unique=False, default=True)
+    CPALL_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    CPALL_close = Column(Float)
+    CPALL_rsi = Column(Float)
+    CPALL_buy_signal = Column(Boolean, unique=False, default=True)
+    CPALL_sell_signal = Column(Boolean, unique=False, default=True)
+    CPALL_green_signal = Column(Boolean, unique=False, default=True)
+    CPALL_red_signal = Column(Boolean, unique=False, default=True)
+    CPF_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    CPF_close = Column(Float)
+    CPF_rsi = Column(Float)
+    CPF_buy_signal = Column(Boolean, unique=False, default=True)
+    CPF_sell_signal = Column(Boolean, unique=False, default=True)
+    CPF_green_signal = Column(Boolean, unique=False, default=True)
+    CPF_red_signal = Column(Boolean, unique=False, default=True)
+    CPN_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    CPN_close = Column(Float)
+    CPN_rsi = Column(Float)
+    CPN_buy_signal = Column(Boolean, unique=False, default=True)
+    CPN_sell_signal = Column(Boolean, unique=False, default=True)
+    CPN_green_signal = Column(Boolean, unique=False, default=True)
+    CPN_red_signal = Column(Boolean, unique=False, default=True)
+    CRC_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    CRC_close = Column(Float)
+    CRC_rsi = Column(Float)
+    CRC_buy_signal = Column(Boolean, unique=False, default=True)
+    CRC_sell_signal = Column(Boolean, unique=False, default=True)
+    CRC_green_signal = Column(Boolean, unique=False, default=True)
+    CRC_red_signal = Column(Boolean, unique=False, default=True)
+    DELTA_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    DELTA_close = Column(Float)
+    DELTA_rsi = Column(Float)
+    DELTA_buy_signal = Column(Boolean, unique=False, default=True)
+    DELTA_sell_signal = Column(Boolean, unique=False, default=True)
+    DELTA_green_signal = Column(Boolean, unique=False, default=True)
+    DELTA_red_signal = Column(Boolean, unique=False, default=True)
+    EA_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    EA_close = Column(Float)
+    EA_rsi = Column(Float)
+    EA_buy_signal = Column(Boolean, unique=False, default=True)
+    EA_sell_signal = Column(Boolean, unique=False, default=True)
+    EA_green_signal = Column(Boolean, unique=False, default=True)
+    EA_red_signal = Column(Boolean, unique=False, default=True)
+    EGCO_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    EGCO_close = Column(Float)
+    EGCO_rsi = Column(Float)
+    EGCO_buy_signal = Column(Boolean, unique=False, default=True)
+    EGCO_sell_signal = Column(Boolean, unique=False, default=True)
+    EGCO_green_signal = Column(Boolean, unique=False, default=True)
+    EGCO_red_signal = Column(Boolean, unique=False, default=True)
+    GLOBAL_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    GLOBAL_close = Column(Float)
+    GLOBAL_rsi = Column(Float)
+    GLOBAL_buy_signal = Column(Boolean, unique=False, default=True)
+    GLOBAL_sell_signal = Column(Boolean, unique=False, default=True)
+    GLOBAL_green_signal = Column(Boolean, unique=False, default=True)
+    GLOBAL_red_signal = Column(Boolean, unique=False, default=True)
+    GPSC_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    GPSC_close = Column(Float)
+    GPSC_rsi = Column(Float)
+    GPSC_buy_signal = Column(Boolean, unique=False, default=True)
+    GPSC_sell_signal = Column(Boolean, unique=False, default=True)
+    GPSC_green_signal = Column(Boolean, unique=False, default=True)
+    GPSC_red_signal = Column(Boolean, unique=False, default=True)
+    GULF_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    GULF_close = Column(Float)
+    GULF_rsi = Column(Float)
+    GULF_buy_signal = Column(Boolean, unique=False, default=True)
+    GULF_sell_signal = Column(Boolean, unique=False, default=True)
+    GULF_green_signal = Column(Boolean, unique=False, default=True)
+    GULF_red_signal = Column(Boolean, unique=False, default=True)
+    HMPRO_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    HMPRO_close = Column(Float)
+    HMPRO_rsi = Column(Float)
+    HMPRO_buy_signal = Column(Boolean, unique=False, default=True)
+    HMPRO_sell_signal = Column(Boolean, unique=False, default=True)
+    HMPRO_green_signal = Column(Boolean, unique=False, default=True)
+    HMPRO_red_signal = Column(Boolean, unique=False, default=True)
+    INTUCH_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    INTUCH_close = Column(Float)
+    INTUCH_rsi = Column(Float)
+    INTUCH_buy_signal = Column(Boolean, unique=False, default=True)
+    INTUCH_sell_signal = Column(Boolean, unique=False, default=True)
+    INTUCH_green_signal = Column(Boolean, unique=False, default=True)
+    INTUCH_red_signal = Column(Boolean, unique=False, default=True)
+    IVL_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    IVL_close = Column(Float)
+    IVL_rsi = Column(Float)
+    IVL_buy_signal = Column(Boolean, unique=False, default=True)
+    IVL_sell_signal = Column(Boolean, unique=False, default=True)
+    IVL_green_signal = Column(Boolean, unique=False, default=True)
+    IVL_red_signal = Column(Boolean, unique=False, default=True)
+    KBANK_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    KBANK_close = Column(Float)
+    KBANK_rsi = Column(Float)
+    KBANK_buy_signal = Column(Boolean, unique=False, default=True)
+    KBANK_sell_signal = Column(Boolean, unique=False, default=True)
+    KBANK_green_signal = Column(Boolean, unique=False, default=True)
+    KBANK_red_signal = Column(Boolean, unique=False, default=True)
+    KCE_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    KCE_close = Column(Float)
+    KCE_rsi = Column(Float)
+    KCE_buy_signal = Column(Boolean, unique=False, default=True)
+    KCE_sell_signal = Column(Boolean, unique=False, default=True)
+    KCE_green_signal = Column(Boolean, unique=False, default=True)
+    KCE_red_signal = Column(Boolean, unique=False, default=True)
+    KTB_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    KTB_close = Column(Float)
+    KTB_rsi = Column(Float)
+    KTB_buy_signal = Column(Boolean, unique=False, default=True)
+    KTB_sell_signal = Column(Boolean, unique=False, default=True)
+    KTB_green_signal = Column(Boolean, unique=False, default=True)
+    KTB_red_signal = Column(Boolean, unique=False, default=True)
+    KTC_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    KTC_close = Column(Float)
+    KTC_rsi = Column(Float)
+    KTC_buy_signal = Column(Boolean, unique=False, default=True)
+    KTC_sell_signal = Column(Boolean, unique=False, default=True)
+    KTC_green_signal = Column(Boolean, unique=False, default=True)
+    KTC_red_signal = Column(Boolean, unique=False, default=True)
+    LH_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    LH_close = Column(Float)
+    LH_rsi = Column(Float)
+    LH_buy_signal = Column(Boolean, unique=False, default=True)
+    LH_sell_signal = Column(Boolean, unique=False, default=True)
+    LH_green_signal = Column(Boolean, unique=False, default=True)
+    LH_red_signal = Column(Boolean, unique=False, default=True)
+    MINT_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    MINT_close = Column(Float)
+    MINT_rsi = Column(Float)
+    MINT_buy_signal = Column(Boolean, unique=False, default=True)
+    MINT_sell_signal = Column(Boolean, unique=False, default=True)
+    MINT_green_signal = Column(Boolean, unique=False, default=True)
+    MINT_red_signal = Column(Boolean, unique=False, default=True)
+    MTC_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    MTC_close = Column(Float)
+    MTC_rsi = Column(Float)
+    MTC_buy_signal = Column(Boolean, unique=False, default=True)
+    MTC_sell_signal = Column(Boolean, unique=False, default=True)
+    MTC_green_signal = Column(Boolean, unique=False, default=True)
+    MTC_red_signal = Column(Boolean, unique=False, default=True)
+    OR_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    OR_close = Column(Float)
+    OR_rsi = Column(Float)
+    OR_buy_signal = Column(Boolean, unique=False, default=True)
+    OR_sell_signal = Column(Boolean, unique=False, default=True)
+    OR_green_signal = Column(Boolean, unique=False, default=True)
+    OR_red_signal = Column(Boolean, unique=False, default=True)
+    OSP_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    OSP_close = Column(Float)
+    OSP_rsi = Column(Float)
+    OSP_buy_signal = Column(Boolean, unique=False, default=True)
+    OSP_sell_signal = Column(Boolean, unique=False, default=True)
+    OSP_green_signal = Column(Boolean, unique=False, default=True)
+    OSP_red_signal = Column(Boolean, unique=False, default=True)
+    PTT_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    PTT_close = Column(Float)
+    PTT_rsi = Column(Float)
+    PTT_buy_signal = Column(Boolean, unique=False, default=True)
+    PTT_sell_signal = Column(Boolean, unique=False, default=True)
+    PTT_green_signal = Column(Boolean, unique=False, default=True)
+    PTT_red_signal = Column(Boolean, unique=False, default=True)
+    PTTEP_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    PTTEP_close = Column(Float)
+    PTTEP_rsi = Column(Float)
+    PTTEP_buy_signal = Column(Boolean, unique=False, default=True)
+    PTTEP_sell_signal = Column(Boolean, unique=False, default=True)
+    PTTEP_green_signal = Column(Boolean, unique=False, default=True)
+    PTTEP_red_signal = Column(Boolean, unique=False, default=True)
+    PTTGC_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    PTTGC_close = Column(Float)
+    PTTGC_rsi = Column(Float)
+    PTTGC_buy_signal = Column(Boolean, unique=False, default=True)
+    PTTGC_sell_signal = Column(Boolean, unique=False, default=True)
+    PTTGC_green_signal = Column(Boolean, unique=False, default=True)
+    PTTGC_red_signal = Column(Boolean, unique=False, default=True)
+    RATCH_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    RATCH_close = Column(Float)
+    RATCH_rsi = Column(Float)
+    RATCH_buy_signal = Column(Boolean, unique=False, default=True)
+    RATCH_sell_signal = Column(Boolean, unique=False, default=True)
+    RATCH_green_signal = Column(Boolean, unique=False, default=True)
+    RATCH_red_signal = Column(Boolean, unique=False, default=True)
+    SAWAD_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    SAWAD_close = Column(Float)
+    SAWAD_rsi = Column(Float)
+    SAWAD_buy_signal = Column(Boolean, unique=False, default=True)
+    SAWAD_sell_signal = Column(Boolean, unique=False, default=True)
+    SAWAD_green_signal = Column(Boolean, unique=False, default=True)
+    SAWAD_red_signal = Column(Boolean, unique=False, default=True)
+    SCB_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    SCB_close = Column(Float)
+    SCB_rsi = Column(Float)
+    SCB_buy_signal = Column(Boolean, unique=False, default=True)
+    SCB_sell_signal = Column(Boolean, unique=False, default=True)
+    SCB_green_signal = Column(Boolean, unique=False, default=True)
+    SCB_red_signal = Column(Boolean, unique=False, default=True)
+    SCC_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    SCC_close = Column(Float)
+    SCC_rsi = Column(Float)
+    SCC_buy_signal = Column(Boolean, unique=False, default=True)
+    SCC_sell_signal = Column(Boolean, unique=False, default=True)
+    SCC_green_signal = Column(Boolean, unique=False, default=True)
+    SCC_red_signal = Column(Boolean, unique=False, default=True)
+    SCGP_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    SCGP_close = Column(Float)
+    SCGP_rsi = Column(Float)
+    SCGP_buy_signal = Column(Boolean, unique=False, default=True)
+    SCGP_sell_signal = Column(Boolean, unique=False, default=True)
+    SCGP_green_signal = Column(Boolean, unique=False, default=True)
+    SCGP_red_signal = Column(Boolean, unique=False, default=True)
+    TISCO_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    TISCO_close = Column(Float)
+    TISCO_rsi = Column(Float)
+    TISCO_buy_signal = Column(Boolean, unique=False, default=True)
+    TISCO_sell_signal = Column(Boolean, unique=False, default=True)
+    TISCO_green_signal = Column(Boolean, unique=False, default=True)
+    TISCO_red_signal = Column(Boolean, unique=False, default=True)
+    TOP_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    TOP_close = Column(Float)
+    TOP_rsi = Column(Float)
+    TOP_buy_signal = Column(Boolean, unique=False, default=True)
+    TOP_sell_signal = Column(Boolean, unique=False, default=True)
+    TOP_green_signal = Column(Boolean, unique=False, default=True)
+    TOP_red_signal = Column(Boolean, unique=False, default=True)
+    TRUE_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    TRUE_close = Column(Float)
+    TRUE_rsi = Column(Float)
+    TRUE_buy_signal = Column(Boolean, unique=False, default=True)
+    TRUE_sell_signal = Column(Boolean, unique=False, default=True)
+    TRUE_green_signal = Column(Boolean, unique=False, default=True)
+    TRUE_red_signal = Column(Boolean, unique=False, default=True)
+    TTB_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    TTB_close = Column(Float)
+    TTB_rsi = Column(Float)
+    TTB_buy_signal = Column(Boolean, unique=False, default=True)
+    TTB_sell_signal = Column(Boolean, unique=False, default=True)
+    TTB_green_signal = Column(Boolean, unique=False, default=True)
+    TTB_red_signal = Column(Boolean, unique=False, default=True)
+    TU_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    TU_close = Column(Float)
+    TU_rsi = Column(Float)
+    TU_buy_signal = Column(Boolean, unique=False, default=True)
+    TU_sell_signal = Column(Boolean, unique=False, default=True)
+    TU_green_signal = Column(Boolean, unique=False, default=True)
+    TU_red_signal = Column(Boolean, unique=False, default=True)
+    WHA_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    WHA_close = Column(Float)
+    WHA_rsi = Column(Float)
+    WHA_buy_signal = Column(Boolean, unique=False, default=True)
+    WHA_sell_signal = Column(Boolean, unique=False, default=True)
+    WHA_green_signal = Column(Boolean, unique=False, default=True)
+    WHA_red_signal = Column(Boolean, unique=False, default=True)
+
+
 class StatsStrategy():
     index = Column(String)
     ADVANC_stats = Column(Float)
@@ -1124,8 +1617,8 @@ class LSTMMSE1D(SET50Base, Base):
 
 
 # -------- Backtest Strategy ----------
-
-class EMACROSSClose15T(BacktestStrategy, Base):
+# -------- EMA --------
+class EMACROSSClose15T(BacktestStrategyEMA, Base):
     __tablename__ = "ema_cross_close_15t"
     id = Column(Integer, primary_key=True)
 
@@ -1133,7 +1626,7 @@ class EMACROSSClose15T(BacktestStrategy, Base):
         return f"<EMACrossClose15T id={self.id}>"
 
 
-class EMACROSSClose1H(BacktestStrategy, Base):
+class EMACROSSClose1H(BacktestStrategyEMA, Base):
     __tablename__ = "ema_cross_close_1h"
     id = Column(Integer, primary_key=True)
 
@@ -1141,7 +1634,7 @@ class EMACROSSClose1H(BacktestStrategy, Base):
         return f"<EMACrossClose1H id={self.id}>"
 
 
-class EMACROSSClose4H(BacktestStrategy, Base):
+class EMACROSSClose4H(BacktestStrategyEMA, Base):
     __tablename__ = "ema_cross_close_4h"
     id = Column(Integer, primary_key=True)
 
@@ -1149,7 +1642,7 @@ class EMACROSSClose4H(BacktestStrategy, Base):
         return f"<EMACrossClose4H id={self.id}>"
 
 
-class EMACROSSClose1D(BacktestStrategy, Base):
+class EMACROSSClose1D(BacktestStrategyEMA, Base):
     __tablename__ = "ema_cross_close_1d"
     id = Column(Integer, primary_key=True)
 
@@ -1188,6 +1681,71 @@ class EMACROSSStatsClose1D(StatsStrategy, Base):
     def __repr__(self):
         return f"<EMACROSSStatsClose1D id={self.id}>"
 
+# -------- RSI --------
+
+
+class RSIClose15T(BacktestStrategyRSI, Base):
+    __tablename__ = "rsi_close_15t"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIClose15T id={self.id}>"
+
+
+class RSIClose1H(BacktestStrategyRSI, Base):
+    __tablename__ = "rsi_close_1h"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIClose1H id={self.id}>"
+
+
+class RSIClose4H(BacktestStrategyRSI, Base):
+    __tablename__ = "rsi_close_4h"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIClose4H id={self.id}>"
+
+
+class RSIClose1D(BacktestStrategyRSI, Base):
+    __tablename__ = "rsi_close_1d"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIClose1D id={self.id}>"
+
+
+class RSIStatsClose15T(StatsStrategy, Base):
+    __tablename__ = "rsi_stats_close_15t"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIStatsClose15T id={self.id}>"
+
+
+class RSIStatsClose1H(StatsStrategy, Base):
+    __tablename__ = "rsi_stats_close_1h"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIStatsClose1H id={self.id}>"
+
+
+class RSIStatsClose4H(StatsStrategy, Base):
+    __tablename__ = "rsi_stats_close_4h"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIStatsClose4H id={self.id}>"
+
+
+class RSIStatsClose1D(StatsStrategy, Base):
+    __tablename__ = "rsi_stats_close_1d"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIStatsClose1D id={self.id}>"
 # ------------- Compare Table ------------
 
 
