@@ -6,3 +6,4 @@ __pycache__/
 .DS_Store
 project_test.db
 database_test.py
+tmp_fastapi.txt
