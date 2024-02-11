@@ -1,5 +1,6 @@
 import warnings
 
+import numpy as np
 import pandas as pd
 import pandas_ta as ta
 import vectorbtpro as vbt
@@ -68,10 +69,14 @@ class BacktestStrategy:
         green_filter = th.loc[th['Side'] == 'Buy']['Signal Index']
         df[symbol+'_green_signal'] = False
         df.loc[green_filter, symbol + '_green_signal'] = True
+        df[symbol+'_green_signal'] = np.where(
+            df[symbol+'_green_signal'], df[symbol+'_close']*0.85, np.nan)
 
         red_filter = th.loc[th['Side'] == 'Sell']['Signal Index']
         df[symbol+'_red_signal'] = False
         df.loc[red_filter, symbol + '_red_signal'] = True
+        df[symbol+'_red_signal'] = np.where(
+            df[symbol+'_red_signal'], df[symbol+'_close']*0.85, np.nan)
         return df, stats
 
     def rsi(self,
@@ -104,10 +109,14 @@ class BacktestStrategy:
         green_filter = th.loc[th['Side'] == 'Buy']['Signal Index']
         df[symbol+'_green_signal'] = False
         df.loc[green_filter, symbol + '_green_signal'] = True
+        df[symbol+'_green_signal'] = np.where(
+            df[symbol+'_green_signal'], df[symbol+'_close']*0.85, np.nan)
 
         red_filter = th.loc[th['Side'] == 'Sell']['Signal Index']
         df[symbol+'_red_signal'] = False
         df.loc[red_filter, symbol + '_red_signal'] = True
+        df[symbol+'_red_signal'] = np.where(
+            df[symbol+'_red_signal'], df[symbol+'_close']*0.85, np.nan)
         return df, stats
 
 

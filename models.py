@@ -172,8 +172,8 @@ class BacktestStrategyEMA():
     ADVANC_ema_long = Column(Float)
     ADVANC_buy_signal = Column(Boolean, unique=False, default=True)
     ADVANC_sell_signal = Column(Boolean, unique=False, default=True)
-    ADVANC_green_signal = Column(Boolean, unique=False, default=True)
-    ADVANC_red_signal = Column(Boolean, unique=False, default=True)
+    ADVANC_green_signal = Column(Float)
+    ADVANC_red_signal = Column(Float)
     AOT_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -183,8 +183,8 @@ class BacktestStrategyEMA():
     AOT_ema_long = Column(Float)
     AOT_buy_signal = Column(Boolean, unique=False, default=True)
     AOT_sell_signal = Column(Boolean, unique=False, default=True)
-    AOT_green_signal = Column(Boolean, unique=False, default=True)
-    AOT_red_signal = Column(Boolean, unique=False, default=True)
+    AOT_green_signal = Column(Float)
+    AOT_red_signal = Column(Float)
     AWC_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -194,8 +194,8 @@ class BacktestStrategyEMA():
     AWC_ema_long = Column(Float)
     AWC_buy_signal = Column(Boolean, unique=False, default=True)
     AWC_sell_signal = Column(Boolean, unique=False, default=True)
-    AWC_green_signal = Column(Boolean, unique=False, default=True)
-    AWC_red_signal = Column(Boolean, unique=False, default=True)
+    AWC_green_signal = Column(Float)
+    AWC_red_signal = Column(Float)
     BANPU_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -205,8 +205,8 @@ class BacktestStrategyEMA():
     BANPU_ema_long = Column(Float)
     BANPU_buy_signal = Column(Boolean, unique=False, default=True)
     BANPU_sell_signal = Column(Boolean, unique=False, default=True)
-    BANPU_green_signal = Column(Boolean, unique=False, default=True)
-    BANPU_red_signal = Column(Boolean, unique=False, default=True)
+    BANPU_green_signal = Column(Float)
+    BANPU_red_signal = Column(Float)
     BBL_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -216,8 +216,8 @@ class BacktestStrategyEMA():
     BBL_ema_long = Column(Float)
     BBL_buy_signal = Column(Boolean, unique=False, default=True)
     BBL_sell_signal = Column(Boolean, unique=False, default=True)
-    BBL_green_signal = Column(Boolean, unique=False, default=True)
-    BBL_red_signal = Column(Boolean, unique=False, default=True)
+    BBL_green_signal = Column(Float)
+    BBL_red_signal = Column(Float)
     BDMS_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -227,8 +227,8 @@ class BacktestStrategyEMA():
     BDMS_ema_long = Column(Float)
     BDMS_buy_signal = Column(Boolean, unique=False, default=True)
     BDMS_sell_signal = Column(Boolean, unique=False, default=True)
-    BDMS_green_signal = Column(Boolean, unique=False, default=True)
-    BDMS_red_signal = Column(Boolean, unique=False, default=True)
+    BDMS_green_signal = Column(Float)
+    BDMS_red_signal = Column(Float)
     BEM_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -238,8 +238,8 @@ class BacktestStrategyEMA():
     BEM_ema_long = Column(Float)
     BEM_buy_signal = Column(Boolean, unique=False, default=True)
     BEM_sell_signal = Column(Boolean, unique=False, default=True)
-    BEM_green_signal = Column(Boolean, unique=False, default=True)
-    BEM_red_signal = Column(Boolean, unique=False, default=True)
+    BEM_green_signal = Column(Float)
+    BEM_red_signal = Column(Float)
     BGRIM_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -249,8 +249,8 @@ class BacktestStrategyEMA():
     BGRIM_ema_long = Column(Float)
     BGRIM_buy_signal = Column(Boolean, unique=False, default=True)
     BGRIM_sell_signal = Column(Boolean, unique=False, default=True)
-    BGRIM_green_signal = Column(Boolean, unique=False, default=True)
-    BGRIM_red_signal = Column(Boolean, unique=False, default=True)
+    BGRIM_green_signal = Column(Float)
+    BGRIM_red_signal = Column(Float)
     BH_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -260,8 +260,8 @@ class BacktestStrategyEMA():
     BH_ema_long = Column(Float)
     BH_buy_signal = Column(Boolean, unique=False, default=True)
     BH_sell_signal = Column(Boolean, unique=False, default=True)
-    BH_green_signal = Column(Boolean, unique=False, default=True)
-    BH_red_signal = Column(Boolean, unique=False, default=True)
+    BH_green_signal = Column(Float)
+    BH_red_signal = Column(Float)
     BTS_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -271,8 +271,8 @@ class BacktestStrategyEMA():
     BTS_ema_long = Column(Float)
     BTS_buy_signal = Column(Boolean, unique=False, default=True)
     BTS_sell_signal = Column(Boolean, unique=False, default=True)
-    BTS_green_signal = Column(Boolean, unique=False, default=True)
-    BTS_red_signal = Column(Boolean, unique=False, default=True)
+    BTS_green_signal = Column(Float)
+    BTS_red_signal = Column(Float)
     CBG_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -282,8 +282,8 @@ class BacktestStrategyEMA():
     CBG_ema_long = Column(Float)
     CBG_buy_signal = Column(Boolean, unique=False, default=True)
     CBG_sell_signal = Column(Boolean, unique=False, default=True)
-    CBG_green_signal = Column(Boolean, unique=False, default=True)
-    CBG_red_signal = Column(Boolean, unique=False, default=True)
+    CBG_green_signal = Column(Float)
+    CBG_red_signal = Column(Float)
     CENTEL_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -293,8 +293,8 @@ class BacktestStrategyEMA():
     CENTEL_ema_long = Column(Float)
     CENTEL_buy_signal = Column(Boolean, unique=False, default=True)
     CENTEL_sell_signal = Column(Boolean, unique=False, default=True)
-    CENTEL_green_signal = Column(Boolean, unique=False, default=True)
-    CENTEL_red_signal = Column(Boolean, unique=False, default=True)
+    CENTEL_green_signal = Column(Float)
+    CENTEL_red_signal = Column(Float)
     COM7_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -304,8 +304,8 @@ class BacktestStrategyEMA():
     COM7_ema_long = Column(Float)
     COM7_buy_signal = Column(Boolean, unique=False, default=True)
     COM7_sell_signal = Column(Boolean, unique=False, default=True)
-    COM7_green_signal = Column(Boolean, unique=False, default=True)
-    COM7_red_signal = Column(Boolean, unique=False, default=True)
+    COM7_green_signal = Column(Float)
+    COM7_red_signal = Column(Float)
     CPALL_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -315,8 +315,8 @@ class BacktestStrategyEMA():
     CPALL_ema_long = Column(Float)
     CPALL_buy_signal = Column(Boolean, unique=False, default=True)
     CPALL_sell_signal = Column(Boolean, unique=False, default=True)
-    CPALL_green_signal = Column(Boolean, unique=False, default=True)
-    CPALL_red_signal = Column(Boolean, unique=False, default=True)
+    CPALL_green_signal = Column(Float)
+    CPALL_red_signal = Column(Float)
     CPF_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -326,8 +326,8 @@ class BacktestStrategyEMA():
     CPF_ema_long = Column(Float)
     CPF_buy_signal = Column(Boolean, unique=False, default=True)
     CPF_sell_signal = Column(Boolean, unique=False, default=True)
-    CPF_green_signal = Column(Boolean, unique=False, default=True)
-    CPF_red_signal = Column(Boolean, unique=False, default=True)
+    CPF_green_signal = Column(Float)
+    CPF_red_signal = Column(Float)
     CPN_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -337,8 +337,8 @@ class BacktestStrategyEMA():
     CPN_ema_long = Column(Float)
     CPN_buy_signal = Column(Boolean, unique=False, default=True)
     CPN_sell_signal = Column(Boolean, unique=False, default=True)
-    CPN_green_signal = Column(Boolean, unique=False, default=True)
-    CPN_red_signal = Column(Boolean, unique=False, default=True)
+    CPN_green_signal = Column(Float)
+    CPN_red_signal = Column(Float)
     CRC_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -348,8 +348,8 @@ class BacktestStrategyEMA():
     CRC_ema_long = Column(Float)
     CRC_buy_signal = Column(Boolean, unique=False, default=True)
     CRC_sell_signal = Column(Boolean, unique=False, default=True)
-    CRC_green_signal = Column(Boolean, unique=False, default=True)
-    CRC_red_signal = Column(Boolean, unique=False, default=True)
+    CRC_green_signal = Column(Float)
+    CRC_red_signal = Column(Float)
     DELTA_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -359,8 +359,8 @@ class BacktestStrategyEMA():
     DELTA_ema_long = Column(Float)
     DELTA_buy_signal = Column(Boolean, unique=False, default=True)
     DELTA_sell_signal = Column(Boolean, unique=False, default=True)
-    DELTA_green_signal = Column(Boolean, unique=False, default=True)
-    DELTA_red_signal = Column(Boolean, unique=False, default=True)
+    DELTA_green_signal = Column(Float)
+    DELTA_red_signal = Column(Float)
     EA_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -370,8 +370,8 @@ class BacktestStrategyEMA():
     EA_ema_long = Column(Float)
     EA_buy_signal = Column(Boolean, unique=False, default=True)
     EA_sell_signal = Column(Boolean, unique=False, default=True)
-    EA_green_signal = Column(Boolean, unique=False, default=True)
-    EA_red_signal = Column(Boolean, unique=False, default=True)
+    EA_green_signal = Column(Float)
+    EA_red_signal = Column(Float)
     EGCO_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -381,8 +381,8 @@ class BacktestStrategyEMA():
     EGCO_ema_long = Column(Float)
     EGCO_buy_signal = Column(Boolean, unique=False, default=True)
     EGCO_sell_signal = Column(Boolean, unique=False, default=True)
-    EGCO_green_signal = Column(Boolean, unique=False, default=True)
-    EGCO_red_signal = Column(Boolean, unique=False, default=True)
+    EGCO_green_signal = Column(Float)
+    EGCO_red_signal = Column(Float)
     GLOBAL_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -392,8 +392,8 @@ class BacktestStrategyEMA():
     GLOBAL_ema_long = Column(Float)
     GLOBAL_buy_signal = Column(Boolean, unique=False, default=True)
     GLOBAL_sell_signal = Column(Boolean, unique=False, default=True)
-    GLOBAL_green_signal = Column(Boolean, unique=False, default=True)
-    GLOBAL_red_signal = Column(Boolean, unique=False, default=True)
+    GLOBAL_green_signal = Column(Float)
+    GLOBAL_red_signal = Column(Float)
     GPSC_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -403,8 +403,8 @@ class BacktestStrategyEMA():
     GPSC_ema_long = Column(Float)
     GPSC_buy_signal = Column(Boolean, unique=False, default=True)
     GPSC_sell_signal = Column(Boolean, unique=False, default=True)
-    GPSC_green_signal = Column(Boolean, unique=False, default=True)
-    GPSC_red_signal = Column(Boolean, unique=False, default=True)
+    GPSC_green_signal = Column(Float)
+    GPSC_red_signal = Column(Float)
     GULF_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -414,8 +414,8 @@ class BacktestStrategyEMA():
     GULF_ema_long = Column(Float)
     GULF_buy_signal = Column(Boolean, unique=False, default=True)
     GULF_sell_signal = Column(Boolean, unique=False, default=True)
-    GULF_green_signal = Column(Boolean, unique=False, default=True)
-    GULF_red_signal = Column(Boolean, unique=False, default=True)
+    GULF_green_signal = Column(Float)
+    GULF_red_signal = Column(Float)
     HMPRO_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -425,8 +425,8 @@ class BacktestStrategyEMA():
     HMPRO_ema_long = Column(Float)
     HMPRO_buy_signal = Column(Boolean, unique=False, default=True)
     HMPRO_sell_signal = Column(Boolean, unique=False, default=True)
-    HMPRO_green_signal = Column(Boolean, unique=False, default=True)
-    HMPRO_red_signal = Column(Boolean, unique=False, default=True)
+    HMPRO_green_signal = Column(Float)
+    HMPRO_red_signal = Column(Float)
     INTUCH_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -436,8 +436,8 @@ class BacktestStrategyEMA():
     INTUCH_ema_long = Column(Float)
     INTUCH_buy_signal = Column(Boolean, unique=False, default=True)
     INTUCH_sell_signal = Column(Boolean, unique=False, default=True)
-    INTUCH_green_signal = Column(Boolean, unique=False, default=True)
-    INTUCH_red_signal = Column(Boolean, unique=False, default=True)
+    INTUCH_green_signal = Column(Float)
+    INTUCH_red_signal = Column(Float)
     IVL_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -447,8 +447,8 @@ class BacktestStrategyEMA():
     IVL_ema_long = Column(Float)
     IVL_buy_signal = Column(Boolean, unique=False, default=True)
     IVL_sell_signal = Column(Boolean, unique=False, default=True)
-    IVL_green_signal = Column(Boolean, unique=False, default=True)
-    IVL_red_signal = Column(Boolean, unique=False, default=True)
+    IVL_green_signal = Column(Float)
+    IVL_red_signal = Column(Float)
     KBANK_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -458,8 +458,8 @@ class BacktestStrategyEMA():
     KBANK_ema_long = Column(Float)
     KBANK_buy_signal = Column(Boolean, unique=False, default=True)
     KBANK_sell_signal = Column(Boolean, unique=False, default=True)
-    KBANK_green_signal = Column(Boolean, unique=False, default=True)
-    KBANK_red_signal = Column(Boolean, unique=False, default=True)
+    KBANK_green_signal = Column(Float)
+    KBANK_red_signal = Column(Float)
     KCE_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -469,8 +469,8 @@ class BacktestStrategyEMA():
     KCE_ema_long = Column(Float)
     KCE_buy_signal = Column(Boolean, unique=False, default=True)
     KCE_sell_signal = Column(Boolean, unique=False, default=True)
-    KCE_green_signal = Column(Boolean, unique=False, default=True)
-    KCE_red_signal = Column(Boolean, unique=False, default=True)
+    KCE_green_signal = Column(Float)
+    KCE_red_signal = Column(Float)
     KTB_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -480,8 +480,8 @@ class BacktestStrategyEMA():
     KTB_ema_long = Column(Float)
     KTB_buy_signal = Column(Boolean, unique=False, default=True)
     KTB_sell_signal = Column(Boolean, unique=False, default=True)
-    KTB_green_signal = Column(Boolean, unique=False, default=True)
-    KTB_red_signal = Column(Boolean, unique=False, default=True)
+    KTB_green_signal = Column(Float)
+    KTB_red_signal = Column(Float)
     KTC_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -491,8 +491,8 @@ class BacktestStrategyEMA():
     KTC_ema_long = Column(Float)
     KTC_buy_signal = Column(Boolean, unique=False, default=True)
     KTC_sell_signal = Column(Boolean, unique=False, default=True)
-    KTC_green_signal = Column(Boolean, unique=False, default=True)
-    KTC_red_signal = Column(Boolean, unique=False, default=True)
+    KTC_green_signal = Column(Float)
+    KTC_red_signal = Column(Float)
     LH_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -502,8 +502,8 @@ class BacktestStrategyEMA():
     LH_ema_long = Column(Float)
     LH_buy_signal = Column(Boolean, unique=False, default=True)
     LH_sell_signal = Column(Boolean, unique=False, default=True)
-    LH_green_signal = Column(Boolean, unique=False, default=True)
-    LH_red_signal = Column(Boolean, unique=False, default=True)
+    LH_green_signal = Column(Float)
+    LH_red_signal = Column(Float)
     MINT_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -513,8 +513,8 @@ class BacktestStrategyEMA():
     MINT_ema_long = Column(Float)
     MINT_buy_signal = Column(Boolean, unique=False, default=True)
     MINT_sell_signal = Column(Boolean, unique=False, default=True)
-    MINT_green_signal = Column(Boolean, unique=False, default=True)
-    MINT_red_signal = Column(Boolean, unique=False, default=True)
+    MINT_green_signal = Column(Float)
+    MINT_red_signal = Column(Float)
     MTC_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -524,8 +524,8 @@ class BacktestStrategyEMA():
     MTC_ema_long = Column(Float)
     MTC_buy_signal = Column(Boolean, unique=False, default=True)
     MTC_sell_signal = Column(Boolean, unique=False, default=True)
-    MTC_green_signal = Column(Boolean, unique=False, default=True)
-    MTC_red_signal = Column(Boolean, unique=False, default=True)
+    MTC_green_signal = Column(Float)
+    MTC_red_signal = Column(Float)
     OR_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -535,8 +535,8 @@ class BacktestStrategyEMA():
     OR_ema_long = Column(Float)
     OR_buy_signal = Column(Boolean, unique=False, default=True)
     OR_sell_signal = Column(Boolean, unique=False, default=True)
-    OR_green_signal = Column(Boolean, unique=False, default=True)
-    OR_red_signal = Column(Boolean, unique=False, default=True)
+    OR_green_signal = Column(Float)
+    OR_red_signal = Column(Float)
     OSP_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -546,8 +546,8 @@ class BacktestStrategyEMA():
     OSP_ema_long = Column(Float)
     OSP_buy_signal = Column(Boolean, unique=False, default=True)
     OSP_sell_signal = Column(Boolean, unique=False, default=True)
-    OSP_green_signal = Column(Boolean, unique=False, default=True)
-    OSP_red_signal = Column(Boolean, unique=False, default=True)
+    OSP_green_signal = Column(Float)
+    OSP_red_signal = Column(Float)
     PTT_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -557,8 +557,8 @@ class BacktestStrategyEMA():
     PTT_ema_long = Column(Float)
     PTT_buy_signal = Column(Boolean, unique=False, default=True)
     PTT_sell_signal = Column(Boolean, unique=False, default=True)
-    PTT_green_signal = Column(Boolean, unique=False, default=True)
-    PTT_red_signal = Column(Boolean, unique=False, default=True)
+    PTT_green_signal = Column(Float)
+    PTT_red_signal = Column(Float)
     PTTEP_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -568,8 +568,8 @@ class BacktestStrategyEMA():
     PTTEP_ema_long = Column(Float)
     PTTEP_buy_signal = Column(Boolean, unique=False, default=True)
     PTTEP_sell_signal = Column(Boolean, unique=False, default=True)
-    PTTEP_green_signal = Column(Boolean, unique=False, default=True)
-    PTTEP_red_signal = Column(Boolean, unique=False, default=True)
+    PTTEP_green_signal = Column(Float)
+    PTTEP_red_signal = Column(Float)
     PTTGC_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -579,8 +579,8 @@ class BacktestStrategyEMA():
     PTTGC_ema_long = Column(Float)
     PTTGC_buy_signal = Column(Boolean, unique=False, default=True)
     PTTGC_sell_signal = Column(Boolean, unique=False, default=True)
-    PTTGC_green_signal = Column(Boolean, unique=False, default=True)
-    PTTGC_red_signal = Column(Boolean, unique=False, default=True)
+    PTTGC_green_signal = Column(Float)
+    PTTGC_red_signal = Column(Float)
     RATCH_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -590,8 +590,8 @@ class BacktestStrategyEMA():
     RATCH_ema_long = Column(Float)
     RATCH_buy_signal = Column(Boolean, unique=False, default=True)
     RATCH_sell_signal = Column(Boolean, unique=False, default=True)
-    RATCH_green_signal = Column(Boolean, unique=False, default=True)
-    RATCH_red_signal = Column(Boolean, unique=False, default=True)
+    RATCH_green_signal = Column(Float)
+    RATCH_red_signal = Column(Float)
     SAWAD_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -601,8 +601,8 @@ class BacktestStrategyEMA():
     SAWAD_ema_long = Column(Float)
     SAWAD_buy_signal = Column(Boolean, unique=False, default=True)
     SAWAD_sell_signal = Column(Boolean, unique=False, default=True)
-    SAWAD_green_signal = Column(Boolean, unique=False, default=True)
-    SAWAD_red_signal = Column(Boolean, unique=False, default=True)
+    SAWAD_green_signal = Column(Float)
+    SAWAD_red_signal = Column(Float)
     SCB_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -612,8 +612,8 @@ class BacktestStrategyEMA():
     SCB_ema_long = Column(Float)
     SCB_buy_signal = Column(Boolean, unique=False, default=True)
     SCB_sell_signal = Column(Boolean, unique=False, default=True)
-    SCB_green_signal = Column(Boolean, unique=False, default=True)
-    SCB_red_signal = Column(Boolean, unique=False, default=True)
+    SCB_green_signal = Column(Float)
+    SCB_red_signal = Column(Float)
     SCC_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -623,8 +623,8 @@ class BacktestStrategyEMA():
     SCC_ema_long = Column(Float)
     SCC_buy_signal = Column(Boolean, unique=False, default=True)
     SCC_sell_signal = Column(Boolean, unique=False, default=True)
-    SCC_green_signal = Column(Boolean, unique=False, default=True)
-    SCC_red_signal = Column(Boolean, unique=False, default=True)
+    SCC_green_signal = Column(Float)
+    SCC_red_signal = Column(Float)
     SCGP_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -634,8 +634,8 @@ class BacktestStrategyEMA():
     SCGP_ema_long = Column(Float)
     SCGP_buy_signal = Column(Boolean, unique=False, default=True)
     SCGP_sell_signal = Column(Boolean, unique=False, default=True)
-    SCGP_green_signal = Column(Boolean, unique=False, default=True)
-    SCGP_red_signal = Column(Boolean, unique=False, default=True)
+    SCGP_green_signal = Column(Float)
+    SCGP_red_signal = Column(Float)
     TISCO_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -645,8 +645,8 @@ class BacktestStrategyEMA():
     TISCO_ema_long = Column(Float)
     TISCO_buy_signal = Column(Boolean, unique=False, default=True)
     TISCO_sell_signal = Column(Boolean, unique=False, default=True)
-    TISCO_green_signal = Column(Boolean, unique=False, default=True)
-    TISCO_red_signal = Column(Boolean, unique=False, default=True)
+    TISCO_green_signal = Column(Float)
+    TISCO_red_signal = Column(Float)
     TOP_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -656,8 +656,8 @@ class BacktestStrategyEMA():
     TOP_ema_long = Column(Float)
     TOP_buy_signal = Column(Boolean, unique=False, default=True)
     TOP_sell_signal = Column(Boolean, unique=False, default=True)
-    TOP_green_signal = Column(Boolean, unique=False, default=True)
-    TOP_red_signal = Column(Boolean, unique=False, default=True)
+    TOP_green_signal = Column(Float)
+    TOP_red_signal = Column(Float)
     TRUE_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -667,8 +667,8 @@ class BacktestStrategyEMA():
     TRUE_ema_long = Column(Float)
     TRUE_buy_signal = Column(Boolean, unique=False, default=True)
     TRUE_sell_signal = Column(Boolean, unique=False, default=True)
-    TRUE_green_signal = Column(Boolean, unique=False, default=True)
-    TRUE_red_signal = Column(Boolean, unique=False, default=True)
+    TRUE_green_signal = Column(Float)
+    TRUE_red_signal = Column(Float)
     TTB_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -678,8 +678,8 @@ class BacktestStrategyEMA():
     TTB_ema_long = Column(Float)
     TTB_buy_signal = Column(Boolean, unique=False, default=True)
     TTB_sell_signal = Column(Boolean, unique=False, default=True)
-    TTB_green_signal = Column(Boolean, unique=False, default=True)
-    TTB_red_signal = Column(Boolean, unique=False, default=True)
+    TTB_green_signal = Column(Float)
+    TTB_red_signal = Column(Float)
     TU_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -689,8 +689,8 @@ class BacktestStrategyEMA():
     TU_ema_long = Column(Float)
     TU_buy_signal = Column(Boolean, unique=False, default=True)
     TU_sell_signal = Column(Boolean, unique=False, default=True)
-    TU_green_signal = Column(Boolean, unique=False, default=True)
-    TU_red_signal = Column(Boolean, unique=False, default=True)
+    TU_green_signal = Column(Float)
+    TU_red_signal = Column(Float)
     WHA_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -700,8 +700,8 @@ class BacktestStrategyEMA():
     WHA_ema_long = Column(Float)
     WHA_buy_signal = Column(Boolean, unique=False, default=True)
     WHA_sell_signal = Column(Boolean, unique=False, default=True)
-    WHA_green_signal = Column(Boolean, unique=False, default=True)
-    WHA_red_signal = Column(Boolean, unique=False, default=True)
+    WHA_green_signal = Column(Float)
+    WHA_red_signal = Column(Float)
 
 
 class BacktestStrategyRSI():
@@ -713,8 +713,8 @@ class BacktestStrategyRSI():
     ADVANC_rsi = Column(Float)
     ADVANC_buy_signal = Column(Boolean, unique=False, default=True)
     ADVANC_sell_signal = Column(Boolean, unique=False, default=True)
-    ADVANC_green_signal = Column(Boolean, unique=False, default=True)
-    ADVANC_red_signal = Column(Boolean, unique=False, default=True)
+    ADVANC_green_signal = Column(Float)
+    ADVANC_red_signal = Column(Float)
     AOT_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -723,8 +723,8 @@ class BacktestStrategyRSI():
     AOT_rsi = Column(Float)
     AOT_buy_signal = Column(Boolean, unique=False, default=True)
     AOT_sell_signal = Column(Boolean, unique=False, default=True)
-    AOT_green_signal = Column(Boolean, unique=False, default=True)
-    AOT_red_signal = Column(Boolean, unique=False, default=True)
+    AOT_green_signal = Column(Float)
+    AOT_red_signal = Column(Float)
     AWC_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -733,8 +733,8 @@ class BacktestStrategyRSI():
     AWC_rsi = Column(Float)
     AWC_buy_signal = Column(Boolean, unique=False, default=True)
     AWC_sell_signal = Column(Boolean, unique=False, default=True)
-    AWC_green_signal = Column(Boolean, unique=False, default=True)
-    AWC_red_signal = Column(Boolean, unique=False, default=True)
+    AWC_green_signal = Column(Float)
+    AWC_red_signal = Column(Float)
     BANPU_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -743,8 +743,8 @@ class BacktestStrategyRSI():
     BANPU_rsi = Column(Float)
     BANPU_buy_signal = Column(Boolean, unique=False, default=True)
     BANPU_sell_signal = Column(Boolean, unique=False, default=True)
-    BANPU_green_signal = Column(Boolean, unique=False, default=True)
-    BANPU_red_signal = Column(Boolean, unique=False, default=True)
+    BANPU_green_signal = Column(Float)
+    BANPU_red_signal = Column(Float)
     BBL_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -753,8 +753,8 @@ class BacktestStrategyRSI():
     BBL_rsi = Column(Float)
     BBL_buy_signal = Column(Boolean, unique=False, default=True)
     BBL_sell_signal = Column(Boolean, unique=False, default=True)
-    BBL_green_signal = Column(Boolean, unique=False, default=True)
-    BBL_red_signal = Column(Boolean, unique=False, default=True)
+    BBL_green_signal = Column(Float)
+    BBL_red_signal = Column(Float)
     BDMS_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -763,8 +763,8 @@ class BacktestStrategyRSI():
     BDMS_rsi = Column(Float)
     BDMS_buy_signal = Column(Boolean, unique=False, default=True)
     BDMS_sell_signal = Column(Boolean, unique=False, default=True)
-    BDMS_green_signal = Column(Boolean, unique=False, default=True)
-    BDMS_red_signal = Column(Boolean, unique=False, default=True)
+    BDMS_green_signal = Column(Float)
+    BDMS_red_signal = Column(Float)
     BEM_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -773,8 +773,8 @@ class BacktestStrategyRSI():
     BEM_rsi = Column(Float)
     BEM_buy_signal = Column(Boolean, unique=False, default=True)
     BEM_sell_signal = Column(Boolean, unique=False, default=True)
-    BEM_green_signal = Column(Boolean, unique=False, default=True)
-    BEM_red_signal = Column(Boolean, unique=False, default=True)
+    BEM_green_signal = Column(Float)
+    BEM_red_signal = Column(Float)
     BGRIM_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -783,8 +783,8 @@ class BacktestStrategyRSI():
     BGRIM_rsi = Column(Float)
     BGRIM_buy_signal = Column(Boolean, unique=False, default=True)
     BGRIM_sell_signal = Column(Boolean, unique=False, default=True)
-    BGRIM_green_signal = Column(Boolean, unique=False, default=True)
-    BGRIM_red_signal = Column(Boolean, unique=False, default=True)
+    BGRIM_green_signal = Column(Float)
+    BGRIM_red_signal = Column(Float)
     BH_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -793,8 +793,8 @@ class BacktestStrategyRSI():
     BH_rsi = Column(Float)
     BH_buy_signal = Column(Boolean, unique=False, default=True)
     BH_sell_signal = Column(Boolean, unique=False, default=True)
-    BH_green_signal = Column(Boolean, unique=False, default=True)
-    BH_red_signal = Column(Boolean, unique=False, default=True)
+    BH_green_signal = Column(Float)
+    BH_red_signal = Column(Float)
     BTS_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -803,8 +803,8 @@ class BacktestStrategyRSI():
     BTS_rsi = Column(Float)
     BTS_buy_signal = Column(Boolean, unique=False, default=True)
     BTS_sell_signal = Column(Boolean, unique=False, default=True)
-    BTS_green_signal = Column(Boolean, unique=False, default=True)
-    BTS_red_signal = Column(Boolean, unique=False, default=True)
+    BTS_green_signal = Column(Float)
+    BTS_red_signal = Column(Float)
     CBG_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -813,8 +813,8 @@ class BacktestStrategyRSI():
     CBG_rsi = Column(Float)
     CBG_buy_signal = Column(Boolean, unique=False, default=True)
     CBG_sell_signal = Column(Boolean, unique=False, default=True)
-    CBG_green_signal = Column(Boolean, unique=False, default=True)
-    CBG_red_signal = Column(Boolean, unique=False, default=True)
+    CBG_green_signal = Column(Float)
+    CBG_red_signal = Column(Float)
     CENTEL_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -823,8 +823,8 @@ class BacktestStrategyRSI():
     CENTEL_rsi = Column(Float)
     CENTEL_buy_signal = Column(Boolean, unique=False, default=True)
     CENTEL_sell_signal = Column(Boolean, unique=False, default=True)
-    CENTEL_green_signal = Column(Boolean, unique=False, default=True)
-    CENTEL_red_signal = Column(Boolean, unique=False, default=True)
+    CENTEL_green_signal = Column(Float)
+    CENTEL_red_signal = Column(Float)
     COM7_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -833,8 +833,8 @@ class BacktestStrategyRSI():
     COM7_rsi = Column(Float)
     COM7_buy_signal = Column(Boolean, unique=False, default=True)
     COM7_sell_signal = Column(Boolean, unique=False, default=True)
-    COM7_green_signal = Column(Boolean, unique=False, default=True)
-    COM7_red_signal = Column(Boolean, unique=False, default=True)
+    COM7_green_signal = Column(Float)
+    COM7_red_signal = Column(Float)
     CPALL_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -843,8 +843,8 @@ class BacktestStrategyRSI():
     CPALL_rsi = Column(Float)
     CPALL_buy_signal = Column(Boolean, unique=False, default=True)
     CPALL_sell_signal = Column(Boolean, unique=False, default=True)
-    CPALL_green_signal = Column(Boolean, unique=False, default=True)
-    CPALL_red_signal = Column(Boolean, unique=False, default=True)
+    CPALL_green_signal = Column(Float)
+    CPALL_red_signal = Column(Float)
     CPF_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -853,8 +853,8 @@ class BacktestStrategyRSI():
     CPF_rsi = Column(Float)
     CPF_buy_signal = Column(Boolean, unique=False, default=True)
     CPF_sell_signal = Column(Boolean, unique=False, default=True)
-    CPF_green_signal = Column(Boolean, unique=False, default=True)
-    CPF_red_signal = Column(Boolean, unique=False, default=True)
+    CPF_green_signal = Column(Float)
+    CPF_red_signal = Column(Float)
     CPN_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -863,8 +863,8 @@ class BacktestStrategyRSI():
     CPN_rsi = Column(Float)
     CPN_buy_signal = Column(Boolean, unique=False, default=True)
     CPN_sell_signal = Column(Boolean, unique=False, default=True)
-    CPN_green_signal = Column(Boolean, unique=False, default=True)
-    CPN_red_signal = Column(Boolean, unique=False, default=True)
+    CPN_green_signal = Column(Float)
+    CPN_red_signal = Column(Float)
     CRC_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -873,8 +873,8 @@ class BacktestStrategyRSI():
     CRC_rsi = Column(Float)
     CRC_buy_signal = Column(Boolean, unique=False, default=True)
     CRC_sell_signal = Column(Boolean, unique=False, default=True)
-    CRC_green_signal = Column(Boolean, unique=False, default=True)
-    CRC_red_signal = Column(Boolean, unique=False, default=True)
+    CRC_green_signal = Column(Float)
+    CRC_red_signal = Column(Float)
     DELTA_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -883,8 +883,8 @@ class BacktestStrategyRSI():
     DELTA_rsi = Column(Float)
     DELTA_buy_signal = Column(Boolean, unique=False, default=True)
     DELTA_sell_signal = Column(Boolean, unique=False, default=True)
-    DELTA_green_signal = Column(Boolean, unique=False, default=True)
-    DELTA_red_signal = Column(Boolean, unique=False, default=True)
+    DELTA_green_signal = Column(Float)
+    DELTA_red_signal = Column(Float)
     EA_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -893,8 +893,8 @@ class BacktestStrategyRSI():
     EA_rsi = Column(Float)
     EA_buy_signal = Column(Boolean, unique=False, default=True)
     EA_sell_signal = Column(Boolean, unique=False, default=True)
-    EA_green_signal = Column(Boolean, unique=False, default=True)
-    EA_red_signal = Column(Boolean, unique=False, default=True)
+    EA_green_signal = Column(Float)
+    EA_red_signal = Column(Float)
     EGCO_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -903,8 +903,8 @@ class BacktestStrategyRSI():
     EGCO_rsi = Column(Float)
     EGCO_buy_signal = Column(Boolean, unique=False, default=True)
     EGCO_sell_signal = Column(Boolean, unique=False, default=True)
-    EGCO_green_signal = Column(Boolean, unique=False, default=True)
-    EGCO_red_signal = Column(Boolean, unique=False, default=True)
+    EGCO_green_signal = Column(Float)
+    EGCO_red_signal = Column(Float)
     GLOBAL_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -913,8 +913,8 @@ class BacktestStrategyRSI():
     GLOBAL_rsi = Column(Float)
     GLOBAL_buy_signal = Column(Boolean, unique=False, default=True)
     GLOBAL_sell_signal = Column(Boolean, unique=False, default=True)
-    GLOBAL_green_signal = Column(Boolean, unique=False, default=True)
-    GLOBAL_red_signal = Column(Boolean, unique=False, default=True)
+    GLOBAL_green_signal = Column(Float)
+    GLOBAL_red_signal = Column(Float)
     GPSC_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -923,8 +923,8 @@ class BacktestStrategyRSI():
     GPSC_rsi = Column(Float)
     GPSC_buy_signal = Column(Boolean, unique=False, default=True)
     GPSC_sell_signal = Column(Boolean, unique=False, default=True)
-    GPSC_green_signal = Column(Boolean, unique=False, default=True)
-    GPSC_red_signal = Column(Boolean, unique=False, default=True)
+    GPSC_green_signal = Column(Float)
+    GPSC_red_signal = Column(Float)
     GULF_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -933,8 +933,8 @@ class BacktestStrategyRSI():
     GULF_rsi = Column(Float)
     GULF_buy_signal = Column(Boolean, unique=False, default=True)
     GULF_sell_signal = Column(Boolean, unique=False, default=True)
-    GULF_green_signal = Column(Boolean, unique=False, default=True)
-    GULF_red_signal = Column(Boolean, unique=False, default=True)
+    GULF_green_signal = Column(Float)
+    GULF_red_signal = Column(Float)
     HMPRO_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -943,8 +943,8 @@ class BacktestStrategyRSI():
     HMPRO_rsi = Column(Float)
     HMPRO_buy_signal = Column(Boolean, unique=False, default=True)
     HMPRO_sell_signal = Column(Boolean, unique=False, default=True)
-    HMPRO_green_signal = Column(Boolean, unique=False, default=True)
-    HMPRO_red_signal = Column(Boolean, unique=False, default=True)
+    HMPRO_green_signal = Column(Float)
+    HMPRO_red_signal = Column(Float)
     INTUCH_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -953,8 +953,8 @@ class BacktestStrategyRSI():
     INTUCH_rsi = Column(Float)
     INTUCH_buy_signal = Column(Boolean, unique=False, default=True)
     INTUCH_sell_signal = Column(Boolean, unique=False, default=True)
-    INTUCH_green_signal = Column(Boolean, unique=False, default=True)
-    INTUCH_red_signal = Column(Boolean, unique=False, default=True)
+    INTUCH_green_signal = Column(Float)
+    INTUCH_red_signal = Column(Float)
     IVL_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -963,8 +963,8 @@ class BacktestStrategyRSI():
     IVL_rsi = Column(Float)
     IVL_buy_signal = Column(Boolean, unique=False, default=True)
     IVL_sell_signal = Column(Boolean, unique=False, default=True)
-    IVL_green_signal = Column(Boolean, unique=False, default=True)
-    IVL_red_signal = Column(Boolean, unique=False, default=True)
+    IVL_green_signal = Column(Float)
+    IVL_red_signal = Column(Float)
     KBANK_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -973,8 +973,8 @@ class BacktestStrategyRSI():
     KBANK_rsi = Column(Float)
     KBANK_buy_signal = Column(Boolean, unique=False, default=True)
     KBANK_sell_signal = Column(Boolean, unique=False, default=True)
-    KBANK_green_signal = Column(Boolean, unique=False, default=True)
-    KBANK_red_signal = Column(Boolean, unique=False, default=True)
+    KBANK_green_signal = Column(Float)
+    KBANK_red_signal = Column(Float)
     KCE_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -983,8 +983,8 @@ class BacktestStrategyRSI():
     KCE_rsi = Column(Float)
     KCE_buy_signal = Column(Boolean, unique=False, default=True)
     KCE_sell_signal = Column(Boolean, unique=False, default=True)
-    KCE_green_signal = Column(Boolean, unique=False, default=True)
-    KCE_red_signal = Column(Boolean, unique=False, default=True)
+    KCE_green_signal = Column(Float)
+    KCE_red_signal = Column(Float)
     KTB_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -993,8 +993,8 @@ class BacktestStrategyRSI():
     KTB_rsi = Column(Float)
     KTB_buy_signal = Column(Boolean, unique=False, default=True)
     KTB_sell_signal = Column(Boolean, unique=False, default=True)
-    KTB_green_signal = Column(Boolean, unique=False, default=True)
-    KTB_red_signal = Column(Boolean, unique=False, default=True)
+    KTB_green_signal = Column(Float)
+    KTB_red_signal = Column(Float)
     KTC_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -1003,8 +1003,8 @@ class BacktestStrategyRSI():
     KTC_rsi = Column(Float)
     KTC_buy_signal = Column(Boolean, unique=False, default=True)
     KTC_sell_signal = Column(Boolean, unique=False, default=True)
-    KTC_green_signal = Column(Boolean, unique=False, default=True)
-    KTC_red_signal = Column(Boolean, unique=False, default=True)
+    KTC_green_signal = Column(Float)
+    KTC_red_signal = Column(Float)
     LH_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -1013,8 +1013,8 @@ class BacktestStrategyRSI():
     LH_rsi = Column(Float)
     LH_buy_signal = Column(Boolean, unique=False, default=True)
     LH_sell_signal = Column(Boolean, unique=False, default=True)
-    LH_green_signal = Column(Boolean, unique=False, default=True)
-    LH_red_signal = Column(Boolean, unique=False, default=True)
+    LH_green_signal = Column(Float)
+    LH_red_signal = Column(Float)
     MINT_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -1023,8 +1023,8 @@ class BacktestStrategyRSI():
     MINT_rsi = Column(Float)
     MINT_buy_signal = Column(Boolean, unique=False, default=True)
     MINT_sell_signal = Column(Boolean, unique=False, default=True)
-    MINT_green_signal = Column(Boolean, unique=False, default=True)
-    MINT_red_signal = Column(Boolean, unique=False, default=True)
+    MINT_green_signal = Column(Float)
+    MINT_red_signal = Column(Float)
     MTC_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -1033,8 +1033,8 @@ class BacktestStrategyRSI():
     MTC_rsi = Column(Float)
     MTC_buy_signal = Column(Boolean, unique=False, default=True)
     MTC_sell_signal = Column(Boolean, unique=False, default=True)
-    MTC_green_signal = Column(Boolean, unique=False, default=True)
-    MTC_red_signal = Column(Boolean, unique=False, default=True)
+    MTC_green_signal = Column(Float)
+    MTC_red_signal = Column(Float)
     OR_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -1043,8 +1043,8 @@ class BacktestStrategyRSI():
     OR_rsi = Column(Float)
     OR_buy_signal = Column(Boolean, unique=False, default=True)
     OR_sell_signal = Column(Boolean, unique=False, default=True)
-    OR_green_signal = Column(Boolean, unique=False, default=True)
-    OR_red_signal = Column(Boolean, unique=False, default=True)
+    OR_green_signal = Column(Float)
+    OR_red_signal = Column(Float)
     OSP_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -1053,8 +1053,8 @@ class BacktestStrategyRSI():
     OSP_rsi = Column(Float)
     OSP_buy_signal = Column(Boolean, unique=False, default=True)
     OSP_sell_signal = Column(Boolean, unique=False, default=True)
-    OSP_green_signal = Column(Boolean, unique=False, default=True)
-    OSP_red_signal = Column(Boolean, unique=False, default=True)
+    OSP_green_signal = Column(Float)
+    OSP_red_signal = Column(Float)
     PTT_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -1063,8 +1063,8 @@ class BacktestStrategyRSI():
     PTT_rsi = Column(Float)
     PTT_buy_signal = Column(Boolean, unique=False, default=True)
     PTT_sell_signal = Column(Boolean, unique=False, default=True)
-    PTT_green_signal = Column(Boolean, unique=False, default=True)
-    PTT_red_signal = Column(Boolean, unique=False, default=True)
+    PTT_green_signal = Column(Float)
+    PTT_red_signal = Column(Float)
     PTTEP_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -1073,8 +1073,8 @@ class BacktestStrategyRSI():
     PTTEP_rsi = Column(Float)
     PTTEP_buy_signal = Column(Boolean, unique=False, default=True)
     PTTEP_sell_signal = Column(Boolean, unique=False, default=True)
-    PTTEP_green_signal = Column(Boolean, unique=False, default=True)
-    PTTEP_red_signal = Column(Boolean, unique=False, default=True)
+    PTTEP_green_signal = Column(Float)
+    PTTEP_red_signal = Column(Float)
     PTTGC_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -1083,8 +1083,8 @@ class BacktestStrategyRSI():
     PTTGC_rsi = Column(Float)
     PTTGC_buy_signal = Column(Boolean, unique=False, default=True)
     PTTGC_sell_signal = Column(Boolean, unique=False, default=True)
-    PTTGC_green_signal = Column(Boolean, unique=False, default=True)
-    PTTGC_red_signal = Column(Boolean, unique=False, default=True)
+    PTTGC_green_signal = Column(Float)
+    PTTGC_red_signal = Column(Float)
     RATCH_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -1093,8 +1093,8 @@ class BacktestStrategyRSI():
     RATCH_rsi = Column(Float)
     RATCH_buy_signal = Column(Boolean, unique=False, default=True)
     RATCH_sell_signal = Column(Boolean, unique=False, default=True)
-    RATCH_green_signal = Column(Boolean, unique=False, default=True)
-    RATCH_red_signal = Column(Boolean, unique=False, default=True)
+    RATCH_green_signal = Column(Float)
+    RATCH_red_signal = Column(Float)
     SAWAD_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -1103,8 +1103,8 @@ class BacktestStrategyRSI():
     SAWAD_rsi = Column(Float)
     SAWAD_buy_signal = Column(Boolean, unique=False, default=True)
     SAWAD_sell_signal = Column(Boolean, unique=False, default=True)
-    SAWAD_green_signal = Column(Boolean, unique=False, default=True)
-    SAWAD_red_signal = Column(Boolean, unique=False, default=True)
+    SAWAD_green_signal = Column(Float)
+    SAWAD_red_signal = Column(Float)
     SCB_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -1113,8 +1113,8 @@ class BacktestStrategyRSI():
     SCB_rsi = Column(Float)
     SCB_buy_signal = Column(Boolean, unique=False, default=True)
     SCB_sell_signal = Column(Boolean, unique=False, default=True)
-    SCB_green_signal = Column(Boolean, unique=False, default=True)
-    SCB_red_signal = Column(Boolean, unique=False, default=True)
+    SCB_green_signal = Column(Float)
+    SCB_red_signal = Column(Float)
     SCC_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -1123,8 +1123,8 @@ class BacktestStrategyRSI():
     SCC_rsi = Column(Float)
     SCC_buy_signal = Column(Boolean, unique=False, default=True)
     SCC_sell_signal = Column(Boolean, unique=False, default=True)
-    SCC_green_signal = Column(Boolean, unique=False, default=True)
-    SCC_red_signal = Column(Boolean, unique=False, default=True)
+    SCC_green_signal = Column(Float)
+    SCC_red_signal = Column(Float)
     SCGP_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -1133,8 +1133,8 @@ class BacktestStrategyRSI():
     SCGP_rsi = Column(Float)
     SCGP_buy_signal = Column(Boolean, unique=False, default=True)
     SCGP_sell_signal = Column(Boolean, unique=False, default=True)
-    SCGP_green_signal = Column(Boolean, unique=False, default=True)
-    SCGP_red_signal = Column(Boolean, unique=False, default=True)
+    SCGP_green_signal = Column(Float)
+    SCGP_red_signal = Column(Float)
     TISCO_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -1143,8 +1143,8 @@ class BacktestStrategyRSI():
     TISCO_rsi = Column(Float)
     TISCO_buy_signal = Column(Boolean, unique=False, default=True)
     TISCO_sell_signal = Column(Boolean, unique=False, default=True)
-    TISCO_green_signal = Column(Boolean, unique=False, default=True)
-    TISCO_red_signal = Column(Boolean, unique=False, default=True)
+    TISCO_green_signal = Column(Float)
+    TISCO_red_signal = Column(Float)
     TOP_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -1153,8 +1153,8 @@ class BacktestStrategyRSI():
     TOP_rsi = Column(Float)
     TOP_buy_signal = Column(Boolean, unique=False, default=True)
     TOP_sell_signal = Column(Boolean, unique=False, default=True)
-    TOP_green_signal = Column(Boolean, unique=False, default=True)
-    TOP_red_signal = Column(Boolean, unique=False, default=True)
+    TOP_green_signal = Column(Float)
+    TOP_red_signal = Column(Float)
     TRUE_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -1163,8 +1163,8 @@ class BacktestStrategyRSI():
     TRUE_rsi = Column(Float)
     TRUE_buy_signal = Column(Boolean, unique=False, default=True)
     TRUE_sell_signal = Column(Boolean, unique=False, default=True)
-    TRUE_green_signal = Column(Boolean, unique=False, default=True)
-    TRUE_red_signal = Column(Boolean, unique=False, default=True)
+    TRUE_green_signal = Column(Float)
+    TRUE_red_signal = Column(Float)
     TTB_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -1173,8 +1173,8 @@ class BacktestStrategyRSI():
     TTB_rsi = Column(Float)
     TTB_buy_signal = Column(Boolean, unique=False, default=True)
     TTB_sell_signal = Column(Boolean, unique=False, default=True)
-    TTB_green_signal = Column(Boolean, unique=False, default=True)
-    TTB_red_signal = Column(Boolean, unique=False, default=True)
+    TTB_green_signal = Column(Float)
+    TTB_red_signal = Column(Float)
     TU_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -1183,8 +1183,8 @@ class BacktestStrategyRSI():
     TU_rsi = Column(Float)
     TU_buy_signal = Column(Boolean, unique=False, default=True)
     TU_sell_signal = Column(Boolean, unique=False, default=True)
-    TU_green_signal = Column(Boolean, unique=False, default=True)
-    TU_red_signal = Column(Boolean, unique=False, default=True)
+    TU_green_signal = Column(Float)
+    TU_red_signal = Column(Float)
     WHA_datetime = Column(DATETIME(
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
@@ -1193,8 +1193,8 @@ class BacktestStrategyRSI():
     WHA_rsi = Column(Float)
     WHA_buy_signal = Column(Boolean, unique=False, default=True)
     WHA_sell_signal = Column(Boolean, unique=False, default=True)
-    WHA_green_signal = Column(Boolean, unique=False, default=True)
-    WHA_red_signal = Column(Boolean, unique=False, default=True)
+    WHA_green_signal = Column(Float)
+    WHA_red_signal = Column(Float)
 
 
 class StatsStrategy():
