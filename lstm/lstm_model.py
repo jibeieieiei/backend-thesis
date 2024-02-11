@@ -1,4 +1,4 @@
-import math
+# import math
 import time
 import warnings
 
@@ -131,11 +131,11 @@ class LSTMPredict:
         model = self.model
         scaler = self.scaler
         train_predict = model.predict(X_train)
-        mse_error = math.sqrt(mean_squared_error(Y_train, train_predict))
         data_test = scaler.inverse_transform(Y_train.reshape(-1, 1))
         data_test = [x[0] for x in data_test.tolist()]
         data_predict = scaler.inverse_transform(train_predict)
         data_predict = [round(x[0], 2) for x in data_predict.tolist()]
+        mse_error = mean_squared_error(data_test, data_predict)
         return round(mse_error, 4), data_test, data_predict
 
 
