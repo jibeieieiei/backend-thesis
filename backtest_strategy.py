@@ -80,14 +80,14 @@ class BacktestStrategy:
         df[symbol+'_green_signal'] = False
         df.loc[green_filter, symbol + '_green_signal'] = True
         df[symbol+'_green_signal'] = np.where(
-            df[symbol+'_green_signal'], df[symbol+f'_{column.lower()}']*0.85,
+            df[symbol+'_green_signal'], df[symbol+'_low']*0.9,
             np.nan)
 
         red_filter = th.loc[th['Side'] == 'Sell']['Signal Index']
         df[symbol+'_red_signal'] = False
         df.loc[red_filter, symbol + '_red_signal'] = True
         df[symbol+'_red_signal'] = np.where(
-            df[symbol+'_red_signal'], df[symbol+f'_{column.lower()}']*0.85,
+            df[symbol+'_red_signal'], df[symbol+'_low']*0.9,
             np.nan)
         return df, stats
 
@@ -128,14 +128,14 @@ class BacktestStrategy:
         df[symbol+'_green_signal'] = False
         df.loc[green_filter, symbol + '_green_signal'] = True
         df[symbol+'_green_signal'] = np.where(
-            df[symbol+'_green_signal'], df[symbol+f'_{column.lower()}']*0.85,
+            df[symbol+'_green_signal'], df[symbol+'_low']*0.9,
             np.nan)
 
         red_filter = th.loc[th['Side'] == 'Sell']['Signal Index']
         df[symbol+'_red_signal'] = False
         df.loc[red_filter, symbol + '_red_signal'] = True
         df[symbol+'_red_signal'] = np.where(
-            df[symbol+'_red_signal'], df[symbol+f'_{column.lower()}']*0.85,
+            df[symbol+'_red_signal'], df[symbol+'_low']*0.9,
             np.nan)
         return df, stats
 
