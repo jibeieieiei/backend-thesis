@@ -6,9 +6,9 @@ import vectorbtpro as vbt
 # SET 50
 from stocks_symbol import stocks
 
-timeframe = ["5t", "15t"]  # "1d", "1h", "4h", "1t",
+timeframe = ["15t", "1h", "4h", "1d"]
 
-end_date = "2023-12-31"
+end_date = "2024-01-01"
 # end_date = None
 
 
