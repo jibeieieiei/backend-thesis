@@ -22,19 +22,24 @@ class BacktestStrategy:
     def __init__(self,
                  symbol: str,
                  timeframe: str,
-                 column: str):
+                 column: str,
+                 start_date: str = "2023-01-01",
+                 end_date: str = "2024-01-01"):
         self.symbol = symbol
         self.timeframe = timeframe
         self.column = column
+        self.start_date = start_date
+        self.end_date = end_date
         self.length_by_tf = {'15t': 11683, '1h': 4862, '4h': 1394, '1d': 698}
         self.data = None
         self.load_data()
 
     def load_data(self):
-        length = self.length_by_tf[self.timeframe]
         file_path = f"./data/{self.timeframe}/{self.symbol}_SET.csv"
         data = pd.read_csv(file_path)
-        self.data = data[len(data)-length:].reset_index().drop(columns='index')
+        data = data.loc[(data['datetime'] >= self.start_date)
+                        & (data['datetime'] <= self.end_date)]
+        self.data = data.reset_index().drop(columns='index')
         return
 
     def ema_cross(self,
@@ -42,13 +47,17 @@ class BacktestStrategy:
                   long: int = 200):
         column = self.column
         symbol = self.symbol.upper()
-        df = self.data.reset_index()[['datetime', column]].copy()
-        # df = self.data.set_index('datetime')[column].copy()
-        new_col = symbol+"_"+column.lower()
-        df = df.rename(columns={column: new_col,
-                                "datetime": symbol+"_datetime"})
-        ema_short = ta.ema(df[new_col], short)
-        ema_long = ta.ema(df[new_col], long)
+        df = self.data.copy()
+        # new_col = symbol+"_"+df.columns.str.lower()
+        df = df.rename(columns={
+            "Open": symbol+"_open",
+            "High": symbol+"_high",
+            "Low": symbol+"_low",
+            "Close": symbol+"_close",
+            "Volume": symbol+"_volume",
+            "datetime": symbol+"_datetime"})
+        ema_short = ta.ema(df[f"{symbol}_{column.lower()}"], short)
+        ema_long = ta.ema(df[f"{symbol}_{column.lower()}"], long)
         # -------Add EMA-------
         df[symbol+'_ema_short'] = ema_short
         df[symbol+'_ema_long'] = ema_long
@@ -60,7 +69,8 @@ class BacktestStrategy:
         df[symbol+'_sell_signal'] = ema_short < ema_long
         df[symbol+'_sell_signal'].iloc[-1] = True
         # -------Signal-------
-        pf = vbt.Portfolio.from_signals(df[f"{symbol}_close"], entries, exits)
+        pf = vbt.Portfolio.from_signals(
+            df[f"{symbol}_{column.lower()}"], entries, exits)
         stats = pf.stats().to_frame()
         stats.columns = [symbol+'_stats']
         # -------Trade History for green red signal-------
@@ -70,13 +80,15 @@ class BacktestStrategy:
         df[symbol+'_green_signal'] = False
         df.loc[green_filter, symbol + '_green_signal'] = True
         df[symbol+'_green_signal'] = np.where(
-            df[symbol+'_green_signal'], df[symbol+'_close']*0.85, np.nan)
+            df[symbol+'_green_signal'], df[symbol+f'_{column.lower()}']*0.85,
+            np.nan)
 
         red_filter = th.loc[th['Side'] == 'Sell']['Signal Index']
         df[symbol+'_red_signal'] = False
         df.loc[red_filter, symbol + '_red_signal'] = True
         df[symbol+'_red_signal'] = np.where(
-            df[symbol+'_red_signal'], df[symbol+'_close']*0.85, np.nan)
+            df[symbol+'_red_signal'], df[symbol+f'_{column.lower()}']*0.85,
+            np.nan)
         return df, stats
 
     def rsi(self,
@@ -85,11 +97,16 @@ class BacktestStrategy:
             over_bought: int = 70):
         column = self.column
         symbol = self.symbol.upper()
-        df = self.data.reset_index()[['datetime', column]].copy()
-        new_col = symbol+"_"+column.lower()
-        df = df.rename(columns={column: new_col,
-                                "datetime": symbol+"_datetime"})
-        _rsi = ta.rsi(df[new_col], length)
+        df = self.data.copy()
+        # new_col = symbol+"_"+df.columns.str.lower()
+        df = df.rename(columns={
+            "Open": symbol+"_open",
+            "High": symbol+"_high",
+            "Low": symbol+"_low",
+            "Close": symbol+"_close",
+            "Volume": symbol+"_volume",
+            "datetime": symbol+"_datetime"})
+        _rsi = ta.rsi(df[f"{symbol}_{column.lower()}"], length)
         # -------Add RSI-------
         df[symbol+'_rsi'] = _rsi
         # -------Bullish-------
@@ -100,7 +117,8 @@ class BacktestStrategy:
         df[symbol+'_sell_signal'] = exits
         df[symbol+'_sell_signal'].iloc[-1] = True
         # -------Signal-------
-        pf = vbt.Portfolio.from_signals(df[f"{symbol}_close"], entries, exits)
+        pf = vbt.Portfolio.from_signals(
+            df[f"{symbol}_{column.lower()}"], entries, exits)
         stats = pf.stats().to_frame()
         stats.columns = [symbol+'_stats']
         # -------Trade History for green red signal-------
@@ -110,13 +128,15 @@ class BacktestStrategy:
         df[symbol+'_green_signal'] = False
         df.loc[green_filter, symbol + '_green_signal'] = True
         df[symbol+'_green_signal'] = np.where(
-            df[symbol+'_green_signal'], df[symbol+'_close']*0.85, np.nan)
+            df[symbol+'_green_signal'], df[symbol+f'_{column.lower()}']*0.85,
+            np.nan)
 
         red_filter = th.loc[th['Side'] == 'Sell']['Signal Index']
         df[symbol+'_red_signal'] = False
         df.loc[red_filter, symbol + '_red_signal'] = True
         df[symbol+'_red_signal'] = np.where(
-            df[symbol+'_red_signal'], df[symbol+'_close']*0.85, np.nan)
+            df[symbol+'_red_signal'], df[symbol+f'_{column.lower()}']*0.85,
+            np.nan)
         return df, stats
 
 

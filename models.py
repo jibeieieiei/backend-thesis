@@ -167,7 +167,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    ADVANC_open = Column(Float)
+    ADVANC_high = Column(Float)
+    ADVANC_low = Column(Float)
     ADVANC_close = Column(Float)
+    ADVANC_volume = Column(Integer)
     ADVANC_ema_short = Column(Float)
     ADVANC_ema_long = Column(Float)
     ADVANC_buy_signal = Column(Boolean, unique=False, default=True)
@@ -178,7 +182,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    AOT_open = Column(Float)
+    AOT_high = Column(Float)
+    AOT_low = Column(Float)
     AOT_close = Column(Float)
+    AOT_volume = Column(Integer)
     AOT_ema_short = Column(Float)
     AOT_ema_long = Column(Float)
     AOT_buy_signal = Column(Boolean, unique=False, default=True)
@@ -189,7 +197,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    AWC_open = Column(Float)
+    AWC_high = Column(Float)
+    AWC_low = Column(Float)
     AWC_close = Column(Float)
+    AWC_volume = Column(Integer)
     AWC_ema_short = Column(Float)
     AWC_ema_long = Column(Float)
     AWC_buy_signal = Column(Boolean, unique=False, default=True)
@@ -200,7 +212,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    BANPU_open = Column(Float)
+    BANPU_high = Column(Float)
+    BANPU_low = Column(Float)
     BANPU_close = Column(Float)
+    BANPU_volume = Column(Integer)
     BANPU_ema_short = Column(Float)
     BANPU_ema_long = Column(Float)
     BANPU_buy_signal = Column(Boolean, unique=False, default=True)
@@ -211,7 +227,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    BBL_open = Column(Float)
+    BBL_high = Column(Float)
+    BBL_low = Column(Float)
     BBL_close = Column(Float)
+    BBL_volume = Column(Integer)
     BBL_ema_short = Column(Float)
     BBL_ema_long = Column(Float)
     BBL_buy_signal = Column(Boolean, unique=False, default=True)
@@ -222,7 +242,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    BDMS_open = Column(Float)
+    BDMS_high = Column(Float)
+    BDMS_low = Column(Float)
     BDMS_close = Column(Float)
+    BDMS_volume = Column(Integer)
     BDMS_ema_short = Column(Float)
     BDMS_ema_long = Column(Float)
     BDMS_buy_signal = Column(Boolean, unique=False, default=True)
@@ -233,7 +257,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    BEM_open = Column(Float)
+    BEM_high = Column(Float)
+    BEM_low = Column(Float)
     BEM_close = Column(Float)
+    BEM_volume = Column(Integer)
     BEM_ema_short = Column(Float)
     BEM_ema_long = Column(Float)
     BEM_buy_signal = Column(Boolean, unique=False, default=True)
@@ -244,7 +272,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    BGRIM_open = Column(Float)
+    BGRIM_high = Column(Float)
+    BGRIM_low = Column(Float)
     BGRIM_close = Column(Float)
+    BGRIM_volume = Column(Integer)
     BGRIM_ema_short = Column(Float)
     BGRIM_ema_long = Column(Float)
     BGRIM_buy_signal = Column(Boolean, unique=False, default=True)
@@ -255,7 +287,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    BH_open = Column(Float)
+    BH_high = Column(Float)
+    BH_low = Column(Float)
     BH_close = Column(Float)
+    BH_volume = Column(Integer)
     BH_ema_short = Column(Float)
     BH_ema_long = Column(Float)
     BH_buy_signal = Column(Boolean, unique=False, default=True)
@@ -266,7 +302,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    BTS_open = Column(Float)
+    BTS_high = Column(Float)
+    BTS_low = Column(Float)
     BTS_close = Column(Float)
+    BTS_volume = Column(Integer)
     BTS_ema_short = Column(Float)
     BTS_ema_long = Column(Float)
     BTS_buy_signal = Column(Boolean, unique=False, default=True)
@@ -277,7 +317,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    CBG_open = Column(Float)
+    CBG_high = Column(Float)
+    CBG_low = Column(Float)
     CBG_close = Column(Float)
+    CBG_volume = Column(Integer)
     CBG_ema_short = Column(Float)
     CBG_ema_long = Column(Float)
     CBG_buy_signal = Column(Boolean, unique=False, default=True)
@@ -288,7 +332,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    CENTEL_open = Column(Float)
+    CENTEL_high = Column(Float)
+    CENTEL_low = Column(Float)
     CENTEL_close = Column(Float)
+    CENTEL_volume = Column(Integer)
     CENTEL_ema_short = Column(Float)
     CENTEL_ema_long = Column(Float)
     CENTEL_buy_signal = Column(Boolean, unique=False, default=True)
@@ -299,7 +347,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    COM7_open = Column(Float)
+    COM7_high = Column(Float)
+    COM7_low = Column(Float)
     COM7_close = Column(Float)
+    COM7_volume = Column(Integer)
     COM7_ema_short = Column(Float)
     COM7_ema_long = Column(Float)
     COM7_buy_signal = Column(Boolean, unique=False, default=True)
@@ -310,7 +362,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    CPALL_open = Column(Float)
+    CPALL_high = Column(Float)
+    CPALL_low = Column(Float)
     CPALL_close = Column(Float)
+    CPALL_volume = Column(Integer)
     CPALL_ema_short = Column(Float)
     CPALL_ema_long = Column(Float)
     CPALL_buy_signal = Column(Boolean, unique=False, default=True)
@@ -321,7 +377,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    CPF_open = Column(Float)
+    CPF_high = Column(Float)
+    CPF_low = Column(Float)
     CPF_close = Column(Float)
+    CPF_volume = Column(Integer)
     CPF_ema_short = Column(Float)
     CPF_ema_long = Column(Float)
     CPF_buy_signal = Column(Boolean, unique=False, default=True)
@@ -332,7 +392,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    CPN_open = Column(Float)
+    CPN_high = Column(Float)
+    CPN_low = Column(Float)
     CPN_close = Column(Float)
+    CPN_volume = Column(Integer)
     CPN_ema_short = Column(Float)
     CPN_ema_long = Column(Float)
     CPN_buy_signal = Column(Boolean, unique=False, default=True)
@@ -343,7 +407,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    CRC_open = Column(Float)
+    CRC_high = Column(Float)
+    CRC_low = Column(Float)
     CRC_close = Column(Float)
+    CRC_volume = Column(Integer)
     CRC_ema_short = Column(Float)
     CRC_ema_long = Column(Float)
     CRC_buy_signal = Column(Boolean, unique=False, default=True)
@@ -354,7 +422,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    DELTA_open = Column(Float)
+    DELTA_high = Column(Float)
+    DELTA_low = Column(Float)
     DELTA_close = Column(Float)
+    DELTA_volume = Column(Integer)
     DELTA_ema_short = Column(Float)
     DELTA_ema_long = Column(Float)
     DELTA_buy_signal = Column(Boolean, unique=False, default=True)
@@ -365,7 +437,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    EA_open = Column(Float)
+    EA_high = Column(Float)
+    EA_low = Column(Float)
     EA_close = Column(Float)
+    EA_volume = Column(Integer)
     EA_ema_short = Column(Float)
     EA_ema_long = Column(Float)
     EA_buy_signal = Column(Boolean, unique=False, default=True)
@@ -376,7 +452,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    EGCO_open = Column(Float)
+    EGCO_high = Column(Float)
+    EGCO_low = Column(Float)
     EGCO_close = Column(Float)
+    EGCO_volume = Column(Integer)
     EGCO_ema_short = Column(Float)
     EGCO_ema_long = Column(Float)
     EGCO_buy_signal = Column(Boolean, unique=False, default=True)
@@ -387,7 +467,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    GLOBAL_open = Column(Float)
+    GLOBAL_high = Column(Float)
+    GLOBAL_low = Column(Float)
     GLOBAL_close = Column(Float)
+    GLOBAL_volume = Column(Integer)
     GLOBAL_ema_short = Column(Float)
     GLOBAL_ema_long = Column(Float)
     GLOBAL_buy_signal = Column(Boolean, unique=False, default=True)
@@ -398,7 +482,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    GPSC_open = Column(Float)
+    GPSC_high = Column(Float)
+    GPSC_low = Column(Float)
     GPSC_close = Column(Float)
+    GPSC_volume = Column(Integer)
     GPSC_ema_short = Column(Float)
     GPSC_ema_long = Column(Float)
     GPSC_buy_signal = Column(Boolean, unique=False, default=True)
@@ -409,7 +497,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    GULF_open = Column(Float)
+    GULF_high = Column(Float)
+    GULF_low = Column(Float)
     GULF_close = Column(Float)
+    GULF_volume = Column(Integer)
     GULF_ema_short = Column(Float)
     GULF_ema_long = Column(Float)
     GULF_buy_signal = Column(Boolean, unique=False, default=True)
@@ -420,7 +512,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    HMPRO_open = Column(Float)
+    HMPRO_high = Column(Float)
+    HMPRO_low = Column(Float)
     HMPRO_close = Column(Float)
+    HMPRO_volume = Column(Integer)
     HMPRO_ema_short = Column(Float)
     HMPRO_ema_long = Column(Float)
     HMPRO_buy_signal = Column(Boolean, unique=False, default=True)
@@ -431,7 +527,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    INTUCH_open = Column(Float)
+    INTUCH_high = Column(Float)
+    INTUCH_low = Column(Float)
     INTUCH_close = Column(Float)
+    INTUCH_volume = Column(Integer)
     INTUCH_ema_short = Column(Float)
     INTUCH_ema_long = Column(Float)
     INTUCH_buy_signal = Column(Boolean, unique=False, default=True)
@@ -442,7 +542,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    IVL_open = Column(Float)
+    IVL_high = Column(Float)
+    IVL_low = Column(Float)
     IVL_close = Column(Float)
+    IVL_volume = Column(Integer)
     IVL_ema_short = Column(Float)
     IVL_ema_long = Column(Float)
     IVL_buy_signal = Column(Boolean, unique=False, default=True)
@@ -453,7 +557,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    KBANK_open = Column(Float)
+    KBANK_high = Column(Float)
+    KBANK_low = Column(Float)
     KBANK_close = Column(Float)
+    KBANK_volume = Column(Integer)
     KBANK_ema_short = Column(Float)
     KBANK_ema_long = Column(Float)
     KBANK_buy_signal = Column(Boolean, unique=False, default=True)
@@ -464,7 +572,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    KCE_open = Column(Float)
+    KCE_high = Column(Float)
+    KCE_low = Column(Float)
     KCE_close = Column(Float)
+    KCE_volume = Column(Integer)
     KCE_ema_short = Column(Float)
     KCE_ema_long = Column(Float)
     KCE_buy_signal = Column(Boolean, unique=False, default=True)
@@ -475,7 +587,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    KTB_open = Column(Float)
+    KTB_high = Column(Float)
+    KTB_low = Column(Float)
     KTB_close = Column(Float)
+    KTB_volume = Column(Integer)
     KTB_ema_short = Column(Float)
     KTB_ema_long = Column(Float)
     KTB_buy_signal = Column(Boolean, unique=False, default=True)
@@ -486,7 +602,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    KTC_open = Column(Float)
+    KTC_high = Column(Float)
+    KTC_low = Column(Float)
     KTC_close = Column(Float)
+    KTC_volume = Column(Integer)
     KTC_ema_short = Column(Float)
     KTC_ema_long = Column(Float)
     KTC_buy_signal = Column(Boolean, unique=False, default=True)
@@ -497,7 +617,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    LH_open = Column(Float)
+    LH_high = Column(Float)
+    LH_low = Column(Float)
     LH_close = Column(Float)
+    LH_volume = Column(Integer)
     LH_ema_short = Column(Float)
     LH_ema_long = Column(Float)
     LH_buy_signal = Column(Boolean, unique=False, default=True)
@@ -508,7 +632,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    MINT_open = Column(Float)
+    MINT_high = Column(Float)
+    MINT_low = Column(Float)
     MINT_close = Column(Float)
+    MINT_volume = Column(Integer)
     MINT_ema_short = Column(Float)
     MINT_ema_long = Column(Float)
     MINT_buy_signal = Column(Boolean, unique=False, default=True)
@@ -519,7 +647,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    MTC_open = Column(Float)
+    MTC_high = Column(Float)
+    MTC_low = Column(Float)
     MTC_close = Column(Float)
+    MTC_volume = Column(Integer)
     MTC_ema_short = Column(Float)
     MTC_ema_long = Column(Float)
     MTC_buy_signal = Column(Boolean, unique=False, default=True)
@@ -530,7 +662,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    OR_open = Column(Float)
+    OR_high = Column(Float)
+    OR_low = Column(Float)
     OR_close = Column(Float)
+    OR_volume = Column(Integer)
     OR_ema_short = Column(Float)
     OR_ema_long = Column(Float)
     OR_buy_signal = Column(Boolean, unique=False, default=True)
@@ -541,7 +677,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    OSP_open = Column(Float)
+    OSP_high = Column(Float)
+    OSP_low = Column(Float)
     OSP_close = Column(Float)
+    OSP_volume = Column(Integer)
     OSP_ema_short = Column(Float)
     OSP_ema_long = Column(Float)
     OSP_buy_signal = Column(Boolean, unique=False, default=True)
@@ -552,7 +692,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    PTT_open = Column(Float)
+    PTT_high = Column(Float)
+    PTT_low = Column(Float)
     PTT_close = Column(Float)
+    PTT_volume = Column(Integer)
     PTT_ema_short = Column(Float)
     PTT_ema_long = Column(Float)
     PTT_buy_signal = Column(Boolean, unique=False, default=True)
@@ -563,7 +707,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    PTTEP_open = Column(Float)
+    PTTEP_high = Column(Float)
+    PTTEP_low = Column(Float)
     PTTEP_close = Column(Float)
+    PTTEP_volume = Column(Integer)
     PTTEP_ema_short = Column(Float)
     PTTEP_ema_long = Column(Float)
     PTTEP_buy_signal = Column(Boolean, unique=False, default=True)
@@ -574,7 +722,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    PTTGC_open = Column(Float)
+    PTTGC_high = Column(Float)
+    PTTGC_low = Column(Float)
     PTTGC_close = Column(Float)
+    PTTGC_volume = Column(Integer)
     PTTGC_ema_short = Column(Float)
     PTTGC_ema_long = Column(Float)
     PTTGC_buy_signal = Column(Boolean, unique=False, default=True)
@@ -585,7 +737,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    RATCH_open = Column(Float)
+    RATCH_high = Column(Float)
+    RATCH_low = Column(Float)
     RATCH_close = Column(Float)
+    RATCH_volume = Column(Integer)
     RATCH_ema_short = Column(Float)
     RATCH_ema_long = Column(Float)
     RATCH_buy_signal = Column(Boolean, unique=False, default=True)
@@ -596,7 +752,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    SAWAD_open = Column(Float)
+    SAWAD_high = Column(Float)
+    SAWAD_low = Column(Float)
     SAWAD_close = Column(Float)
+    SAWAD_volume = Column(Integer)
     SAWAD_ema_short = Column(Float)
     SAWAD_ema_long = Column(Float)
     SAWAD_buy_signal = Column(Boolean, unique=False, default=True)
@@ -607,7 +767,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    SCB_open = Column(Float)
+    SCB_high = Column(Float)
+    SCB_low = Column(Float)
     SCB_close = Column(Float)
+    SCB_volume = Column(Integer)
     SCB_ema_short = Column(Float)
     SCB_ema_long = Column(Float)
     SCB_buy_signal = Column(Boolean, unique=False, default=True)
@@ -618,7 +782,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    SCC_open = Column(Float)
+    SCC_high = Column(Float)
+    SCC_low = Column(Float)
     SCC_close = Column(Float)
+    SCC_volume = Column(Integer)
     SCC_ema_short = Column(Float)
     SCC_ema_long = Column(Float)
     SCC_buy_signal = Column(Boolean, unique=False, default=True)
@@ -629,7 +797,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    SCGP_open = Column(Float)
+    SCGP_high = Column(Float)
+    SCGP_low = Column(Float)
     SCGP_close = Column(Float)
+    SCGP_volume = Column(Integer)
     SCGP_ema_short = Column(Float)
     SCGP_ema_long = Column(Float)
     SCGP_buy_signal = Column(Boolean, unique=False, default=True)
@@ -640,7 +812,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    TISCO_open = Column(Float)
+    TISCO_high = Column(Float)
+    TISCO_low = Column(Float)
     TISCO_close = Column(Float)
+    TISCO_volume = Column(Integer)
     TISCO_ema_short = Column(Float)
     TISCO_ema_long = Column(Float)
     TISCO_buy_signal = Column(Boolean, unique=False, default=True)
@@ -651,7 +827,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    TOP_open = Column(Float)
+    TOP_high = Column(Float)
+    TOP_low = Column(Float)
     TOP_close = Column(Float)
+    TOP_volume = Column(Integer)
     TOP_ema_short = Column(Float)
     TOP_ema_long = Column(Float)
     TOP_buy_signal = Column(Boolean, unique=False, default=True)
@@ -662,7 +842,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    TRUE_open = Column(Float)
+    TRUE_high = Column(Float)
+    TRUE_low = Column(Float)
     TRUE_close = Column(Float)
+    TRUE_volume = Column(Integer)
     TRUE_ema_short = Column(Float)
     TRUE_ema_long = Column(Float)
     TRUE_buy_signal = Column(Boolean, unique=False, default=True)
@@ -673,7 +857,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    TTB_open = Column(Float)
+    TTB_high = Column(Float)
+    TTB_low = Column(Float)
     TTB_close = Column(Float)
+    TTB_volume = Column(Integer)
     TTB_ema_short = Column(Float)
     TTB_ema_long = Column(Float)
     TTB_buy_signal = Column(Boolean, unique=False, default=True)
@@ -684,7 +872,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    TU_open = Column(Float)
+    TU_high = Column(Float)
+    TU_low = Column(Float)
     TU_close = Column(Float)
+    TU_volume = Column(Integer)
     TU_ema_short = Column(Float)
     TU_ema_long = Column(Float)
     TU_buy_signal = Column(Boolean, unique=False, default=True)
@@ -695,7 +887,11 @@ class BacktestStrategyEMA():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    WHA_open = Column(Float)
+    WHA_high = Column(Float)
+    WHA_low = Column(Float)
     WHA_close = Column(Float)
+    WHA_volume = Column(Integer)
     WHA_ema_short = Column(Float)
     WHA_ema_long = Column(Float)
     WHA_buy_signal = Column(Boolean, unique=False, default=True)
@@ -709,7 +905,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    ADVANC_open = Column(Float)
+    ADVANC_high = Column(Float)
+    ADVANC_low = Column(Float)
     ADVANC_close = Column(Float)
+    ADVANC_volume = Column(Integer)
     ADVANC_rsi = Column(Float)
     ADVANC_buy_signal = Column(Boolean, unique=False, default=True)
     ADVANC_sell_signal = Column(Boolean, unique=False, default=True)
@@ -719,7 +919,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    AOT_open = Column(Float)
+    AOT_high = Column(Float)
+    AOT_low = Column(Float)
     AOT_close = Column(Float)
+    AOT_volume = Column(Integer)
     AOT_rsi = Column(Float)
     AOT_buy_signal = Column(Boolean, unique=False, default=True)
     AOT_sell_signal = Column(Boolean, unique=False, default=True)
@@ -729,7 +933,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    AWC_open = Column(Float)
+    AWC_high = Column(Float)
+    AWC_low = Column(Float)
     AWC_close = Column(Float)
+    AWC_volume = Column(Integer)
     AWC_rsi = Column(Float)
     AWC_buy_signal = Column(Boolean, unique=False, default=True)
     AWC_sell_signal = Column(Boolean, unique=False, default=True)
@@ -739,7 +947,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    BANPU_open = Column(Float)
+    BANPU_high = Column(Float)
+    BANPU_low = Column(Float)
     BANPU_close = Column(Float)
+    BANPU_volume = Column(Integer)
     BANPU_rsi = Column(Float)
     BANPU_buy_signal = Column(Boolean, unique=False, default=True)
     BANPU_sell_signal = Column(Boolean, unique=False, default=True)
@@ -749,7 +961,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    BBL_open = Column(Float)
+    BBL_high = Column(Float)
+    BBL_low = Column(Float)
     BBL_close = Column(Float)
+    BBL_volume = Column(Integer)
     BBL_rsi = Column(Float)
     BBL_buy_signal = Column(Boolean, unique=False, default=True)
     BBL_sell_signal = Column(Boolean, unique=False, default=True)
@@ -759,7 +975,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    BDMS_open = Column(Float)
+    BDMS_high = Column(Float)
+    BDMS_low = Column(Float)
     BDMS_close = Column(Float)
+    BDMS_volume = Column(Integer)
     BDMS_rsi = Column(Float)
     BDMS_buy_signal = Column(Boolean, unique=False, default=True)
     BDMS_sell_signal = Column(Boolean, unique=False, default=True)
@@ -769,7 +989,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    BEM_open = Column(Float)
+    BEM_high = Column(Float)
+    BEM_low = Column(Float)
     BEM_close = Column(Float)
+    BEM_volume = Column(Integer)
     BEM_rsi = Column(Float)
     BEM_buy_signal = Column(Boolean, unique=False, default=True)
     BEM_sell_signal = Column(Boolean, unique=False, default=True)
@@ -779,7 +1003,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    BGRIM_open = Column(Float)
+    BGRIM_high = Column(Float)
+    BGRIM_low = Column(Float)
     BGRIM_close = Column(Float)
+    BGRIM_volume = Column(Integer)
     BGRIM_rsi = Column(Float)
     BGRIM_buy_signal = Column(Boolean, unique=False, default=True)
     BGRIM_sell_signal = Column(Boolean, unique=False, default=True)
@@ -789,7 +1017,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    BH_open = Column(Float)
+    BH_high = Column(Float)
+    BH_low = Column(Float)
     BH_close = Column(Float)
+    BH_volume = Column(Integer)
     BH_rsi = Column(Float)
     BH_buy_signal = Column(Boolean, unique=False, default=True)
     BH_sell_signal = Column(Boolean, unique=False, default=True)
@@ -799,7 +1031,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    BTS_open = Column(Float)
+    BTS_high = Column(Float)
+    BTS_low = Column(Float)
     BTS_close = Column(Float)
+    BTS_volume = Column(Integer)
     BTS_rsi = Column(Float)
     BTS_buy_signal = Column(Boolean, unique=False, default=True)
     BTS_sell_signal = Column(Boolean, unique=False, default=True)
@@ -809,7 +1045,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    CBG_open = Column(Float)
+    CBG_high = Column(Float)
+    CBG_low = Column(Float)
     CBG_close = Column(Float)
+    CBG_volume = Column(Integer)
     CBG_rsi = Column(Float)
     CBG_buy_signal = Column(Boolean, unique=False, default=True)
     CBG_sell_signal = Column(Boolean, unique=False, default=True)
@@ -819,7 +1059,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    CENTEL_open = Column(Float)
+    CENTEL_high = Column(Float)
+    CENTEL_low = Column(Float)
     CENTEL_close = Column(Float)
+    CENTEL_volume = Column(Integer)
     CENTEL_rsi = Column(Float)
     CENTEL_buy_signal = Column(Boolean, unique=False, default=True)
     CENTEL_sell_signal = Column(Boolean, unique=False, default=True)
@@ -829,7 +1073,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    COM7_open = Column(Float)
+    COM7_high = Column(Float)
+    COM7_low = Column(Float)
     COM7_close = Column(Float)
+    COM7_volume = Column(Integer)
     COM7_rsi = Column(Float)
     COM7_buy_signal = Column(Boolean, unique=False, default=True)
     COM7_sell_signal = Column(Boolean, unique=False, default=True)
@@ -839,7 +1087,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    CPALL_open = Column(Float)
+    CPALL_high = Column(Float)
+    CPALL_low = Column(Float)
     CPALL_close = Column(Float)
+    CPALL_volume = Column(Integer)
     CPALL_rsi = Column(Float)
     CPALL_buy_signal = Column(Boolean, unique=False, default=True)
     CPALL_sell_signal = Column(Boolean, unique=False, default=True)
@@ -849,7 +1101,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    CPF_open = Column(Float)
+    CPF_high = Column(Float)
+    CPF_low = Column(Float)
     CPF_close = Column(Float)
+    CPF_volume = Column(Integer)
     CPF_rsi = Column(Float)
     CPF_buy_signal = Column(Boolean, unique=False, default=True)
     CPF_sell_signal = Column(Boolean, unique=False, default=True)
@@ -859,7 +1115,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    CPN_open = Column(Float)
+    CPN_high = Column(Float)
+    CPN_low = Column(Float)
     CPN_close = Column(Float)
+    CPN_volume = Column(Integer)
     CPN_rsi = Column(Float)
     CPN_buy_signal = Column(Boolean, unique=False, default=True)
     CPN_sell_signal = Column(Boolean, unique=False, default=True)
@@ -869,7 +1129,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    CRC_open = Column(Float)
+    CRC_high = Column(Float)
+    CRC_low = Column(Float)
     CRC_close = Column(Float)
+    CRC_volume = Column(Integer)
     CRC_rsi = Column(Float)
     CRC_buy_signal = Column(Boolean, unique=False, default=True)
     CRC_sell_signal = Column(Boolean, unique=False, default=True)
@@ -879,7 +1143,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    DELTA_open = Column(Float)
+    DELTA_high = Column(Float)
+    DELTA_low = Column(Float)
     DELTA_close = Column(Float)
+    DELTA_volume = Column(Integer)
     DELTA_rsi = Column(Float)
     DELTA_buy_signal = Column(Boolean, unique=False, default=True)
     DELTA_sell_signal = Column(Boolean, unique=False, default=True)
@@ -889,7 +1157,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    EA_open = Column(Float)
+    EA_high = Column(Float)
+    EA_low = Column(Float)
     EA_close = Column(Float)
+    EA_volume = Column(Integer)
     EA_rsi = Column(Float)
     EA_buy_signal = Column(Boolean, unique=False, default=True)
     EA_sell_signal = Column(Boolean, unique=False, default=True)
@@ -899,7 +1171,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    EGCO_open = Column(Float)
+    EGCO_high = Column(Float)
+    EGCO_low = Column(Float)
     EGCO_close = Column(Float)
+    EGCO_volume = Column(Integer)
     EGCO_rsi = Column(Float)
     EGCO_buy_signal = Column(Boolean, unique=False, default=True)
     EGCO_sell_signal = Column(Boolean, unique=False, default=True)
@@ -909,7 +1185,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    GLOBAL_open = Column(Float)
+    GLOBAL_high = Column(Float)
+    GLOBAL_low = Column(Float)
     GLOBAL_close = Column(Float)
+    GLOBAL_volume = Column(Integer)
     GLOBAL_rsi = Column(Float)
     GLOBAL_buy_signal = Column(Boolean, unique=False, default=True)
     GLOBAL_sell_signal = Column(Boolean, unique=False, default=True)
@@ -919,7 +1199,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    GPSC_open = Column(Float)
+    GPSC_high = Column(Float)
+    GPSC_low = Column(Float)
     GPSC_close = Column(Float)
+    GPSC_volume = Column(Integer)
     GPSC_rsi = Column(Float)
     GPSC_buy_signal = Column(Boolean, unique=False, default=True)
     GPSC_sell_signal = Column(Boolean, unique=False, default=True)
@@ -929,7 +1213,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    GULF_open = Column(Float)
+    GULF_high = Column(Float)
+    GULF_low = Column(Float)
     GULF_close = Column(Float)
+    GULF_volume = Column(Integer)
     GULF_rsi = Column(Float)
     GULF_buy_signal = Column(Boolean, unique=False, default=True)
     GULF_sell_signal = Column(Boolean, unique=False, default=True)
@@ -939,7 +1227,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    HMPRO_open = Column(Float)
+    HMPRO_high = Column(Float)
+    HMPRO_low = Column(Float)
     HMPRO_close = Column(Float)
+    HMPRO_volume = Column(Integer)
     HMPRO_rsi = Column(Float)
     HMPRO_buy_signal = Column(Boolean, unique=False, default=True)
     HMPRO_sell_signal = Column(Boolean, unique=False, default=True)
@@ -949,7 +1241,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    INTUCH_open = Column(Float)
+    INTUCH_high = Column(Float)
+    INTUCH_low = Column(Float)
     INTUCH_close = Column(Float)
+    INTUCH_volume = Column(Integer)
     INTUCH_rsi = Column(Float)
     INTUCH_buy_signal = Column(Boolean, unique=False, default=True)
     INTUCH_sell_signal = Column(Boolean, unique=False, default=True)
@@ -959,7 +1255,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    IVL_open = Column(Float)
+    IVL_high = Column(Float)
+    IVL_low = Column(Float)
     IVL_close = Column(Float)
+    IVL_volume = Column(Integer)
     IVL_rsi = Column(Float)
     IVL_buy_signal = Column(Boolean, unique=False, default=True)
     IVL_sell_signal = Column(Boolean, unique=False, default=True)
@@ -969,7 +1269,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    KBANK_open = Column(Float)
+    KBANK_high = Column(Float)
+    KBANK_low = Column(Float)
     KBANK_close = Column(Float)
+    KBANK_volume = Column(Integer)
     KBANK_rsi = Column(Float)
     KBANK_buy_signal = Column(Boolean, unique=False, default=True)
     KBANK_sell_signal = Column(Boolean, unique=False, default=True)
@@ -979,7 +1283,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    KCE_open = Column(Float)
+    KCE_high = Column(Float)
+    KCE_low = Column(Float)
     KCE_close = Column(Float)
+    KCE_volume = Column(Integer)
     KCE_rsi = Column(Float)
     KCE_buy_signal = Column(Boolean, unique=False, default=True)
     KCE_sell_signal = Column(Boolean, unique=False, default=True)
@@ -989,7 +1297,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    KTB_open = Column(Float)
+    KTB_high = Column(Float)
+    KTB_low = Column(Float)
     KTB_close = Column(Float)
+    KTB_volume = Column(Integer)
     KTB_rsi = Column(Float)
     KTB_buy_signal = Column(Boolean, unique=False, default=True)
     KTB_sell_signal = Column(Boolean, unique=False, default=True)
@@ -999,7 +1311,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    KTC_open = Column(Float)
+    KTC_high = Column(Float)
+    KTC_low = Column(Float)
     KTC_close = Column(Float)
+    KTC_volume = Column(Integer)
     KTC_rsi = Column(Float)
     KTC_buy_signal = Column(Boolean, unique=False, default=True)
     KTC_sell_signal = Column(Boolean, unique=False, default=True)
@@ -1009,7 +1325,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    LH_open = Column(Float)
+    LH_high = Column(Float)
+    LH_low = Column(Float)
     LH_close = Column(Float)
+    LH_volume = Column(Integer)
     LH_rsi = Column(Float)
     LH_buy_signal = Column(Boolean, unique=False, default=True)
     LH_sell_signal = Column(Boolean, unique=False, default=True)
@@ -1019,7 +1339,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    MINT_open = Column(Float)
+    MINT_high = Column(Float)
+    MINT_low = Column(Float)
     MINT_close = Column(Float)
+    MINT_volume = Column(Integer)
     MINT_rsi = Column(Float)
     MINT_buy_signal = Column(Boolean, unique=False, default=True)
     MINT_sell_signal = Column(Boolean, unique=False, default=True)
@@ -1029,7 +1353,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    MTC_open = Column(Float)
+    MTC_high = Column(Float)
+    MTC_low = Column(Float)
     MTC_close = Column(Float)
+    MTC_volume = Column(Integer)
     MTC_rsi = Column(Float)
     MTC_buy_signal = Column(Boolean, unique=False, default=True)
     MTC_sell_signal = Column(Boolean, unique=False, default=True)
@@ -1039,7 +1367,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    OR_open = Column(Float)
+    OR_high = Column(Float)
+    OR_low = Column(Float)
     OR_close = Column(Float)
+    OR_volume = Column(Integer)
     OR_rsi = Column(Float)
     OR_buy_signal = Column(Boolean, unique=False, default=True)
     OR_sell_signal = Column(Boolean, unique=False, default=True)
@@ -1049,7 +1381,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    OSP_open = Column(Float)
+    OSP_high = Column(Float)
+    OSP_low = Column(Float)
     OSP_close = Column(Float)
+    OSP_volume = Column(Integer)
     OSP_rsi = Column(Float)
     OSP_buy_signal = Column(Boolean, unique=False, default=True)
     OSP_sell_signal = Column(Boolean, unique=False, default=True)
@@ -1059,7 +1395,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    PTT_open = Column(Float)
+    PTT_high = Column(Float)
+    PTT_low = Column(Float)
     PTT_close = Column(Float)
+    PTT_volume = Column(Integer)
     PTT_rsi = Column(Float)
     PTT_buy_signal = Column(Boolean, unique=False, default=True)
     PTT_sell_signal = Column(Boolean, unique=False, default=True)
@@ -1069,7 +1409,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    PTTEP_open = Column(Float)
+    PTTEP_high = Column(Float)
+    PTTEP_low = Column(Float)
     PTTEP_close = Column(Float)
+    PTTEP_volume = Column(Integer)
     PTTEP_rsi = Column(Float)
     PTTEP_buy_signal = Column(Boolean, unique=False, default=True)
     PTTEP_sell_signal = Column(Boolean, unique=False, default=True)
@@ -1079,7 +1423,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    PTTGC_open = Column(Float)
+    PTTGC_high = Column(Float)
+    PTTGC_low = Column(Float)
     PTTGC_close = Column(Float)
+    PTTGC_volume = Column(Integer)
     PTTGC_rsi = Column(Float)
     PTTGC_buy_signal = Column(Boolean, unique=False, default=True)
     PTTGC_sell_signal = Column(Boolean, unique=False, default=True)
@@ -1089,7 +1437,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    RATCH_open = Column(Float)
+    RATCH_high = Column(Float)
+    RATCH_low = Column(Float)
     RATCH_close = Column(Float)
+    RATCH_volume = Column(Integer)
     RATCH_rsi = Column(Float)
     RATCH_buy_signal = Column(Boolean, unique=False, default=True)
     RATCH_sell_signal = Column(Boolean, unique=False, default=True)
@@ -1099,7 +1451,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    SAWAD_open = Column(Float)
+    SAWAD_high = Column(Float)
+    SAWAD_low = Column(Float)
     SAWAD_close = Column(Float)
+    SAWAD_volume = Column(Integer)
     SAWAD_rsi = Column(Float)
     SAWAD_buy_signal = Column(Boolean, unique=False, default=True)
     SAWAD_sell_signal = Column(Boolean, unique=False, default=True)
@@ -1109,7 +1465,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    SCB_open = Column(Float)
+    SCB_high = Column(Float)
+    SCB_low = Column(Float)
     SCB_close = Column(Float)
+    SCB_volume = Column(Integer)
     SCB_rsi = Column(Float)
     SCB_buy_signal = Column(Boolean, unique=False, default=True)
     SCB_sell_signal = Column(Boolean, unique=False, default=True)
@@ -1119,7 +1479,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    SCC_open = Column(Float)
+    SCC_high = Column(Float)
+    SCC_low = Column(Float)
     SCC_close = Column(Float)
+    SCC_volume = Column(Integer)
     SCC_rsi = Column(Float)
     SCC_buy_signal = Column(Boolean, unique=False, default=True)
     SCC_sell_signal = Column(Boolean, unique=False, default=True)
@@ -1129,7 +1493,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    SCGP_open = Column(Float)
+    SCGP_high = Column(Float)
+    SCGP_low = Column(Float)
     SCGP_close = Column(Float)
+    SCGP_volume = Column(Integer)
     SCGP_rsi = Column(Float)
     SCGP_buy_signal = Column(Boolean, unique=False, default=True)
     SCGP_sell_signal = Column(Boolean, unique=False, default=True)
@@ -1139,7 +1507,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    TISCO_open = Column(Float)
+    TISCO_high = Column(Float)
+    TISCO_low = Column(Float)
     TISCO_close = Column(Float)
+    TISCO_volume = Column(Integer)
     TISCO_rsi = Column(Float)
     TISCO_buy_signal = Column(Boolean, unique=False, default=True)
     TISCO_sell_signal = Column(Boolean, unique=False, default=True)
@@ -1149,7 +1521,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    TOP_open = Column(Float)
+    TOP_high = Column(Float)
+    TOP_low = Column(Float)
     TOP_close = Column(Float)
+    TOP_volume = Column(Integer)
     TOP_rsi = Column(Float)
     TOP_buy_signal = Column(Boolean, unique=False, default=True)
     TOP_sell_signal = Column(Boolean, unique=False, default=True)
@@ -1159,7 +1535,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    TRUE_open = Column(Float)
+    TRUE_high = Column(Float)
+    TRUE_low = Column(Float)
     TRUE_close = Column(Float)
+    TRUE_volume = Column(Integer)
     TRUE_rsi = Column(Float)
     TRUE_buy_signal = Column(Boolean, unique=False, default=True)
     TRUE_sell_signal = Column(Boolean, unique=False, default=True)
@@ -1169,7 +1549,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    TTB_open = Column(Float)
+    TTB_high = Column(Float)
+    TTB_low = Column(Float)
     TTB_close = Column(Float)
+    TTB_volume = Column(Integer)
     TTB_rsi = Column(Float)
     TTB_buy_signal = Column(Boolean, unique=False, default=True)
     TTB_sell_signal = Column(Boolean, unique=False, default=True)
@@ -1179,7 +1563,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    TU_open = Column(Float)
+    TU_high = Column(Float)
+    TU_low = Column(Float)
     TU_close = Column(Float)
+    TU_volume = Column(Integer)
     TU_rsi = Column(Float)
     TU_buy_signal = Column(Boolean, unique=False, default=True)
     TU_sell_signal = Column(Boolean, unique=False, default=True)
@@ -1189,7 +1577,11 @@ class BacktestStrategyRSI():
         storage_format="%(year)04d-%(month)02d-%(day)02d" +
         "%(hour)02d:%(minute)02d:%(second)02d"),
         default=datetime.datetime.utcnow)
+    WHA_open = Column(Float)
+    WHA_high = Column(Float)
+    WHA_low = Column(Float)
     WHA_close = Column(Float)
+    WHA_volume = Column(Integer)
     WHA_rsi = Column(Float)
     WHA_buy_signal = Column(Boolean, unique=False, default=True)
     WHA_sell_signal = Column(Boolean, unique=False, default=True)
