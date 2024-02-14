@@ -104,7 +104,7 @@ class ARIMACalculatorParams:
 
         p = range(0, 3) if self.p == -1 else range(self.p, self.p+1)
         d = range(0, 3) if self.d == -1 else range(self.d, self.d+1)
-        q = range(0, 3) if self.q == -1 else range(self.q, self.q+1)
+        q = range(1, 3) if self.q == -1 else range(self.q, self.q+1)
 
         pdq = list(itertools.product(p, d, q))
 
