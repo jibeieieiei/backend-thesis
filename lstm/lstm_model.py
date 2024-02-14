@@ -1,15 +1,22 @@
 # import math
+import logging
+import os
 import time
 import warnings
 
 # import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import tensorflow as tf
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import MinMaxScaler
 from sqlalchemy import create_engine
 from tensorflow.keras.layers import LSTM, Dense
 from tensorflow.keras.models import Sequential, load_model
+
+logging.basicConfig(level=logging.INFO, filename="py_log.log", filemode="w")
+logging.getLogger("tensorflow").setLevel(logging.WARNING)
+
 
 warnings.filterwarnings("ignore")
 
@@ -27,7 +34,7 @@ stocks = [
 
 timeframe = ["15t", "1h", "4h", "1d"]
 
-columns = ["Close", "Volume"]
+columns = ["Close"]
 
 
 class LSTMPredict:
@@ -83,6 +90,8 @@ class LSTMPredict:
         return np.array(dataX), np.array(dataY)
 
     def fitting_model(self):
+        print(
+            f"----------------- {self.symbol} {self.timeframe} -----------------\n\n\n\n\n\n\n")
         # Define train, test
         X_train, Y_train = self.X_train, self.Y_train
         X_test, Y_test = self.X_test, self.Y_test
@@ -96,7 +105,7 @@ class LSTMPredict:
         model.compile(loss='mean_squared_error', optimizer='adam')
         # Fitting Model
         model.fit(X_train, Y_train, validation_data=(
-            X_test, Y_test), epochs=20, batch_size=64, verbose=1)
+            X_test, Y_test), epochs=100, batch_size=64, verbose=1)
         model.save(
             f"lstm/models/{self.column.lower()}/{self.timeframe}/{self.symbol}_{self.timeframe}.h5")
         print(f"Save {self.symbol} done..")
@@ -144,6 +153,7 @@ if __name__ == "__main__":
 
     engine = create_engine('sqlite:///./project.db', echo=False)
 
+    # --------- Load Model ---------
     for tf in timeframe[:]:
         lstm_data = {}
         lstm_backtest_test = {}
@@ -182,6 +192,13 @@ if __name__ == "__main__":
                 name_mse_df = f'lstm_mse_{tf}'
                 lstm_mse_df.to_sql(name=name_mse_df,
                                    con=engine, if_exists="replace")
+
+    # --------- Save Model ---------
+    # for tf in timeframe[:]:
+    #     for col in columns[:]:
+    #         for symbol in stocks[:]:
+    #             model = LSTMPredict(symbol, tf, col, load=False)
+    #             print(f"{tf} {symbol} {col} Done\n\n\n\n")
 
     end = time.time()
 
