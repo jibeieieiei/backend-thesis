@@ -16,6 +16,8 @@ timeframe = ["15t", "1h", "4h", "1d"]
 
 columns = ["Close"]
 
+stop_loss = [0, 2, 4, 6]
+
 
 class BacktestStrategy:
 
@@ -24,12 +26,16 @@ class BacktestStrategy:
                  timeframe: str,
                  column: str,
                  start_date: str = "2023-01-01",
-                 end_date: str = "2024-01-01"):
+                 end_date: str = "2024-01-01",
+                 stop_loss: float = 0,
+                 take_profit: float = 0):
         self.symbol = symbol
         self.timeframe = timeframe
         self.column = column
         self.start_date = start_date
         self.end_date = end_date
+        self.stop_loss = stop_loss
+        self.take_profit = take_profit
         self.length_by_tf = {'15t': 11683, '1h': 4862, '4h': 1394, '1d': 698}
         self.data = None
         self.load_data()
@@ -69,10 +75,21 @@ class BacktestStrategy:
         df[symbol+'_sell_signal'] = ema_short < ema_long
         df[symbol+'_sell_signal'].iloc[-1] = True
         # -------Signal-------
-        pf = vbt.Portfolio.from_signals(
-            df[f"{symbol}_{column.lower()}"], entries, exits)
+        if self.stop_loss == 0:
+            pf = vbt.Portfolio.from_signals(
+                df[f"{symbol}_{column.lower()}"], entries, exits)
+        else:
+            pf = vbt.Portfolio.from_signals(
+                df[f"{symbol}_{column.lower()}"], entries, exits,
+                sl_stop=self.stop_loss / 100,
+                tp_stop=self.take_profit / 100)
         stats = pf.stats().to_frame()
         stats.columns = [symbol+'_stats']
+        stats = stats.drop(['Total Time Exposure [%]', 'Benchmark Return [%]',
+                            'Max Gross Exposure [%]', 'Max Drawdown Duration',
+                            'Total Fees Paid', 'Avg Winning Trade Duration',
+                            'Avg Losing Trade Duration', 'Profit Factor',
+                            'Expectancy'])
         # -------Trade History for green red signal-------
         th = pf.get_trade_history()  # th: trade history
         # INIT
@@ -80,21 +97,29 @@ class BacktestStrategy:
         df[symbol+'_green_signal'] = False
         df.loc[green_filter, symbol + '_green_signal'] = True
         df[symbol+'_green_signal'] = np.where(
-            df[symbol+'_green_signal'], df[symbol+'_low']*0.9,
+            df[symbol+'_green_signal'], df[symbol+'_low'],
             np.nan)
 
         red_filter = th.loc[th['Side'] == 'Sell']['Signal Index']
         df[symbol+'_red_signal'] = False
         df.loc[red_filter, symbol + '_red_signal'] = True
         df[symbol+'_red_signal'] = np.where(
-            df[symbol+'_red_signal'], df[symbol+'_low']*0.9,
+            df[symbol+'_red_signal'], df[symbol+'_low'],
             np.nan)
-        return df, stats
+        # Trade History
+        th = th.drop(columns=['Order Id', 'Column', 'Creation Index',
+                              'Fill Index', 'Type', 'Size',
+                              'Position Id', 'Entry Trade Id',
+                              'Exit Trade Id'])
+        th.columns = [symbol+"_" +
+                      x.replace(" ", "_").lower() for x in th.columns]
+        return df, stats, th
 
     def rsi(self,
             length: int = 14,
             over_sold: int = 30,
-            over_bought: int = 70):
+            over_bought: int = 70
+            ):
         column = self.column
         symbol = self.symbol.upper()
         df = self.data.copy()
@@ -117,10 +142,21 @@ class BacktestStrategy:
         df[symbol+'_sell_signal'] = exits
         df[symbol+'_sell_signal'].iloc[-1] = True
         # -------Signal-------
-        pf = vbt.Portfolio.from_signals(
-            df[f"{symbol}_{column.lower()}"], entries, exits)
+        if self.stop_loss == 0:
+            pf = vbt.Portfolio.from_signals(
+                df[f"{symbol}_{column.lower()}"], entries, exits)
+        else:
+            pf = vbt.Portfolio.from_signals(
+                df[f"{symbol}_{column.lower()}"], entries, exits,
+                sl_stop=self.stop_loss / 100,
+                tp_stop=self.take_profit / 100)
         stats = pf.stats().to_frame()
         stats.columns = [symbol+'_stats']
+        stats = stats.drop(['Total Time Exposure [%]', 'Benchmark Return [%]',
+                            'Max Gross Exposure [%]', 'Max Drawdown Duration',
+                            'Total Fees Paid', 'Avg Winning Trade Duration',
+                            'Avg Losing Trade Duration', 'Profit Factor',
+                            'Expectancy'])
         # -------Trade History for green red signal-------
         th = pf.get_trade_history()  # th: trade history
 
@@ -128,16 +164,23 @@ class BacktestStrategy:
         df[symbol+'_green_signal'] = False
         df.loc[green_filter, symbol + '_green_signal'] = True
         df[symbol+'_green_signal'] = np.where(
-            df[symbol+'_green_signal'], df[symbol+'_low']*0.9,
+            df[symbol+'_green_signal'], df[symbol+'_low'],
             np.nan)
 
         red_filter = th.loc[th['Side'] == 'Sell']['Signal Index']
         df[symbol+'_red_signal'] = False
         df.loc[red_filter, symbol + '_red_signal'] = True
         df[symbol+'_red_signal'] = np.where(
-            df[symbol+'_red_signal'], df[symbol+'_low']*0.9,
+            df[symbol+'_red_signal'], df[symbol+'_low'],
             np.nan)
-        return df, stats
+        # Trade History
+        th = th.drop(columns=['Order Id', 'Column', 'Creation Index',
+                              'Fill Index', 'Type', 'Size',
+                              'Position Id', 'Entry Trade Id',
+                              'Exit Trade Id'])
+        th.columns = [symbol+"_" +
+                      x.replace(" ", "_").lower() for x in th.columns]
+        return df, stats, th
 
 
 if __name__ == "__main__":
@@ -146,47 +189,66 @@ if __name__ == "__main__":
     # EMA_CROSS to DATABASE
     for tf in timeframe[:]:
         for col in columns[:]:
-            _df = pd.DataFrame()
-            _stats = pd.DataFrame()
-            for symbol in stocks[:]:
-                df, stats = BacktestStrategy(symbol, tf, col).ema_cross()
-                _df = pd.concat([_df, df], axis=1)
-                cols = _stats.columns.to_list() + stats.columns.to_list()
-                _stats = pd.concat([_stats, stats], axis=1, ignore_index=True)
-                _stats.columns = cols
-            _df.to_sql(name=f'ema_cross_{col.lower()}_{tf.lower()}',
-                       con=engine, if_exists="replace")
-            # Edit Name Index of Stats
-            _index = [x.replace("[%]", "percent")
-                      for x in _stats.index.str.lower()]
-            _stats.index = [x.strip().replace(" ", "_") for x in _index]
-            _stats = _stats.astype(float)
-            _stats.reset_index(inplace=True)
-            _stats.to_sql(name=f'ema_cross_stats_{col.lower()}_{tf.lower()}',
-                          con=engine, if_exists="replace")
-            print(f"Backtest EMA_CROSS {tf} Done..")
+            for sl in stop_loss[:]:
+                _df = pd.DataFrame()
+                _stats = pd.DataFrame()
+                _th = pd.DataFrame()
+                for symbol in stocks[:]:
+                    df, stats, th = BacktestStrategy(
+                        symbol, tf, col, stop_loss=sl,
+                        take_profit=2*sl).ema_cross()
+                    _df = pd.concat([_df, df], axis=1)
+                    cols = _stats.columns.to_list() + stats.columns.to_list()
+                    _stats = pd.concat(
+                        [_stats, stats], axis=1, ignore_index=True)
+                    _stats.columns = cols
+                    cols_th = _th.columns.to_list() + th.columns.to_list()
+                    _th = pd.concat([_th, th], axis=1, ignore_index=True)
+                    _th.columns = cols_th
+                _df.to_sql(name=f'ema_cross_{col.lower()}_{tf.lower()}_{int(sl)}_{int(2*sl)}',
+                           con=engine, if_exists="replace")
+                # Edit Name Index of Stats
+                _index = [x.replace("[%]", "percent")
+                          for x in _stats.index.str.lower()]
+                _stats.index = [x.strip().replace(" ", "_") for x in _index]
+                _stats = _stats.astype(float)
+                _stats.reset_index(inplace=True)
+                _stats.to_sql(name=f'ema_cross_stats_{col.lower()}_{tf.lower()}_{int(sl)}_{int(2*sl)}',
+                              con=engine, if_exists="replace")
+                _th.to_sql(name=f'trade_history_ema_cross_{col.lower()}_{tf.lower()}_{int(sl)}_{int(2*sl)}',
+                           con=engine, if_exists="replace")
+                print(f"Backtest EMA_CROSS {tf} {sl} Done..")
     # End EMA_CROSS --------------------------
 
     # RSI to DATABASE
     for tf in timeframe[:]:
         for col in columns[:]:
-            _df = pd.DataFrame()
-            _stats = pd.DataFrame()
-            for symbol in stocks[:]:
-                df, stats = BacktestStrategy(symbol, tf, col).rsi()
-                _df = pd.concat([_df, df], axis=1)
-                cols = _stats.columns.to_list() + stats.columns.to_list()
-                _stats = pd.concat([_stats, stats], axis=1, ignore_index=True)
-                _stats.columns = cols
-            _df.to_sql(name=f'rsi_{col.lower()}_{tf.lower()}',
-                       con=engine, if_exists="replace")
-            # Edit Name Index of Stats
-            _index = [x.replace("[%]", "percent")
-                      for x in _stats.index.str.lower()]
-            _stats.index = [x.strip().replace(" ", "_") for x in _index]
-            _stats = _stats.astype(float)
-            _stats.reset_index(inplace=True)
-            _stats.to_sql(name=f'rsi_stats_{col.lower()}_{tf.lower()}',
-                          con=engine, if_exists="replace")
-            print(f"Backtest RSI {tf} Done..")
+            for sl in stop_loss[:]:
+                _df = pd.DataFrame()
+                _stats = pd.DataFrame()
+                _th = pd.DataFrame()
+                for symbol in stocks[:]:
+                    df, stats, th = BacktestStrategy(
+                        symbol, tf, col, stop_loss=sl, take_profit=2*sl).rsi()
+                    _df = pd.concat([_df, df], axis=1)
+                    cols = _stats.columns.to_list() + stats.columns.to_list()
+                    _stats = pd.concat(
+                        [_stats, stats], axis=1, ignore_index=True)
+                    _stats.columns = cols
+                    cols_th = _th.columns.to_list() + th.columns.to_list()
+                    _th = pd.concat([_th, th], axis=1, ignore_index=True)
+                    _th.columns = cols_th
+                _df.to_sql(name=f'rsi_{col.lower()}_{tf.lower()}__{int(sl)}_{int(2*sl)}',
+                           con=engine, if_exists="replace")
+                # Edit Name Index of Stats
+                _index = [x.replace("[%]", "percent")
+                          for x in _stats.index.str.lower()]
+                _stats.index = [x.strip().replace(" ", "_") for x in _index]
+                _stats = _stats.astype(float)
+                _stats.reset_index(inplace=True)
+                _stats.to_sql(name=f'rsi_stats_{col.lower()}_{tf.lower()}_{int(sl)}_{int(2*sl)}',
+                              con=engine, if_exists="replace")
+                _th.to_sql(name=f'trade_history_rsi_{col.lower()}_{tf.lower()}_{int(sl)}_{int(2*sl)}',
+                           con=engine, if_exists="replace")
+                print(f"Backtest RSI {tf} {sl} Done..")
     # End RSI --------------------------

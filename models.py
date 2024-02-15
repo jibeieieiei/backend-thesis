@@ -1641,6 +1641,451 @@ class StatsStrategy():
     TU_stats = Column(Float)
     WHA_stats = Column(Float)
 
+
+class TradeHistory():
+    ADVANC_signal_index = Column(Integer)
+    ADVANC_side = Column(String)
+    ADVANC_stop_type = Column(String)
+    ADVANC_price = Column(Integer)
+    ADVANC_fees = Column(Integer)
+    ADVANC_pnl = Column(Integer)
+    ADVANC_return = Column(Integer)
+    ADVANC_direction = Column(String)
+    ADVANC_status = Column(String)
+    AOT_signal_index = Column(Integer)
+    AOT_side = Column(String)
+    AOT_stop_type = Column(String)
+    AOT_price = Column(Integer)
+    AOT_fees = Column(Integer)
+    AOT_pnl = Column(Integer)
+    AOT_return = Column(Integer)
+    AOT_direction = Column(String)
+    AOT_status = Column(String)
+    AWC_signal_index = Column(Integer)
+    AWC_side = Column(String)
+    AWC_stop_type = Column(String)
+    AWC_price = Column(Integer)
+    AWC_fees = Column(Integer)
+    AWC_pnl = Column(Integer)
+    AWC_return = Column(Integer)
+    AWC_direction = Column(String)
+    AWC_status = Column(String)
+    BANPU_signal_index = Column(Integer)
+    BANPU_side = Column(String)
+    BANPU_stop_type = Column(String)
+    BANPU_price = Column(Integer)
+    BANPU_fees = Column(Integer)
+    BANPU_pnl = Column(Integer)
+    BANPU_return = Column(Integer)
+    BANPU_direction = Column(String)
+    BANPU_status = Column(String)
+    BBL_signal_index = Column(Integer)
+    BBL_side = Column(String)
+    BBL_stop_type = Column(String)
+    BBL_price = Column(Integer)
+    BBL_fees = Column(Integer)
+    BBL_pnl = Column(Integer)
+    BBL_return = Column(Integer)
+    BBL_direction = Column(String)
+    BBL_status = Column(String)
+    BDMS_signal_index = Column(Integer)
+    BDMS_side = Column(String)
+    BDMS_stop_type = Column(String)
+    BDMS_price = Column(Integer)
+    BDMS_fees = Column(Integer)
+    BDMS_pnl = Column(Integer)
+    BDMS_return = Column(Integer)
+    BDMS_direction = Column(String)
+    BDMS_status = Column(String)
+    BEM_signal_index = Column(Integer)
+    BEM_side = Column(String)
+    BEM_stop_type = Column(String)
+    BEM_price = Column(Integer)
+    BEM_fees = Column(Integer)
+    BEM_pnl = Column(Integer)
+    BEM_return = Column(Integer)
+    BEM_direction = Column(String)
+    BEM_status = Column(String)
+    BGRIM_signal_index = Column(Integer)
+    BGRIM_side = Column(String)
+    BGRIM_stop_type = Column(String)
+    BGRIM_price = Column(Integer)
+    BGRIM_fees = Column(Integer)
+    BGRIM_pnl = Column(Integer)
+    BGRIM_return = Column(Integer)
+    BGRIM_direction = Column(String)
+    BGRIM_status = Column(String)
+    BH_signal_index = Column(Integer)
+    BH_side = Column(String)
+    BH_stop_type = Column(String)
+    BH_price = Column(Integer)
+    BH_fees = Column(Integer)
+    BH_pnl = Column(Integer)
+    BH_return = Column(Integer)
+    BH_direction = Column(String)
+    BH_status = Column(String)
+    BTS_signal_index = Column(Integer)
+    BTS_side = Column(String)
+    BTS_stop_type = Column(String)
+    BTS_price = Column(Integer)
+    BTS_fees = Column(Integer)
+    BTS_pnl = Column(Integer)
+    BTS_return = Column(Integer)
+    BTS_direction = Column(String)
+    BTS_status = Column(String)
+    CBG_signal_index = Column(Integer)
+    CBG_side = Column(String)
+    CBG_stop_type = Column(String)
+    CBG_price = Column(Integer)
+    CBG_fees = Column(Integer)
+    CBG_pnl = Column(Integer)
+    CBG_return = Column(Integer)
+    CBG_direction = Column(String)
+    CBG_status = Column(String)
+    CENTEL_signal_index = Column(Integer)
+    CENTEL_side = Column(String)
+    CENTEL_stop_type = Column(String)
+    CENTEL_price = Column(Integer)
+    CENTEL_fees = Column(Integer)
+    CENTEL_pnl = Column(Integer)
+    CENTEL_return = Column(Integer)
+    CENTEL_direction = Column(String)
+    CENTEL_status = Column(String)
+    COM7_signal_index = Column(Integer)
+    COM7_side = Column(String)
+    COM7_stop_type = Column(String)
+    COM7_price = Column(Integer)
+    COM7_fees = Column(Integer)
+    COM7_pnl = Column(Integer)
+    COM7_return = Column(Integer)
+    COM7_direction = Column(String)
+    COM7_status = Column(String)
+    CPALL_signal_index = Column(Integer)
+    CPALL_side = Column(String)
+    CPALL_stop_type = Column(String)
+    CPALL_price = Column(Integer)
+    CPALL_fees = Column(Integer)
+    CPALL_pnl = Column(Integer)
+    CPALL_return = Column(Integer)
+    CPALL_direction = Column(String)
+    CPALL_status = Column(String)
+    CPF_signal_index = Column(Integer)
+    CPF_side = Column(String)
+    CPF_stop_type = Column(String)
+    CPF_price = Column(Integer)
+    CPF_fees = Column(Integer)
+    CPF_pnl = Column(Integer)
+    CPF_return = Column(Integer)
+    CPF_direction = Column(String)
+    CPF_status = Column(String)
+    CPN_signal_index = Column(Integer)
+    CPN_side = Column(String)
+    CPN_stop_type = Column(String)
+    CPN_price = Column(Integer)
+    CPN_fees = Column(Integer)
+    CPN_pnl = Column(Integer)
+    CPN_return = Column(Integer)
+    CPN_direction = Column(String)
+    CPN_status = Column(String)
+    CRC_signal_index = Column(Integer)
+    CRC_side = Column(String)
+    CRC_stop_type = Column(String)
+    CRC_price = Column(Integer)
+    CRC_fees = Column(Integer)
+    CRC_pnl = Column(Integer)
+    CRC_return = Column(Integer)
+    CRC_direction = Column(String)
+    CRC_status = Column(String)
+    DELTA_signal_index = Column(Integer)
+    DELTA_side = Column(String)
+    DELTA_stop_type = Column(String)
+    DELTA_price = Column(Integer)
+    DELTA_fees = Column(Integer)
+    DELTA_pnl = Column(Integer)
+    DELTA_return = Column(Integer)
+    DELTA_direction = Column(String)
+    DELTA_status = Column(String)
+    EA_signal_index = Column(Integer)
+    EA_side = Column(String)
+    EA_stop_type = Column(String)
+    EA_price = Column(Integer)
+    EA_fees = Column(Integer)
+    EA_pnl = Column(Integer)
+    EA_return = Column(Integer)
+    EA_direction = Column(String)
+    EA_status = Column(String)
+    EGCO_signal_index = Column(Integer)
+    EGCO_side = Column(String)
+    EGCO_stop_type = Column(String)
+    EGCO_price = Column(Integer)
+    EGCO_fees = Column(Integer)
+    EGCO_pnl = Column(Integer)
+    EGCO_return = Column(Integer)
+    EGCO_direction = Column(String)
+    EGCO_status = Column(String)
+    GLOBAL_signal_index = Column(Integer)
+    GLOBAL_side = Column(String)
+    GLOBAL_stop_type = Column(String)
+    GLOBAL_price = Column(Integer)
+    GLOBAL_fees = Column(Integer)
+    GLOBAL_pnl = Column(Integer)
+    GLOBAL_return = Column(Integer)
+    GLOBAL_direction = Column(String)
+    GLOBAL_status = Column(String)
+    GPSC_signal_index = Column(Integer)
+    GPSC_side = Column(String)
+    GPSC_stop_type = Column(String)
+    GPSC_price = Column(Integer)
+    GPSC_fees = Column(Integer)
+    GPSC_pnl = Column(Integer)
+    GPSC_return = Column(Integer)
+    GPSC_direction = Column(String)
+    GPSC_status = Column(String)
+    GULF_signal_index = Column(Integer)
+    GULF_side = Column(String)
+    GULF_stop_type = Column(String)
+    GULF_price = Column(Integer)
+    GULF_fees = Column(Integer)
+    GULF_pnl = Column(Integer)
+    GULF_return = Column(Integer)
+    GULF_direction = Column(String)
+    GULF_status = Column(String)
+    HMPRO_signal_index = Column(Integer)
+    HMPRO_side = Column(String)
+    HMPRO_stop_type = Column(String)
+    HMPRO_price = Column(Integer)
+    HMPRO_fees = Column(Integer)
+    HMPRO_pnl = Column(Integer)
+    HMPRO_return = Column(Integer)
+    HMPRO_direction = Column(String)
+    HMPRO_status = Column(String)
+    INTUCH_signal_index = Column(Integer)
+    INTUCH_side = Column(String)
+    INTUCH_stop_type = Column(String)
+    INTUCH_price = Column(Integer)
+    INTUCH_fees = Column(Integer)
+    INTUCH_pnl = Column(Integer)
+    INTUCH_return = Column(Integer)
+    INTUCH_direction = Column(String)
+    INTUCH_status = Column(String)
+    IVL_signal_index = Column(Integer)
+    IVL_side = Column(String)
+    IVL_stop_type = Column(String)
+    IVL_price = Column(Integer)
+    IVL_fees = Column(Integer)
+    IVL_pnl = Column(Integer)
+    IVL_return = Column(Integer)
+    IVL_direction = Column(String)
+    IVL_status = Column(String)
+    KBANK_signal_index = Column(Integer)
+    KBANK_side = Column(String)
+    KBANK_stop_type = Column(String)
+    KBANK_price = Column(Integer)
+    KBANK_fees = Column(Integer)
+    KBANK_pnl = Column(Integer)
+    KBANK_return = Column(Integer)
+    KBANK_direction = Column(String)
+    KBANK_status = Column(String)
+    KCE_signal_index = Column(Integer)
+    KCE_side = Column(String)
+    KCE_stop_type = Column(String)
+    KCE_price = Column(Integer)
+    KCE_fees = Column(Integer)
+    KCE_pnl = Column(Integer)
+    KCE_return = Column(Integer)
+    KCE_direction = Column(String)
+    KCE_status = Column(String)
+    KTB_signal_index = Column(Integer)
+    KTB_side = Column(String)
+    KTB_stop_type = Column(String)
+    KTB_price = Column(Integer)
+    KTB_fees = Column(Integer)
+    KTB_pnl = Column(Integer)
+    KTB_return = Column(Integer)
+    KTB_direction = Column(String)
+    KTB_status = Column(String)
+    KTC_signal_index = Column(Integer)
+    KTC_side = Column(String)
+    KTC_stop_type = Column(String)
+    KTC_price = Column(Integer)
+    KTC_fees = Column(Integer)
+    KTC_pnl = Column(Integer)
+    KTC_return = Column(Integer)
+    KTC_direction = Column(String)
+    KTC_status = Column(String)
+    LH_signal_index = Column(Integer)
+    LH_side = Column(String)
+    LH_stop_type = Column(String)
+    LH_price = Column(Integer)
+    LH_fees = Column(Integer)
+    LH_pnl = Column(Integer)
+    LH_return = Column(Integer)
+    LH_direction = Column(String)
+    LH_status = Column(String)
+    MINT_signal_index = Column(Integer)
+    MINT_side = Column(String)
+    MINT_stop_type = Column(String)
+    MINT_price = Column(Integer)
+    MINT_fees = Column(Integer)
+    MINT_pnl = Column(Integer)
+    MINT_return = Column(Integer)
+    MINT_direction = Column(String)
+    MINT_status = Column(String)
+    MTC_signal_index = Column(Integer)
+    MTC_side = Column(String)
+    MTC_stop_type = Column(String)
+    MTC_price = Column(Integer)
+    MTC_fees = Column(Integer)
+    MTC_pnl = Column(Integer)
+    MTC_return = Column(Integer)
+    MTC_direction = Column(String)
+    MTC_status = Column(String)
+    OR_signal_index = Column(Integer)
+    OR_side = Column(String)
+    OR_stop_type = Column(String)
+    OR_price = Column(Integer)
+    OR_fees = Column(Integer)
+    OR_pnl = Column(Integer)
+    OR_return = Column(Integer)
+    OR_direction = Column(String)
+    OR_status = Column(String)
+    OSP_signal_index = Column(Integer)
+    OSP_side = Column(String)
+    OSP_stop_type = Column(String)
+    OSP_price = Column(Integer)
+    OSP_fees = Column(Integer)
+    OSP_pnl = Column(Integer)
+    OSP_return = Column(Integer)
+    OSP_direction = Column(String)
+    OSP_status = Column(String)
+    PTT_signal_index = Column(Integer)
+    PTT_side = Column(String)
+    PTT_stop_type = Column(String)
+    PTT_price = Column(Integer)
+    PTT_fees = Column(Integer)
+    PTT_pnl = Column(Integer)
+    PTT_return = Column(Integer)
+    PTT_direction = Column(String)
+    PTT_status = Column(String)
+    PTTEP_signal_index = Column(Integer)
+    PTTEP_side = Column(String)
+    PTTEP_stop_type = Column(String)
+    PTTEP_price = Column(Integer)
+    PTTEP_fees = Column(Integer)
+    PTTEP_pnl = Column(Integer)
+    PTTEP_return = Column(Integer)
+    PTTEP_direction = Column(String)
+    PTTEP_status = Column(String)
+    PTTGC_signal_index = Column(Integer)
+    PTTGC_side = Column(String)
+    PTTGC_stop_type = Column(String)
+    PTTGC_price = Column(Integer)
+    PTTGC_fees = Column(Integer)
+    PTTGC_pnl = Column(Integer)
+    PTTGC_return = Column(Integer)
+    PTTGC_direction = Column(String)
+    PTTGC_status = Column(String)
+    RATCH_signal_index = Column(Integer)
+    RATCH_side = Column(String)
+    RATCH_stop_type = Column(String)
+    RATCH_price = Column(Integer)
+    RATCH_fees = Column(Integer)
+    RATCH_pnl = Column(Integer)
+    RATCH_return = Column(Integer)
+    RATCH_direction = Column(String)
+    RATCH_status = Column(String)
+    SAWAD_signal_index = Column(Integer)
+    SAWAD_side = Column(String)
+    SAWAD_stop_type = Column(String)
+    SAWAD_price = Column(Integer)
+    SAWAD_fees = Column(Integer)
+    SAWAD_pnl = Column(Integer)
+    SAWAD_return = Column(Integer)
+    SAWAD_direction = Column(String)
+    SAWAD_status = Column(String)
+    SCB_signal_index = Column(Integer)
+    SCB_side = Column(String)
+    SCB_stop_type = Column(String)
+    SCB_price = Column(Integer)
+    SCB_fees = Column(Integer)
+    SCB_pnl = Column(Integer)
+    SCB_return = Column(Integer)
+    SCB_direction = Column(String)
+    SCB_status = Column(String)
+    SCC_signal_index = Column(Integer)
+    SCC_side = Column(String)
+    SCC_stop_type = Column(String)
+    SCC_price = Column(Integer)
+    SCC_fees = Column(Integer)
+    SCC_pnl = Column(Integer)
+    SCC_return = Column(Integer)
+    SCC_direction = Column(String)
+    SCC_status = Column(String)
+    SCGP_signal_index = Column(Integer)
+    SCGP_side = Column(String)
+    SCGP_stop_type = Column(String)
+    SCGP_price = Column(Integer)
+    SCGP_fees = Column(Integer)
+    SCGP_pnl = Column(Integer)
+    SCGP_return = Column(Integer)
+    SCGP_direction = Column(String)
+    SCGP_status = Column(String)
+    TISCO_signal_index = Column(Integer)
+    TISCO_side = Column(String)
+    TISCO_stop_type = Column(String)
+    TISCO_price = Column(Integer)
+    TISCO_fees = Column(Integer)
+    TISCO_pnl = Column(Integer)
+    TISCO_return = Column(Integer)
+    TISCO_direction = Column(String)
+    TISCO_status = Column(String)
+    TOP_signal_index = Column(Integer)
+    TOP_side = Column(String)
+    TOP_stop_type = Column(String)
+    TOP_price = Column(Integer)
+    TOP_fees = Column(Integer)
+    TOP_pnl = Column(Integer)
+    TOP_return = Column(Integer)
+    TOP_direction = Column(String)
+    TOP_status = Column(String)
+    TRUE_signal_index = Column(Integer)
+    TRUE_side = Column(String)
+    TRUE_stop_type = Column(String)
+    TRUE_price = Column(Integer)
+    TRUE_fees = Column(Integer)
+    TRUE_pnl = Column(Integer)
+    TRUE_return = Column(Integer)
+    TRUE_direction = Column(String)
+    TRUE_status = Column(String)
+    TTB_signal_index = Column(Integer)
+    TTB_side = Column(String)
+    TTB_stop_type = Column(String)
+    TTB_price = Column(Integer)
+    TTB_fees = Column(Integer)
+    TTB_pnl = Column(Integer)
+    TTB_return = Column(Integer)
+    TTB_direction = Column(String)
+    TTB_status = Column(String)
+    TU_signal_index = Column(Integer)
+    TU_side = Column(String)
+    TU_stop_type = Column(String)
+    TU_price = Column(Integer)
+    TU_fees = Column(Integer)
+    TU_pnl = Column(Integer)
+    TU_return = Column(Integer)
+    TU_direction = Column(String)
+    TU_status = Column(String)
+    WHA_signal_index = Column(Integer)
+    WHA_side = Column(String)
+    WHA_stop_type = Column(String)
+    WHA_price = Column(Integer)
+    WHA_fees = Column(Integer)
+    WHA_pnl = Column(Integer)
+    WHA_return = Column(Integer)
+    WHA_direction = Column(String)
+    WHA_status = Column(String)
+
+
 # ---------------- Close & Volume Model ----------------
 
 
@@ -2010,64 +2455,258 @@ class LSTMMSE1D(SET50Base, Base):
 
 # -------- Backtest Strategy ----------
 # -------- EMA --------
-class EMACROSSClose15T(BacktestStrategyEMA, Base):
-    __tablename__ = "ema_cross_close_15t"
+class EMACROSSClose15T0Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "ema_cross_close_15t_0_0"
     id = Column(Integer, primary_key=True)
 
     def __repr__(self):
         return f"<EMACrossClose15T id={self.id}>"
 
 
-class EMACROSSClose1H(BacktestStrategyEMA, Base):
-    __tablename__ = "ema_cross_close_1h"
+class EMACROSSClose15T2Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "ema_cross_close_15t_2_4"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACrossClose15T id={self.id}>"
+
+
+class EMACROSSClose15T4Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "ema_cross_close_15t_4_8"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACrossClose15T id={self.id}>"
+
+
+class EMACROSSClose15T6Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "ema_cross_close_15t_6_12"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACrossClose15T id={self.id}>"
+
+
+class EMACROSSClose1H0Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "ema_cross_close_1H_0_0".lower()
     id = Column(Integer, primary_key=True)
 
     def __repr__(self):
         return f"<EMACrossClose1H id={self.id}>"
 
 
-class EMACROSSClose4H(BacktestStrategyEMA, Base):
-    __tablename__ = "ema_cross_close_4h"
+class EMACROSSClose1H2Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "ema_cross_close_1H_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACrossClose1H id={self.id}>"
+
+
+class EMACROSSClose1H4Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "ema_cross_close_1H_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACrossClose1H id={self.id}>"
+
+
+class EMACROSSClose1H6Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "ema_cross_close_1H_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACrossClose1H id={self.id}>"
+
+
+class EMACROSSClose4H0Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "ema_cross_close_4H_0_0".lower()
     id = Column(Integer, primary_key=True)
 
     def __repr__(self):
         return f"<EMACrossClose4H id={self.id}>"
 
 
-class EMACROSSClose1D(BacktestStrategyEMA, Base):
-    __tablename__ = "ema_cross_close_1d"
+class EMACROSSClose4H2Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "ema_cross_close_4H_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACrossClose4H id={self.id}>"
+
+
+class EMACROSSClose4H4Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "ema_cross_close_4H_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACrossClose4H id={self.id}>"
+
+
+class EMACROSSClose4H6Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "ema_cross_close_4H_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACrossClose4H id={self.id}>"
+
+
+class EMACROSSClose1D0Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "ema_cross_close_1D_0_0".lower()
     id = Column(Integer, primary_key=True)
 
     def __repr__(self):
         return f"<EMACrossClose1D id={self.id}>"
 
 
-class EMACROSSStatsClose15T(StatsStrategy, Base):
-    __tablename__ = "ema_cross_stats_close_15t"
+class EMACROSSClose1D2Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "ema_cross_close_1D_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACrossClose1D id={self.id}>"
+
+
+class EMACROSSClose1D4Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "ema_cross_close_1D_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACrossClose1D id={self.id}>"
+
+
+class EMACROSSClose1D6Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "ema_cross_close_1D_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACrossClose1D id={self.id}>"
+
+# stats
+
+
+class EMACROSSStatsClose15T0Sl(StatsStrategy, Base):
+    __tablename__ = "ema_cross_stats_close_15t_0_0"
     id = Column(Integer, primary_key=True)
 
     def __repr__(self):
         return f"<EMACROSSStatsClose15T id={self.id}>"
 
 
-class EMACROSSStatsClose1H(StatsStrategy, Base):
-    __tablename__ = "ema_cross_stats_close_1h"
+class EMACROSSStatsClose15T2Sl(StatsStrategy, Base):
+    __tablename__ = "ema_cross_stats_close_15t_2_4"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACROSSStatsClose15T id={self.id}>"
+
+
+class EMACROSSStatsClose15T4Sl(StatsStrategy, Base):
+    __tablename__ = "ema_cross_stats_close_15t_4_8"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACROSSStatsClose15T id={self.id}>"
+
+
+class EMACROSSStatsClose15T6Sl(StatsStrategy, Base):
+    __tablename__ = "ema_cross_stats_close_15t_6_12"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACROSSStatsClose15T id={self.id}>"
+
+
+class EMACROSSStatsClose1H0Sl(StatsStrategy, Base):
+    __tablename__ = "ema_cross_stats_close_1H_0_0".lower()
     id = Column(Integer, primary_key=True)
 
     def __repr__(self):
         return f"<EMACROSSStatsClose1H id={self.id}>"
 
 
-class EMACROSSStatsClose4H(StatsStrategy, Base):
-    __tablename__ = "ema_cross_stats_close_4h"
+class EMACROSSStatsClose1H2Sl(StatsStrategy, Base):
+    __tablename__ = "ema_cross_stats_close_1H_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACROSSStatsClose1H id={self.id}>"
+
+
+class EMACROSSStatsClose1H4Sl(StatsStrategy, Base):
+    __tablename__ = "ema_cross_stats_close_1H_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACROSSStatsClose1H id={self.id}>"
+
+
+class EMACROSSStatsClose1H6Sl(StatsStrategy, Base):
+    __tablename__ = "ema_cross_stats_close_1H_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACROSSStatsClose1H id={self.id}>"
+
+
+class EMACROSSStatsClose4H0Sl(StatsStrategy, Base):
+    __tablename__ = "ema_cross_stats_close_4H_0_0".lower()
     id = Column(Integer, primary_key=True)
 
     def __repr__(self):
         return f"<EMACROSSStatsClose4H id={self.id}>"
 
 
-class EMACROSSStatsClose1D(StatsStrategy, Base):
-    __tablename__ = "ema_cross_stats_close_1d"
+class EMACROSSStatsClose4H2Sl(StatsStrategy, Base):
+    __tablename__ = "ema_cross_stats_close_4H_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACROSSStatsClose4H id={self.id}>"
+
+
+class EMACROSSStatsClose4H4Sl(StatsStrategy, Base):
+    __tablename__ = "ema_cross_stats_close_4H_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACROSSStatsClose4H id={self.id}>"
+
+
+class EMACROSSStatsClose4H6Sl(StatsStrategy, Base):
+    __tablename__ = "ema_cross_stats_close_4H_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACROSSStatsClose4H id={self.id}>"
+
+
+class EMACROSSStatsClose1D0Sl(StatsStrategy, Base):
+    __tablename__ = "ema_cross_stats_close_1D_0_0".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACROSSStatsClose1D id={self.id}>"
+
+
+class EMACROSSStatsClose1D2Sl(StatsStrategy, Base):
+    __tablename__ = "ema_cross_stats_close_1D_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACROSSStatsClose1D id={self.id}>"
+
+
+class EMACROSSStatsClose1D4Sl(StatsStrategy, Base):
+    __tablename__ = "ema_cross_stats_close_1D_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<EMACROSSStatsClose1D id={self.id}>"
+
+
+class EMACROSSStatsClose1D6Sl(StatsStrategy, Base):
+    __tablename__ = "ema_cross_stats_close_1D_6_12".lower()
     id = Column(Integer, primary_key=True)
 
     def __repr__(self):
@@ -2076,68 +2715,263 @@ class EMACROSSStatsClose1D(StatsStrategy, Base):
 # -------- RSI --------
 
 
-class RSIClose15T(BacktestStrategyRSI, Base):
-    __tablename__ = "rsi_close_15t"
+class RSIClose15T0Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "rsi_close_15t_0_0"
     id = Column(Integer, primary_key=True)
 
     def __repr__(self):
         return f"<RSIClose15T id={self.id}>"
 
 
-class RSIClose1H(BacktestStrategyRSI, Base):
-    __tablename__ = "rsi_close_1h"
+class RSIClose15T2Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "rsi_close_15t_2_4"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIClose15T id={self.id}>"
+
+
+class RSIClose15T4Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "rsi_close_15t_4_8"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIClose15T id={self.id}>"
+
+
+class RSIClose15T6Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "rsi_close_15t_6_12"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIClose15T id={self.id}>"
+
+
+class RSIClose1H0Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "rsi_close_1H_0_0".lower()
     id = Column(Integer, primary_key=True)
 
     def __repr__(self):
         return f"<RSIClose1H id={self.id}>"
 
 
-class RSIClose4H(BacktestStrategyRSI, Base):
-    __tablename__ = "rsi_close_4h"
+class RSIClose1H2Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "rsi_close_1H_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIClose1H id={self.id}>"
+
+
+class RSIClose1H4Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "rsi_close_1H_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIClose1H id={self.id}>"
+
+
+class RSIClose1H6Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "rsi_close_1H_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIClose1H id={self.id}>"
+
+
+class RSIClose4H0Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "rsi_close_4H_0_0".lower()
     id = Column(Integer, primary_key=True)
 
     def __repr__(self):
         return f"<RSIClose4H id={self.id}>"
 
 
-class RSIClose1D(BacktestStrategyRSI, Base):
-    __tablename__ = "rsi_close_1d"
+class RSIClose4H2Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "rsi_close_4H_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIClose4H id={self.id}>"
+
+
+class RSIClose4H4Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "rsi_close_4H_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIClose4H id={self.id}>"
+
+
+class RSIClose4H6Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "rsi_close_4H_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIClose4H id={self.id}>"
+
+
+class RSIClose1D0Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "rsi_close_1D_0_0".lower()
     id = Column(Integer, primary_key=True)
 
     def __repr__(self):
         return f"<RSIClose1D id={self.id}>"
 
 
-class RSIStatsClose15T(StatsStrategy, Base):
-    __tablename__ = "rsi_stats_close_15t"
+class RSIClose1D2Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "rsi_close_1D_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIClose1D id={self.id}>"
+
+
+class RSIClose1D4Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "rsi_close_1D_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIClose1D id={self.id}>"
+
+
+class RSIClose1D6Sl(BacktestStrategyEMA, Base):
+    __tablename__ = "rsi_close_1D_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIClose1D id={self.id}>"
+
+# stats
+
+
+class RSIStatsClose15T0Sl(StatsStrategy, Base):
+    __tablename__ = "rsi_stats_close_15t_0_0"
     id = Column(Integer, primary_key=True)
 
     def __repr__(self):
         return f"<RSIStatsClose15T id={self.id}>"
 
 
-class RSIStatsClose1H(StatsStrategy, Base):
-    __tablename__ = "rsi_stats_close_1h"
+class RSIStatsClose15T2Sl(StatsStrategy, Base):
+    __tablename__ = "rsi_stats_close_15t_2_4"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIStatsClose15T id={self.id}>"
+
+
+class RSIStatsClose15T4Sl(StatsStrategy, Base):
+    __tablename__ = "rsi_stats_close_15t_4_8"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIStatsClose15T id={self.id}>"
+
+
+class RSIStatsClose15T6Sl(StatsStrategy, Base):
+    __tablename__ = "rsi_stats_close_15t_6_12"
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIStatsClose15T id={self.id}>"
+
+
+class RSIStatsClose1H0Sl(StatsStrategy, Base):
+    __tablename__ = "rsi_stats_close_1H_0_0".lower()
     id = Column(Integer, primary_key=True)
 
     def __repr__(self):
         return f"<RSIStatsClose1H id={self.id}>"
 
 
-class RSIStatsClose4H(StatsStrategy, Base):
-    __tablename__ = "rsi_stats_close_4h"
+class RSIStatsClose1H2Sl(StatsStrategy, Base):
+    __tablename__ = "rsi_stats_close_1H_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIStatsClose1H id={self.id}>"
+
+
+class RSIStatsClose1H4Sl(StatsStrategy, Base):
+    __tablename__ = "rsi_stats_close_1H_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIStatsClose1H id={self.id}>"
+
+
+class RSIStatsClose1H6Sl(StatsStrategy, Base):
+    __tablename__ = "rsi_stats_close_1H_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIStatsClose1H id={self.id}>"
+
+
+class RSIStatsClose4H0Sl(StatsStrategy, Base):
+    __tablename__ = "rsi_stats_close_4H_0_0".lower()
     id = Column(Integer, primary_key=True)
 
     def __repr__(self):
         return f"<RSIStatsClose4H id={self.id}>"
 
 
-class RSIStatsClose1D(StatsStrategy, Base):
-    __tablename__ = "rsi_stats_close_1d"
+class RSIStatsClose4H2Sl(StatsStrategy, Base):
+    __tablename__ = "rsi_stats_close_4H_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIStatsClose4H id={self.id}>"
+
+
+class RSIStatsClose4H4Sl(StatsStrategy, Base):
+    __tablename__ = "rsi_stats_close_4H_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIStatsClose4H id={self.id}>"
+
+
+class RSIStatsClose4H6Sl(StatsStrategy, Base):
+    __tablename__ = "rsi_stats_close_4H_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIStatsClose4H id={self.id}>"
+
+
+class RSIStatsClose1D0Sl(StatsStrategy, Base):
+    __tablename__ = "rsi_stats_close_1D_0_0".lower()
     id = Column(Integer, primary_key=True)
 
     def __repr__(self):
         return f"<RSIStatsClose1D id={self.id}>"
+
+
+class RSIStatsClose1D2Sl(StatsStrategy, Base):
+    __tablename__ = "rsi_stats_close_1D_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIStatsClose1D id={self.id}>"
+
+
+class RSIStatsClose1D4Sl(StatsStrategy, Base):
+    __tablename__ = "rsi_stats_close_1D_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIStatsClose1D id={self.id}>"
+
+
+class RSIStatsClose1D6Sl(StatsStrategy, Base):
+    __tablename__ = "rsi_stats_close_1D_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<RSIStatsClose1D id={self.id}>"
+
 # ------------- Compare Table ------------
 
 
@@ -2254,3 +3088,179 @@ class SpecificInfo(Base):
     TTB = Column(String)
     TU = Column(String)
     WHA = Column(String)
+
+# --------- Trade History EMA---------
+# 15T
+
+
+class TradeHistoryEMACROSS15T0Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_ema_cross_close_15t_0_0"
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryEMACROSS15T2Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_ema_cross_close_15t_2_4"
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryEMACROSS15T4Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_ema_cross_close_15t_4_8"
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryEMACROSS15T6Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_ema_cross_close_15t_6_12"
+    id = Column(Integer, primary_key=True)
+# 1H
+
+
+class TradeHistoryEMACROSS1H0Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_ema_cross_close_1h_0_0"
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryEMACROSS1H2Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_ema_cross_close_1h_2_4"
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryEMACROSS1H4Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_ema_cross_close_1h_4_8"
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryEMACROSS1H6Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_ema_cross_close_1h_6_12"
+    id = Column(Integer, primary_key=True)
+
+# 4H
+
+
+class TradeHistoryEMACROSS4H0Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_ema_cross_close_4h_0_0"
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryEMACROSS4H2Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_ema_cross_close_4h_2_4"
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryEMACROSS4H4Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_ema_cross_close_4h_4_8"
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryEMACROSS4H6Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_ema_cross_close_4h_6_12"
+    id = Column(Integer, primary_key=True)
+
+# 1D
+
+
+class TradeHistoryEMACROSS1D0Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_ema_cross_close_1d_0_0"
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryEMACROSS1D2Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_ema_cross_close_1d_2_4"
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryEMACROSS1D4Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_ema_cross_close_1d_4_8"
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryEMACROSS1D6Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_ema_cross_close_1d_6_12"
+    id = Column(Integer, primary_key=True)
+
+# --------- Trade History RSI---------
+# 15T
+
+
+class TradeHistoryRSI15T0Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_RSI_close_15t_0_0".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryRSI15T2Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_RSI_close_15t_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryRSI15T4Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_RSI_close_15t_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryRSI15T6Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_RSI_close_15t_6_12".lower()
+    id = Column(Integer, primary_key=True)
+# 1H
+
+
+class TradeHistoryRSI1H0Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_RSI_close_1h_0_0".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryRSI1H2Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_RSI_close_1h_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryRSI1H4Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_RSI_close_1h_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryRSI1H6Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_RSI_close_1h_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+# 4H
+
+
+class TradeHistoryRSI4H0Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_RSI_close_4h_0_0".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryRSI4H2Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_RSI_close_4h_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryRSI4H4Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_RSI_close_4h_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryRSI4H6Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_RSI_close_4h_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+# 1D
+
+
+class TradeHistoryRSI1D0Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_RSI_close_1d_0_0".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryRSI1D2Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_RSI_close_1d_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryRSI1D4Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_RSI_close_1d_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryRSI1D6Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_RSI_close_1d_6_12".lower()
+    id = Column(Integer, primary_key=True)

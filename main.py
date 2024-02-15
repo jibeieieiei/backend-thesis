@@ -133,16 +133,17 @@ def backtest_model(db: Session = Depends(get_db),
     return [x._mapping for x in res]
 
 
-@app.get('/backtest_strategy_{strategy}_{timeframe}_{symbol}_{column}')
+@app.get('/backtest_strategy_{strategy}_{timeframe}_{symbol}_{column}_{sl}')
 def backtest_strategy(db: Session = Depends(get_db),
                       strategy: str = "EMACROSS",
                       timeframe: str = "15T",
                       symbol: str = "ADVANC",
-                      column: str = "Close"):
+                      column: str = "Close",
+                      sl: int = 0):
     strategy, timeframe, symbol, column = strategy.upper(
     ), timeframe.upper(), symbol.upper(), column.capitalize()
 
-    model_name = "models."+strategy+column+timeframe
+    model_name = "models."+strategy+column+timeframe+str(sl)+"Sl"
     model_strategy = eval(model_name)
     if 'RSI' in model_name:
         filter1 = eval(model_name+f'.{symbol}_datetime')
@@ -179,17 +180,18 @@ def backtest_strategy(db: Session = Depends(get_db),
     return [x._mapping for x in res]
 
 
-@app.get('/backtest_stats_{strategy}_{timeframe}_{symbol}_{column}')
+@app.get('/backtest_stats_{strategy}_{timeframe}_{symbol}_{column}_{sl}')
 def backtest_stats(db: Session = Depends(get_db),
                    strategy: str = "EMACROSS",
                    timeframe: str = "15T",
                    symbol: str = "ADVANC",
-                   column: str = "Close"):
+                   column: str = "Close",
+                   sl: int = 0,):
 
     strategy, timeframe, symbol, column = strategy.upper(
     ), timeframe.upper(), symbol.upper(), column.capitalize()
 
-    model_name = "models."+strategy+"Stats"+column+timeframe
+    model_name = "models."+strategy+"Stats"+column+timeframe+str(sl)+"Sl"
     model_stats = eval(model_name)
     filter_index = eval(model_name+".index")
     filter = eval(model_name+f".{symbol}_stats")
@@ -242,3 +244,40 @@ def specific_info(db: Session = Depends(get_db),
 @app.get('/stocks_symbols')
 def stocks_symbol_set50():
     return {'stocks': stocks}
+
+
+@app.get('/trade_history_{symbol}_{strategy}_{column}_{timeframe}_{sl}')
+def get_trade_history(db: Session = Depends(get_db),
+                      symbol: str = "ADVANC",
+                      strategy: str = "EMACROSS",
+                      column: str = "Close",
+                      timeframe: str = "15T",
+                      sl: int = 0):
+    symbol, strategy, column, timeframe = symbol.upper(
+    ), strategy.upper(), column.capitalize(), timeframe.upper()
+    model_name = f"models.TradeHistory{strategy}{timeframe}{int(sl)}Sl"
+    model_hist = eval(model_name)
+    filter1 = eval(model_name+f".{symbol}_signal_index")
+    filter2 = eval(model_name+f".{symbol}_side")
+    filter3 = eval(model_name+f".{symbol}_stop_type")
+    filter4 = eval(model_name+f".{symbol}_price")
+    filter5 = eval(model_name+f".{symbol}_fees")
+    filter6 = eval(model_name+f".{symbol}_pnl")
+    filter7 = eval(model_name+f".{symbol}_return")
+    filter8 = eval(model_name+f".{symbol}_direction")
+    filter9 = eval(model_name+f".{symbol}_status")
+    # print(model_name)
+    stmt = select(
+        filter1,
+        filter2,
+        filter3,
+        filter4,
+        filter5,
+        filter6,
+        filter7,
+        filter8,
+        filter9,
+    ).select_from(model_hist)
+    res = db.execute(stmt)
+    result = [x._mapping for x in res]
+    return result
