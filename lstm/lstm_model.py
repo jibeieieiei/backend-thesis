@@ -7,7 +7,8 @@ import warnings
 # import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import tensorflow as tf
+
+# import tensorflow as tf
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import MinMaxScaler
 from sqlalchemy import create_engine
