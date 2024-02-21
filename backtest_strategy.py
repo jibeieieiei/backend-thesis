@@ -238,7 +238,7 @@ if __name__ == "__main__":
                     cols_th = _th.columns.to_list() + th.columns.to_list()
                     _th = pd.concat([_th, th], axis=1, ignore_index=True)
                     _th.columns = cols_th
-                _df.to_sql(name=f'rsi_{col.lower()}_{tf.lower()}__{int(sl)}_{int(2*sl)}',
+                _df.to_sql(name=f'rsi_{col.lower()}_{tf.lower()}_{int(sl)}_{int(2*sl)}',
                            con=engine, if_exists="replace")
                 # Edit Name Index of Stats
                 _index = [x.replace("[%]", "percent")

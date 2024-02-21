@@ -2715,7 +2715,7 @@ class EMACROSSStatsClose1D6Sl(StatsStrategy, Base):
 # -------- RSI --------
 
 
-class RSIClose15T0Sl(BacktestStrategyEMA, Base):
+class RSIClose15T0Sl(BacktestStrategyRSI, Base):
     __tablename__ = "rsi_close_15t_0_0"
     id = Column(Integer, primary_key=True)
 
@@ -2723,7 +2723,7 @@ class RSIClose15T0Sl(BacktestStrategyEMA, Base):
         return f"<RSIClose15T id={self.id}>"
 
 
-class RSIClose15T2Sl(BacktestStrategyEMA, Base):
+class RSIClose15T2Sl(BacktestStrategyRSI, Base):
     __tablename__ = "rsi_close_15t_2_4"
     id = Column(Integer, primary_key=True)
 
@@ -2731,7 +2731,7 @@ class RSIClose15T2Sl(BacktestStrategyEMA, Base):
         return f"<RSIClose15T id={self.id}>"
 
 
-class RSIClose15T4Sl(BacktestStrategyEMA, Base):
+class RSIClose15T4Sl(BacktestStrategyRSI, Base):
     __tablename__ = "rsi_close_15t_4_8"
     id = Column(Integer, primary_key=True)
 
@@ -2739,7 +2739,7 @@ class RSIClose15T4Sl(BacktestStrategyEMA, Base):
         return f"<RSIClose15T id={self.id}>"
 
 
-class RSIClose15T6Sl(BacktestStrategyEMA, Base):
+class RSIClose15T6Sl(BacktestStrategyRSI, Base):
     __tablename__ = "rsi_close_15t_6_12"
     id = Column(Integer, primary_key=True)
 
@@ -2747,7 +2747,7 @@ class RSIClose15T6Sl(BacktestStrategyEMA, Base):
         return f"<RSIClose15T id={self.id}>"
 
 
-class RSIClose1H0Sl(BacktestStrategyEMA, Base):
+class RSIClose1H0Sl(BacktestStrategyRSI, Base):
     __tablename__ = "rsi_close_1H_0_0".lower()
     id = Column(Integer, primary_key=True)
 
@@ -2755,7 +2755,7 @@ class RSIClose1H0Sl(BacktestStrategyEMA, Base):
         return f"<RSIClose1H id={self.id}>"
 
 
-class RSIClose1H2Sl(BacktestStrategyEMA, Base):
+class RSIClose1H2Sl(BacktestStrategyRSI, Base):
     __tablename__ = "rsi_close_1H_2_4".lower()
     id = Column(Integer, primary_key=True)
 
@@ -2763,7 +2763,7 @@ class RSIClose1H2Sl(BacktestStrategyEMA, Base):
         return f"<RSIClose1H id={self.id}>"
 
 
-class RSIClose1H4Sl(BacktestStrategyEMA, Base):
+class RSIClose1H4Sl(BacktestStrategyRSI, Base):
     __tablename__ = "rsi_close_1H_4_8".lower()
     id = Column(Integer, primary_key=True)
 
@@ -2771,7 +2771,7 @@ class RSIClose1H4Sl(BacktestStrategyEMA, Base):
         return f"<RSIClose1H id={self.id}>"
 
 
-class RSIClose1H6Sl(BacktestStrategyEMA, Base):
+class RSIClose1H6Sl(BacktestStrategyRSI, Base):
     __tablename__ = "rsi_close_1H_6_12".lower()
     id = Column(Integer, primary_key=True)
 
@@ -2779,7 +2779,7 @@ class RSIClose1H6Sl(BacktestStrategyEMA, Base):
         return f"<RSIClose1H id={self.id}>"
 
 
-class RSIClose4H0Sl(BacktestStrategyEMA, Base):
+class RSIClose4H0Sl(BacktestStrategyRSI, Base):
     __tablename__ = "rsi_close_4H_0_0".lower()
     id = Column(Integer, primary_key=True)
 
@@ -2787,7 +2787,7 @@ class RSIClose4H0Sl(BacktestStrategyEMA, Base):
         return f"<RSIClose4H id={self.id}>"
 
 
-class RSIClose4H2Sl(BacktestStrategyEMA, Base):
+class RSIClose4H2Sl(BacktestStrategyRSI, Base):
     __tablename__ = "rsi_close_4H_2_4".lower()
     id = Column(Integer, primary_key=True)
 
@@ -2795,7 +2795,7 @@ class RSIClose4H2Sl(BacktestStrategyEMA, Base):
         return f"<RSIClose4H id={self.id}>"
 
 
-class RSIClose4H4Sl(BacktestStrategyEMA, Base):
+class RSIClose4H4Sl(BacktestStrategyRSI, Base):
     __tablename__ = "rsi_close_4H_4_8".lower()
     id = Column(Integer, primary_key=True)
 
@@ -2803,7 +2803,7 @@ class RSIClose4H4Sl(BacktestStrategyEMA, Base):
         return f"<RSIClose4H id={self.id}>"
 
 
-class RSIClose4H6Sl(BacktestStrategyEMA, Base):
+class RSIClose4H6Sl(BacktestStrategyRSI, Base):
     __tablename__ = "rsi_close_4H_6_12".lower()
     id = Column(Integer, primary_key=True)
 
@@ -2811,7 +2811,7 @@ class RSIClose4H6Sl(BacktestStrategyEMA, Base):
         return f"<RSIClose4H id={self.id}>"
 
 
-class RSIClose1D0Sl(BacktestStrategyEMA, Base):
+class RSIClose1D0Sl(BacktestStrategyRSI, Base):
     __tablename__ = "rsi_close_1D_0_0".lower()
     id = Column(Integer, primary_key=True)
 
@@ -2819,7 +2819,7 @@ class RSIClose1D0Sl(BacktestStrategyEMA, Base):
         return f"<RSIClose1D id={self.id}>"
 
 
-class RSIClose1D2Sl(BacktestStrategyEMA, Base):
+class RSIClose1D2Sl(BacktestStrategyRSI, Base):
     __tablename__ = "rsi_close_1D_2_4".lower()
     id = Column(Integer, primary_key=True)
 
@@ -2827,7 +2827,7 @@ class RSIClose1D2Sl(BacktestStrategyEMA, Base):
         return f"<RSIClose1D id={self.id}>"
 
 
-class RSIClose1D4Sl(BacktestStrategyEMA, Base):
+class RSIClose1D4Sl(BacktestStrategyRSI, Base):
     __tablename__ = "rsi_close_1D_4_8".lower()
     id = Column(Integer, primary_key=True)
 
@@ -2835,7 +2835,7 @@ class RSIClose1D4Sl(BacktestStrategyEMA, Base):
         return f"<RSIClose1D id={self.id}>"
 
 
-class RSIClose1D6Sl(BacktestStrategyEMA, Base):
+class RSIClose1D6Sl(BacktestStrategyRSI, Base):
     __tablename__ = "rsi_close_1D_6_12".lower()
     id = Column(Integer, primary_key=True)
 
