@@ -113,6 +113,8 @@ class BacktestStrategy:
                               'Exit Trade Id'])
         th.columns = [symbol+"_" +
                       x.replace(" ", "_").lower() for x in th.columns]
+        signal_index = th[symbol+'_signal_index'].values
+        th[symbol+'_signal_index'] = df[symbol+'_datetime'][signal_index].values
         return df, stats, th
 
     def rsi(self,
@@ -180,6 +182,8 @@ class BacktestStrategy:
                               'Exit Trade Id'])
         th.columns = [symbol+"_" +
                       x.replace(" ", "_").lower() for x in th.columns]
+        signal_index = th[symbol+'_signal_index'].values
+        th[symbol+'_signal_index'] = df[symbol+'_datetime'][signal_index].values
         return df, stats, th
 
 
@@ -210,9 +214,9 @@ if __name__ == "__main__":
                 # Edit Name Index of Stats
                 _index = [x.replace("[%]", "percent")
                           for x in _stats.index.str.lower()]
-                _stats.index = [x.strip().replace(" ", "_") for x in _index]
-                _stats = _stats.astype(float)
-                _stats.reset_index(inplace=True)
+                # _stats.index = [x.strip().replace(" ", "_") for x in _index]
+                _stats = _stats.astype(float).applymap('{:,.2f}'.format)
+                # _stats.reset_index(inplace=True)
                 _stats.to_sql(name=f'ema_cross_stats_{col.lower()}_{tf.lower()}_{int(sl)}_{int(2*sl)}',
                               con=engine, if_exists="replace")
                 _th.to_sql(name=f'trade_history_ema_cross_{col.lower()}_{tf.lower()}_{int(sl)}_{int(2*sl)}',
@@ -243,9 +247,9 @@ if __name__ == "__main__":
                 # Edit Name Index of Stats
                 _index = [x.replace("[%]", "percent")
                           for x in _stats.index.str.lower()]
-                _stats.index = [x.strip().replace(" ", "_") for x in _index]
-                _stats = _stats.astype(float)
-                _stats.reset_index(inplace=True)
+                # _stats.index = [x.strip().replace(" ", "_") for x in _index]
+                _stats = _stats.astype(float).applymap('{:,.2f}'.format)
+                # _stats.reset_index(inplace=True)
                 _stats.to_sql(name=f'rsi_stats_{col.lower()}_{tf.lower()}_{int(sl)}_{int(2*sl)}',
                               con=engine, if_exists="replace")
                 _th.to_sql(name=f'trade_history_rsi_{col.lower()}_{tf.lower()}_{int(sl)}_{int(2*sl)}',
