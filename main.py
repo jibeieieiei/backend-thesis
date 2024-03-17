@@ -192,6 +192,21 @@ def backtest_strategy(db: Session = Depends(get_db),
             filter6, filter7, filter8, filter9, filter10
         ).select_from(model_strategy)
         res = db.execute(stmt)
+    elif 'ADX' in model_name:  # ADX
+        filter1 = eval(model_name+f'.{symbol}_datetime')
+        filter2 = eval(model_name+f'.{symbol}_open')
+        filter3 = eval(model_name+f'.{symbol}_high')
+        filter4 = eval(model_name+f'.{symbol}_low')
+        filter5 = eval(model_name+f'.{symbol}_close')
+        filter6 = eval(model_name+f'.{symbol}_volume')
+        filter7 = eval(model_name+f'.{symbol}_green_signal')
+        filter8 = eval(model_name+f'.{symbol}_red_signal')
+        filter9 = eval(model_name+f'.{symbol}_adx')
+        stmt = select(
+            filter1, filter2, filter3, filter4, filter5,
+            filter6, filter7, filter8, filter9
+        ).select_from(model_strategy)
+        res = db.execute(stmt)
     return [x._mapping for x in res]
 
 
