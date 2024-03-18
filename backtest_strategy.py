@@ -413,6 +413,151 @@ class BacktestStrategy:
         th[symbol+'_signal_index'] = df[symbol+'_datetime'][signal_index].values
         return df, stats, th
 
+    def buy_hold(self,
+                 fee: float = 0.2):
+        column = self.column
+        symbol = self.symbol.upper()
+        df = self.data.copy()
+        # new_col = symbol+"_"+df.columns.str.lower()
+        df = df.rename(columns={
+            "Open": symbol+"_open",
+            "High": symbol+"_high",
+            "Low": symbol+"_low",
+            "Close": symbol+"_close",
+            "Volume": symbol+"_volume",
+            "datetime": symbol+"_datetime"})
+        # -------Bullish-------
+        entries = np.array([False for x in range(len(df))])
+        entries[0] = True
+        df[symbol+'_buy_signal'] = entries
+        # # -------Bearish-------
+        exits = np.array([False for x in range(len(df))])
+        exits[-1] = True
+        df[symbol+'_sell_signal'] = exits
+        df[symbol+'_sell_signal'].iloc[-1] = True
+        # # -------Signal-------
+        if self.stop_loss == 0:
+            pf = vbt.Portfolio.from_signals(
+                df[f"{symbol}_{column.lower()}"], entries, exits, fixed_fees=fee)
+        else:
+            pf = vbt.Portfolio.from_signals(
+                df[f"{symbol}_{column.lower()}"], entries, exits,
+                sl_stop=self.stop_loss / 100,
+                tp_stop=self.take_profit / 100,
+                fixed_fees=fee)
+        stats = pf.stats().to_frame()
+        stats.columns = [symbol+'_stats']
+        stats = stats.drop(['Total Time Exposure [%]', 'Benchmark Return [%]',
+                            'Max Gross Exposure [%]', 'Max Drawdown Duration',
+                            # 'Total Fees Paid',
+                            'Total Orders',
+                            'Avg Winning Trade Duration',
+                            'Avg Losing Trade Duration', 'Profit Factor',
+                            'Expectancy'])
+        # # -------Trade History for green red signal-------
+        th = pf.get_trade_history()  # th: trade history
+
+        green_filter = th.loc[th['Side'] == 'Buy']['Signal Index']
+        df[symbol+'_green_signal'] = False
+        df.loc[green_filter, symbol + '_green_signal'] = True
+        df[symbol+'_green_signal'] = np.where(
+            df[symbol+'_green_signal'], df[symbol+'_low'],
+            np.nan)
+
+        red_filter = th.loc[th['Side'] == 'Sell']['Signal Index']
+        df[symbol+'_red_signal'] = False
+        df.loc[red_filter, symbol + '_red_signal'] = True
+        df[symbol+'_red_signal'] = np.where(
+            df[symbol+'_red_signal'], df[symbol+'_low'],
+            np.nan)
+        # Trade History
+        th = th.drop(columns=['Order Id', 'Column', 'Creation Index',
+                              'Fill Index', 'Type', 'Size',
+                              'Position Id', 'Entry Trade Id',
+                              'Exit Trade Id'])
+        th.columns = [symbol+"_" +
+                      x.replace(" ", "_").lower() for x in th.columns]
+        signal_index = th[symbol+'_signal_index'].values
+        th[symbol+'_signal_index'] = df[symbol+'_datetime'][signal_index].values
+        return df, stats, th
+
+    def sto(self,
+            k: int = 14,
+            d: int = 3,
+            fee: float = 0.2):
+        column = self.column
+        symbol = self.symbol.upper()
+        df = self.data.copy()
+        # new_col = symbol+"_"+df.columns.str.lower()
+        df = df.rename(columns={
+            "Open": symbol+"_open",
+            "High": symbol+"_high",
+            "Low": symbol+"_low",
+            "Close": symbol+"_close",
+            "Volume": symbol+"_volume",
+            "datetime": symbol+"_datetime"})
+        # -------Stochastic----
+        df_sto = ta.stoch(df[symbol+'_high'], df[symbol +
+                          '_low'], df[symbol+'_close'], k, d)
+        # -------Bullish-------
+        entries = df_sto[f'STOCHk_{k}_{d}_3'] < 20
+        df[symbol+'_buy_signal'] = entries
+        df[symbol+'_buy_signal'].fillna(False, inplace=True)
+        # # -------Bearish-------
+        exits = df_sto[f'STOCHk_{k}_{d}_3'] > 80
+        df[symbol+'_sell_signal'] = exits
+        df[symbol+'_sell_signal'].iloc[-1] = True
+        df[symbol+'_sell_signal'].fillna(False, inplace=True)
+        # # -------Signal-------
+        if self.stop_loss == 0:
+            pf = vbt.Portfolio.from_signals(
+                df[f"{symbol}_{column.lower()}"],
+                df[symbol+'_buy_signal'],
+                df[symbol+'_sell_signal'], fixed_fees=fee)
+        else:
+            pf = vbt.Portfolio.from_signals(
+                df[f"{symbol}_{column.lower()}"],
+                df[symbol+'_buy_signal'].fillna(False),
+                df[symbol+'_sell_signal'].fillna(False),
+                sl_stop=self.stop_loss / 100,
+                tp_stop=self.take_profit / 100,
+                fixed_fees=fee)
+        stats = pf.stats().to_frame()
+        stats.columns = [symbol+'_stats']
+        stats = stats.drop(['Total Time Exposure [%]', 'Benchmark Return [%]',
+                            'Max Gross Exposure [%]', 'Max Drawdown Duration',
+                            # 'Total Fees Paid',
+                            'Total Orders',
+                            'Avg Winning Trade Duration',
+                            'Avg Losing Trade Duration', 'Profit Factor',
+                            'Expectancy'])
+        # # -------Trade History for green red signal-------
+        th = pf.get_trade_history()  # th: trade history
+
+        green_filter = th.loc[th['Side'] == 'Buy']['Signal Index']
+        df[symbol+'_green_signal'] = False
+        df.loc[green_filter, symbol + '_green_signal'] = True
+        df[symbol+'_green_signal'] = np.where(
+            df[symbol+'_green_signal'], df[symbol+'_low'],
+            np.nan)
+
+        red_filter = th.loc[th['Side'] == 'Sell']['Signal Index']
+        df[symbol+'_red_signal'] = False
+        df.loc[red_filter, symbol + '_red_signal'] = True
+        df[symbol+'_red_signal'] = np.where(
+            df[symbol+'_red_signal'], df[symbol+'_low'],
+            np.nan)
+        # Trade History
+        th = th.drop(columns=['Order Id', 'Column', 'Creation Index',
+                              'Fill Index', 'Type', 'Size',
+                              'Position Id', 'Entry Trade Id',
+                              'Exit Trade Id'])
+        th.columns = [symbol+"_" +
+                      x.replace(" ", "_").lower() for x in th.columns]
+        signal_index = th[symbol+'_signal_index'].values
+        th[symbol+'_signal_index'] = df[symbol+'_datetime'][signal_index].values
+        return df, stats, th
+
 
 if __name__ == "__main__":
     engine = create_engine('sqlite:///./project.db', echo=False)
@@ -582,3 +727,70 @@ if __name__ == "__main__":
                            con=engine, if_exists="replace")
                 print(f"Backtest BBANDS {tf} {sl} Done..")
     # End BBANDS
+
+    # Buy & Hold to DATABASE
+    for tf in timeframe[:]:
+        for col in columns[:]:
+            for sl in stop_loss[:]:
+                _df = pd.DataFrame()
+                _stats = pd.DataFrame()
+                _th = pd.DataFrame()
+                for symbol in stocks[:]:
+                    df, stats, th = BacktestStrategy(
+                        symbol, tf, col, stop_loss=sl, take_profit=2*sl).buy_hold()
+                    _df = pd.concat([_df, df], axis=1)
+                    cols = _stats.columns.to_list() + stats.columns.to_list()
+                    _stats = pd.concat(
+                        [_stats, stats], axis=1, ignore_index=True)
+                    _stats.columns = cols
+                    cols_th = _th.columns.to_list() + th.columns.to_list()
+                    _th = pd.concat([_th, th], axis=1, ignore_index=True)
+                    _th.columns = cols_th
+                _df.to_sql(name=f'bh_{col.lower()}_{tf.lower()}_{int(sl)}_{int(2*sl)}',
+                           con=engine, if_exists="replace")
+                # Edit Name Index of Stats
+                _index = [x.replace("[%]", "percent")
+                          for x in _stats.index.str.lower()]
+                # _stats.index = [x.strip().replace(" ", "_") for x in _index]
+                _stats = _stats.astype(float).applymap('{:,.2f}'.format)
+                # _stats.reset_index(inplace=True)
+                _stats.to_sql(name=f'bh_stats_{col.lower()}_{tf.lower()}_{int(sl)}_{int(2*sl)}',
+                              con=engine, if_exists="replace")
+                _th.to_sql(name=f'trade_history_bh_{col.lower()}_{tf.lower()}_{int(sl)}_{int(2*sl)}',
+                           con=engine, if_exists="replace")
+                print(f"Backtest Buy & Hold {tf} {sl} Done..")
+    # End Buy & Hold
+
+    # STOCH to DATABASE
+    for tf in timeframe[:]:
+        for col in columns[:]:
+            for sl in stop_loss[:]:
+                _df = pd.DataFrame()
+                _stats = pd.DataFrame()
+                _th = pd.DataFrame()
+                for symbol in stocks[:]:
+                    df, stats, th = BacktestStrategy(
+                        symbol, tf, col, stop_loss=sl,
+                        take_profit=2*sl).sto()
+                    _df = pd.concat([_df, df], axis=1)
+                    cols = _stats.columns.to_list() + stats.columns.to_list()
+                    _stats = pd.concat(
+                        [_stats, stats], axis=1, ignore_index=True)
+                    _stats.columns = cols
+                    cols_th = _th.columns.to_list() + th.columns.to_list()
+                    _th = pd.concat([_th, th], axis=1, ignore_index=True)
+                    _th.columns = cols_th
+                _df.to_sql(name=f'sto_{col.lower()}_{tf.lower()}_{int(sl)}_{int(2*sl)}',
+                           con=engine, if_exists="replace")
+                # Edit Name Index of Stats
+                _index = [x.replace("[%]", "percent")
+                          for x in _stats.index.str.lower()]
+                # _stats.index = [x.strip().replace(" ", "_") for x in _index]
+                _stats = _stats.astype(float).applymap('{:,.2f}'.format)
+                # _stats.reset_index(inplace=True)
+                _stats.to_sql(name=f'sto_stats_{col.lower()}_{tf.lower()}_{int(sl)}_{int(2*sl)}',
+                              con=engine, if_exists="replace")
+                _th.to_sql(name=f'trade_history_sto_{col.lower()}_{tf.lower()}_{int(sl)}_{int(2*sl)}',
+                           con=engine, if_exists="replace")
+                print(f"Backtest STOCH {tf} {sl} Done..")
+    # End STOCH --------------------------
