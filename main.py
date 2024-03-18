@@ -207,7 +207,7 @@ def backtest_strategy(db: Session = Depends(get_db),
             filter6, filter7, filter8, filter9
         ).select_from(model_strategy)
         res = db.execute(stmt)
-    elif 'BBANDS' in model_name:  # BBANDS
+    elif 'BBANDS' in model_name or 'BH' in model_name or 'STO' in model_name:  # BBANDS
         filter1 = eval(model_name+f'.{symbol}_datetime')
         filter2 = eval(model_name+f'.{symbol}_open')
         filter3 = eval(model_name+f'.{symbol}_high')
