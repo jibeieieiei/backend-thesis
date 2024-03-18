@@ -207,6 +207,20 @@ def backtest_strategy(db: Session = Depends(get_db),
             filter6, filter7, filter8, filter9
         ).select_from(model_strategy)
         res = db.execute(stmt)
+    elif 'BBANDS' in model_name:  # BBANDS
+        filter1 = eval(model_name+f'.{symbol}_datetime')
+        filter2 = eval(model_name+f'.{symbol}_open')
+        filter3 = eval(model_name+f'.{symbol}_high')
+        filter4 = eval(model_name+f'.{symbol}_low')
+        filter5 = eval(model_name+f'.{symbol}_close')
+        filter6 = eval(model_name+f'.{symbol}_volume')
+        filter7 = eval(model_name+f'.{symbol}_green_signal')
+        filter8 = eval(model_name+f'.{symbol}_red_signal')
+        stmt = select(
+            filter1, filter2, filter3, filter4, filter5,
+            filter6, filter7, filter8
+        ).select_from(model_strategy)
+        res = db.execute(stmt)
     return [x._mapping for x in res]
 
 

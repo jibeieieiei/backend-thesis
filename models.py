@@ -5365,3 +5365,980 @@ class TradeHistoryADX1D4Sl(Base, TradeHistory):
 class TradeHistoryADX1D6Sl(Base, TradeHistory):
     __tablename__ = "trade_history_adx_close_1D_6_12"
     id = Column(Integer, primary_key=True)
+
+
+# ---------- BBANDS -------------------
+class BacktestStrategyBBANDS():
+    ADVANC_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    ADVANC_open = Column(Float)
+    ADVANC_high = Column(Float)
+    ADVANC_low = Column(Float)
+    ADVANC_close = Column(Float)
+    ADVANC_volume = Column(Integer)
+    ADVANC_buy_signal = Column(Boolean, unique=False, default=True)
+    ADVANC_sell_signal = Column(Boolean, unique=False, default=True)
+    ADVANC_green_signal = Column(Float)
+    ADVANC_red_signal = Column(Float)
+    AOT_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    AOT_open = Column(Float)
+    AOT_high = Column(Float)
+    AOT_low = Column(Float)
+    AOT_close = Column(Float)
+    AOT_volume = Column(Integer)
+    AOT_buy_signal = Column(Boolean, unique=False, default=True)
+    AOT_sell_signal = Column(Boolean, unique=False, default=True)
+    AOT_green_signal = Column(Float)
+    AOT_red_signal = Column(Float)
+    AWC_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    AWC_open = Column(Float)
+    AWC_high = Column(Float)
+    AWC_low = Column(Float)
+    AWC_close = Column(Float)
+    AWC_volume = Column(Integer)
+    AWC_buy_signal = Column(Boolean, unique=False, default=True)
+    AWC_sell_signal = Column(Boolean, unique=False, default=True)
+    AWC_green_signal = Column(Float)
+    AWC_red_signal = Column(Float)
+    BANPU_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    BANPU_open = Column(Float)
+    BANPU_high = Column(Float)
+    BANPU_low = Column(Float)
+    BANPU_close = Column(Float)
+    BANPU_volume = Column(Integer)
+    BANPU_buy_signal = Column(Boolean, unique=False, default=True)
+    BANPU_sell_signal = Column(Boolean, unique=False, default=True)
+    BANPU_green_signal = Column(Float)
+    BANPU_red_signal = Column(Float)
+    BBL_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    BBL_open = Column(Float)
+    BBL_high = Column(Float)
+    BBL_low = Column(Float)
+    BBL_close = Column(Float)
+    BBL_volume = Column(Integer)
+    BBL_buy_signal = Column(Boolean, unique=False, default=True)
+    BBL_sell_signal = Column(Boolean, unique=False, default=True)
+    BBL_green_signal = Column(Float)
+    BBL_red_signal = Column(Float)
+    BDMS_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    BDMS_open = Column(Float)
+    BDMS_high = Column(Float)
+    BDMS_low = Column(Float)
+    BDMS_close = Column(Float)
+    BDMS_volume = Column(Integer)
+    BDMS_buy_signal = Column(Boolean, unique=False, default=True)
+    BDMS_sell_signal = Column(Boolean, unique=False, default=True)
+    BDMS_green_signal = Column(Float)
+    BDMS_red_signal = Column(Float)
+    BEM_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    BEM_open = Column(Float)
+    BEM_high = Column(Float)
+    BEM_low = Column(Float)
+    BEM_close = Column(Float)
+    BEM_volume = Column(Integer)
+    BEM_buy_signal = Column(Boolean, unique=False, default=True)
+    BEM_sell_signal = Column(Boolean, unique=False, default=True)
+    BEM_green_signal = Column(Float)
+    BEM_red_signal = Column(Float)
+    BGRIM_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    BGRIM_open = Column(Float)
+    BGRIM_high = Column(Float)
+    BGRIM_low = Column(Float)
+    BGRIM_close = Column(Float)
+    BGRIM_volume = Column(Integer)
+    BGRIM_buy_signal = Column(Boolean, unique=False, default=True)
+    BGRIM_sell_signal = Column(Boolean, unique=False, default=True)
+    BGRIM_green_signal = Column(Float)
+    BGRIM_red_signal = Column(Float)
+    BH_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    BH_open = Column(Float)
+    BH_high = Column(Float)
+    BH_low = Column(Float)
+    BH_close = Column(Float)
+    BH_volume = Column(Integer)
+    BH_buy_signal = Column(Boolean, unique=False, default=True)
+    BH_sell_signal = Column(Boolean, unique=False, default=True)
+    BH_green_signal = Column(Float)
+    BH_red_signal = Column(Float)
+    BTS_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    BTS_open = Column(Float)
+    BTS_high = Column(Float)
+    BTS_low = Column(Float)
+    BTS_close = Column(Float)
+    BTS_volume = Column(Integer)
+    BTS_buy_signal = Column(Boolean, unique=False, default=True)
+    BTS_sell_signal = Column(Boolean, unique=False, default=True)
+    BTS_green_signal = Column(Float)
+    BTS_red_signal = Column(Float)
+    CBG_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    CBG_open = Column(Float)
+    CBG_high = Column(Float)
+    CBG_low = Column(Float)
+    CBG_close = Column(Float)
+    CBG_volume = Column(Integer)
+    CBG_buy_signal = Column(Boolean, unique=False, default=True)
+    CBG_sell_signal = Column(Boolean, unique=False, default=True)
+    CBG_green_signal = Column(Float)
+    CBG_red_signal = Column(Float)
+    CENTEL_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    CENTEL_open = Column(Float)
+    CENTEL_high = Column(Float)
+    CENTEL_low = Column(Float)
+    CENTEL_close = Column(Float)
+    CENTEL_volume = Column(Integer)
+    CENTEL_buy_signal = Column(Boolean, unique=False, default=True)
+    CENTEL_sell_signal = Column(Boolean, unique=False, default=True)
+    CENTEL_green_signal = Column(Float)
+    CENTEL_red_signal = Column(Float)
+    COM7_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    COM7_open = Column(Float)
+    COM7_high = Column(Float)
+    COM7_low = Column(Float)
+    COM7_close = Column(Float)
+    COM7_volume = Column(Integer)
+    COM7_buy_signal = Column(Boolean, unique=False, default=True)
+    COM7_sell_signal = Column(Boolean, unique=False, default=True)
+    COM7_green_signal = Column(Float)
+    COM7_red_signal = Column(Float)
+    CPALL_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    CPALL_open = Column(Float)
+    CPALL_high = Column(Float)
+    CPALL_low = Column(Float)
+    CPALL_close = Column(Float)
+    CPALL_volume = Column(Integer)
+    CPALL_buy_signal = Column(Boolean, unique=False, default=True)
+    CPALL_sell_signal = Column(Boolean, unique=False, default=True)
+    CPALL_green_signal = Column(Float)
+    CPALL_red_signal = Column(Float)
+    CPF_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    CPF_open = Column(Float)
+    CPF_high = Column(Float)
+    CPF_low = Column(Float)
+    CPF_close = Column(Float)
+    CPF_volume = Column(Integer)
+    CPF_buy_signal = Column(Boolean, unique=False, default=True)
+    CPF_sell_signal = Column(Boolean, unique=False, default=True)
+    CPF_green_signal = Column(Float)
+    CPF_red_signal = Column(Float)
+    CPN_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    CPN_open = Column(Float)
+    CPN_high = Column(Float)
+    CPN_low = Column(Float)
+    CPN_close = Column(Float)
+    CPN_volume = Column(Integer)
+    CPN_buy_signal = Column(Boolean, unique=False, default=True)
+    CPN_sell_signal = Column(Boolean, unique=False, default=True)
+    CPN_green_signal = Column(Float)
+    CPN_red_signal = Column(Float)
+    CRC_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    CRC_open = Column(Float)
+    CRC_high = Column(Float)
+    CRC_low = Column(Float)
+    CRC_close = Column(Float)
+    CRC_volume = Column(Integer)
+    CRC_buy_signal = Column(Boolean, unique=False, default=True)
+    CRC_sell_signal = Column(Boolean, unique=False, default=True)
+    CRC_green_signal = Column(Float)
+    CRC_red_signal = Column(Float)
+    DELTA_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    DELTA_open = Column(Float)
+    DELTA_high = Column(Float)
+    DELTA_low = Column(Float)
+    DELTA_close = Column(Float)
+    DELTA_volume = Column(Integer)
+    DELTA_buy_signal = Column(Boolean, unique=False, default=True)
+    DELTA_sell_signal = Column(Boolean, unique=False, default=True)
+    DELTA_green_signal = Column(Float)
+    DELTA_red_signal = Column(Float)
+    EA_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    EA_open = Column(Float)
+    EA_high = Column(Float)
+    EA_low = Column(Float)
+    EA_close = Column(Float)
+    EA_volume = Column(Integer)
+    EA_buy_signal = Column(Boolean, unique=False, default=True)
+    EA_sell_signal = Column(Boolean, unique=False, default=True)
+    EA_green_signal = Column(Float)
+    EA_red_signal = Column(Float)
+    EGCO_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    EGCO_open = Column(Float)
+    EGCO_high = Column(Float)
+    EGCO_low = Column(Float)
+    EGCO_close = Column(Float)
+    EGCO_volume = Column(Integer)
+    EGCO_buy_signal = Column(Boolean, unique=False, default=True)
+    EGCO_sell_signal = Column(Boolean, unique=False, default=True)
+    EGCO_green_signal = Column(Float)
+    EGCO_red_signal = Column(Float)
+    GLOBAL_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    GLOBAL_open = Column(Float)
+    GLOBAL_high = Column(Float)
+    GLOBAL_low = Column(Float)
+    GLOBAL_close = Column(Float)
+    GLOBAL_volume = Column(Integer)
+    GLOBAL_buy_signal = Column(Boolean, unique=False, default=True)
+    GLOBAL_sell_signal = Column(Boolean, unique=False, default=True)
+    GLOBAL_green_signal = Column(Float)
+    GLOBAL_red_signal = Column(Float)
+    GPSC_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    GPSC_open = Column(Float)
+    GPSC_high = Column(Float)
+    GPSC_low = Column(Float)
+    GPSC_close = Column(Float)
+    GPSC_volume = Column(Integer)
+    GPSC_buy_signal = Column(Boolean, unique=False, default=True)
+    GPSC_sell_signal = Column(Boolean, unique=False, default=True)
+    GPSC_green_signal = Column(Float)
+    GPSC_red_signal = Column(Float)
+    GULF_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    GULF_open = Column(Float)
+    GULF_high = Column(Float)
+    GULF_low = Column(Float)
+    GULF_close = Column(Float)
+    GULF_volume = Column(Integer)
+    GULF_buy_signal = Column(Boolean, unique=False, default=True)
+    GULF_sell_signal = Column(Boolean, unique=False, default=True)
+    GULF_green_signal = Column(Float)
+    GULF_red_signal = Column(Float)
+    HMPRO_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    HMPRO_open = Column(Float)
+    HMPRO_high = Column(Float)
+    HMPRO_low = Column(Float)
+    HMPRO_close = Column(Float)
+    HMPRO_volume = Column(Integer)
+    HMPRO_buy_signal = Column(Boolean, unique=False, default=True)
+    HMPRO_sell_signal = Column(Boolean, unique=False, default=True)
+    HMPRO_green_signal = Column(Float)
+    HMPRO_red_signal = Column(Float)
+    INTUCH_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    INTUCH_open = Column(Float)
+    INTUCH_high = Column(Float)
+    INTUCH_low = Column(Float)
+    INTUCH_close = Column(Float)
+    INTUCH_volume = Column(Integer)
+    INTUCH_buy_signal = Column(Boolean, unique=False, default=True)
+    INTUCH_sell_signal = Column(Boolean, unique=False, default=True)
+    INTUCH_green_signal = Column(Float)
+    INTUCH_red_signal = Column(Float)
+    IVL_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    IVL_open = Column(Float)
+    IVL_high = Column(Float)
+    IVL_low = Column(Float)
+    IVL_close = Column(Float)
+    IVL_volume = Column(Integer)
+    IVL_buy_signal = Column(Boolean, unique=False, default=True)
+    IVL_sell_signal = Column(Boolean, unique=False, default=True)
+    IVL_green_signal = Column(Float)
+    IVL_red_signal = Column(Float)
+    KBANK_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    KBANK_open = Column(Float)
+    KBANK_high = Column(Float)
+    KBANK_low = Column(Float)
+    KBANK_close = Column(Float)
+    KBANK_volume = Column(Integer)
+    KBANK_buy_signal = Column(Boolean, unique=False, default=True)
+    KBANK_sell_signal = Column(Boolean, unique=False, default=True)
+    KBANK_green_signal = Column(Float)
+    KBANK_red_signal = Column(Float)
+    KCE_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    KCE_open = Column(Float)
+    KCE_high = Column(Float)
+    KCE_low = Column(Float)
+    KCE_close = Column(Float)
+    KCE_volume = Column(Integer)
+    KCE_buy_signal = Column(Boolean, unique=False, default=True)
+    KCE_sell_signal = Column(Boolean, unique=False, default=True)
+    KCE_green_signal = Column(Float)
+    KCE_red_signal = Column(Float)
+    KTB_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    KTB_open = Column(Float)
+    KTB_high = Column(Float)
+    KTB_low = Column(Float)
+    KTB_close = Column(Float)
+    KTB_volume = Column(Integer)
+    KTB_buy_signal = Column(Boolean, unique=False, default=True)
+    KTB_sell_signal = Column(Boolean, unique=False, default=True)
+    KTB_green_signal = Column(Float)
+    KTB_red_signal = Column(Float)
+    KTC_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    KTC_open = Column(Float)
+    KTC_high = Column(Float)
+    KTC_low = Column(Float)
+    KTC_close = Column(Float)
+    KTC_volume = Column(Integer)
+    KTC_buy_signal = Column(Boolean, unique=False, default=True)
+    KTC_sell_signal = Column(Boolean, unique=False, default=True)
+    KTC_green_signal = Column(Float)
+    KTC_red_signal = Column(Float)
+    LH_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    LH_open = Column(Float)
+    LH_high = Column(Float)
+    LH_low = Column(Float)
+    LH_close = Column(Float)
+    LH_volume = Column(Integer)
+    LH_buy_signal = Column(Boolean, unique=False, default=True)
+    LH_sell_signal = Column(Boolean, unique=False, default=True)
+    LH_green_signal = Column(Float)
+    LH_red_signal = Column(Float)
+    MINT_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    MINT_open = Column(Float)
+    MINT_high = Column(Float)
+    MINT_low = Column(Float)
+    MINT_close = Column(Float)
+    MINT_volume = Column(Integer)
+    MINT_buy_signal = Column(Boolean, unique=False, default=True)
+    MINT_sell_signal = Column(Boolean, unique=False, default=True)
+    MINT_green_signal = Column(Float)
+    MINT_red_signal = Column(Float)
+    MTC_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    MTC_open = Column(Float)
+    MTC_high = Column(Float)
+    MTC_low = Column(Float)
+    MTC_close = Column(Float)
+    MTC_volume = Column(Integer)
+    MTC_buy_signal = Column(Boolean, unique=False, default=True)
+    MTC_sell_signal = Column(Boolean, unique=False, default=True)
+    MTC_green_signal = Column(Float)
+    MTC_red_signal = Column(Float)
+    OR_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    OR_open = Column(Float)
+    OR_high = Column(Float)
+    OR_low = Column(Float)
+    OR_close = Column(Float)
+    OR_volume = Column(Integer)
+    OR_buy_signal = Column(Boolean, unique=False, default=True)
+    OR_sell_signal = Column(Boolean, unique=False, default=True)
+    OR_green_signal = Column(Float)
+    OR_red_signal = Column(Float)
+    OSP_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    OSP_open = Column(Float)
+    OSP_high = Column(Float)
+    OSP_low = Column(Float)
+    OSP_close = Column(Float)
+    OSP_volume = Column(Integer)
+    OSP_buy_signal = Column(Boolean, unique=False, default=True)
+    OSP_sell_signal = Column(Boolean, unique=False, default=True)
+    OSP_green_signal = Column(Float)
+    OSP_red_signal = Column(Float)
+    PTT_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    PTT_open = Column(Float)
+    PTT_high = Column(Float)
+    PTT_low = Column(Float)
+    PTT_close = Column(Float)
+    PTT_volume = Column(Integer)
+    PTT_buy_signal = Column(Boolean, unique=False, default=True)
+    PTT_sell_signal = Column(Boolean, unique=False, default=True)
+    PTT_green_signal = Column(Float)
+    PTT_red_signal = Column(Float)
+    PTTEP_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    PTTEP_open = Column(Float)
+    PTTEP_high = Column(Float)
+    PTTEP_low = Column(Float)
+    PTTEP_close = Column(Float)
+    PTTEP_volume = Column(Integer)
+    PTTEP_buy_signal = Column(Boolean, unique=False, default=True)
+    PTTEP_sell_signal = Column(Boolean, unique=False, default=True)
+    PTTEP_green_signal = Column(Float)
+    PTTEP_red_signal = Column(Float)
+    PTTGC_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    PTTGC_open = Column(Float)
+    PTTGC_high = Column(Float)
+    PTTGC_low = Column(Float)
+    PTTGC_close = Column(Float)
+    PTTGC_volume = Column(Integer)
+    PTTGC_buy_signal = Column(Boolean, unique=False, default=True)
+    PTTGC_sell_signal = Column(Boolean, unique=False, default=True)
+    PTTGC_green_signal = Column(Float)
+    PTTGC_red_signal = Column(Float)
+    RATCH_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    RATCH_open = Column(Float)
+    RATCH_high = Column(Float)
+    RATCH_low = Column(Float)
+    RATCH_close = Column(Float)
+    RATCH_volume = Column(Integer)
+    RATCH_buy_signal = Column(Boolean, unique=False, default=True)
+    RATCH_sell_signal = Column(Boolean, unique=False, default=True)
+    RATCH_green_signal = Column(Float)
+    RATCH_red_signal = Column(Float)
+    SAWAD_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    SAWAD_open = Column(Float)
+    SAWAD_high = Column(Float)
+    SAWAD_low = Column(Float)
+    SAWAD_close = Column(Float)
+    SAWAD_volume = Column(Integer)
+    SAWAD_buy_signal = Column(Boolean, unique=False, default=True)
+    SAWAD_sell_signal = Column(Boolean, unique=False, default=True)
+    SAWAD_green_signal = Column(Float)
+    SAWAD_red_signal = Column(Float)
+    SCB_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    SCB_open = Column(Float)
+    SCB_high = Column(Float)
+    SCB_low = Column(Float)
+    SCB_close = Column(Float)
+    SCB_volume = Column(Integer)
+    SCB_buy_signal = Column(Boolean, unique=False, default=True)
+    SCB_sell_signal = Column(Boolean, unique=False, default=True)
+    SCB_green_signal = Column(Float)
+    SCB_red_signal = Column(Float)
+    SCC_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    SCC_open = Column(Float)
+    SCC_high = Column(Float)
+    SCC_low = Column(Float)
+    SCC_close = Column(Float)
+    SCC_volume = Column(Integer)
+    SCC_buy_signal = Column(Boolean, unique=False, default=True)
+    SCC_sell_signal = Column(Boolean, unique=False, default=True)
+    SCC_green_signal = Column(Float)
+    SCC_red_signal = Column(Float)
+    SCGP_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    SCGP_open = Column(Float)
+    SCGP_high = Column(Float)
+    SCGP_low = Column(Float)
+    SCGP_close = Column(Float)
+    SCGP_volume = Column(Integer)
+    SCGP_buy_signal = Column(Boolean, unique=False, default=True)
+    SCGP_sell_signal = Column(Boolean, unique=False, default=True)
+    SCGP_green_signal = Column(Float)
+    SCGP_red_signal = Column(Float)
+    TISCO_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    TISCO_open = Column(Float)
+    TISCO_high = Column(Float)
+    TISCO_low = Column(Float)
+    TISCO_close = Column(Float)
+    TISCO_volume = Column(Integer)
+    TISCO_buy_signal = Column(Boolean, unique=False, default=True)
+    TISCO_sell_signal = Column(Boolean, unique=False, default=True)
+    TISCO_green_signal = Column(Float)
+    TISCO_red_signal = Column(Float)
+    TOP_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    TOP_open = Column(Float)
+    TOP_high = Column(Float)
+    TOP_low = Column(Float)
+    TOP_close = Column(Float)
+    TOP_volume = Column(Integer)
+    TOP_buy_signal = Column(Boolean, unique=False, default=True)
+    TOP_sell_signal = Column(Boolean, unique=False, default=True)
+    TOP_green_signal = Column(Float)
+    TOP_red_signal = Column(Float)
+    TRUE_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    TRUE_open = Column(Float)
+    TRUE_high = Column(Float)
+    TRUE_low = Column(Float)
+    TRUE_close = Column(Float)
+    TRUE_volume = Column(Integer)
+    TRUE_buy_signal = Column(Boolean, unique=False, default=True)
+    TRUE_sell_signal = Column(Boolean, unique=False, default=True)
+    TRUE_green_signal = Column(Float)
+    TRUE_red_signal = Column(Float)
+    TTB_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    TTB_open = Column(Float)
+    TTB_high = Column(Float)
+    TTB_low = Column(Float)
+    TTB_close = Column(Float)
+    TTB_volume = Column(Integer)
+    TTB_buy_signal = Column(Boolean, unique=False, default=True)
+    TTB_sell_signal = Column(Boolean, unique=False, default=True)
+    TTB_green_signal = Column(Float)
+    TTB_red_signal = Column(Float)
+    TU_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    TU_open = Column(Float)
+    TU_high = Column(Float)
+    TU_low = Column(Float)
+    TU_close = Column(Float)
+    TU_volume = Column(Integer)
+    TU_buy_signal = Column(Boolean, unique=False, default=True)
+    TU_sell_signal = Column(Boolean, unique=False, default=True)
+    TU_green_signal = Column(Float)
+    TU_red_signal = Column(Float)
+    WHA_datetime = Column(DATETIME(
+        storage_format="%(year)04d-%(month)02d-%(day)02d" +
+        "%(hour)02d:%(minute)02d:%(second)02d"),
+        default=datetime.datetime.utcnow)
+    WHA_open = Column(Float)
+    WHA_high = Column(Float)
+    WHA_low = Column(Float)
+    WHA_close = Column(Float)
+    WHA_volume = Column(Integer)
+    WHA_buy_signal = Column(Boolean, unique=False, default=True)
+    WHA_sell_signal = Column(Boolean, unique=False, default=True)
+    WHA_green_signal = Column(Float)
+    WHA_red_signal = Column(Float)
+
+
+class BBANDSClose15T0Sl(BacktestStrategyBBANDS, Base):
+    __tablename__ = "bbands_close_15T_0_0".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSClose15T id={self.id}>"
+
+
+class BBANDSClose15T2Sl(BacktestStrategyBBANDS, Base):
+    __tablename__ = "bbands_close_15T_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSClose15T id={self.id}>"
+
+
+class BBANDSClose15T4Sl(BacktestStrategyBBANDS, Base):
+    __tablename__ = "bbands_close_15T_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSClose15T id={self.id}>"
+
+
+class BBANDSClose15T6Sl(BacktestStrategyBBANDS, Base):
+    __tablename__ = "bbands_close_15T_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSClose15T id={self.id}>"
+
+
+class BBANDSClose1H0Sl(BacktestStrategyBBANDS, Base):
+    __tablename__ = "bbands_close_1H_0_0".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSClose1H id={self.id}>"
+
+
+class BBANDSClose1H2Sl(BacktestStrategyBBANDS, Base):
+    __tablename__ = "bbands_close_1H_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSClose1H id={self.id}>"
+
+
+class BBANDSClose1H4Sl(BacktestStrategyBBANDS, Base):
+    __tablename__ = "bbands_close_1H_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSClose1H id={self.id}>"
+
+
+class BBANDSClose1H6Sl(BacktestStrategyBBANDS, Base):
+    __tablename__ = "bbands_close_1H_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSClose1H id={self.id}>"
+
+
+class BBANDSClose4H0Sl(BacktestStrategyBBANDS, Base):
+    __tablename__ = "bbands_close_4H_0_0".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSClose4H id={self.id}>"
+
+
+class BBANDSClose4H2Sl(BacktestStrategyBBANDS, Base):
+    __tablename__ = "bbands_close_4H_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSClose4H id={self.id}>"
+
+
+class BBANDSClose4H4Sl(BacktestStrategyBBANDS, Base):
+    __tablename__ = "bbands_close_4H_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSClose4H id={self.id}>"
+
+
+class BBANDSClose4H6Sl(BacktestStrategyBBANDS, Base):
+    __tablename__ = "bbands_close_4H_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSClose4H id={self.id}>"
+
+
+class BBANDSClose1D0Sl(BacktestStrategyBBANDS, Base):
+    __tablename__ = "bbands_close_1D_0_0".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSClose1D id={self.id}>"
+
+
+class BBANDSClose1D2Sl(BacktestStrategyBBANDS, Base):
+    __tablename__ = "bbands_close_1D_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSClose1D id={self.id}>"
+
+
+class BBANDSClose1D4Sl(BacktestStrategyBBANDS, Base):
+    __tablename__ = "bbands_close_1D_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSClose1D id={self.id}>"
+
+
+class BBANDSClose1D6Sl(BacktestStrategyBBANDS, Base):
+    __tablename__ = "bbands_close_1D_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSClose1D id={self.id}>"
+
+
+class BBANDSStatsClose15T0Sl(StatsStrategy, Base):
+    __tablename__ = "BBANDS_stats_close_15T_0_0".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSStatsClose15T id={self.id}>"
+
+
+class BBANDSStatsClose15T2Sl(StatsStrategy, Base):
+    __tablename__ = "BBANDS_stats_close_15T_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSStatsClose15T id={self.id}>"
+
+
+class BBANDSStatsClose15T4Sl(StatsStrategy, Base):
+    __tablename__ = "BBANDS_stats_close_15T_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSStatsClose15T id={self.id}>"
+
+
+class BBANDSStatsClose15T6Sl(StatsStrategy, Base):
+    __tablename__ = "BBANDS_stats_close_15T_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSStatsClose15T id={self.id}>"
+
+
+class BBANDSStatsClose1H0Sl(StatsStrategy, Base):
+    __tablename__ = "BBANDS_stats_close_1H_0_0".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSStatsClose1H id={self.id}>"
+
+
+class BBANDSStatsClose1H2Sl(StatsStrategy, Base):
+    __tablename__ = "BBANDS_stats_close_1H_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSStatsClose1H id={self.id}>"
+
+
+class BBANDSStatsClose1H4Sl(StatsStrategy, Base):
+    __tablename__ = "BBANDS_stats_close_1H_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSStatsClose1H id={self.id}>"
+
+
+class BBANDSStatsClose1H6Sl(StatsStrategy, Base):
+    __tablename__ = "BBANDS_stats_close_1H_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSStatsClose1H id={self.id}>"
+
+
+class BBANDSStatsClose4H0Sl(StatsStrategy, Base):
+    __tablename__ = "BBANDS_stats_close_4H_0_0".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSStatsClose4H id={self.id}>"
+
+
+class BBANDSStatsClose4H2Sl(StatsStrategy, Base):
+    __tablename__ = "BBANDS_stats_close_4H_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSStatsClose4H id={self.id}>"
+
+
+class BBANDSStatsClose4H4Sl(StatsStrategy, Base):
+    __tablename__ = "BBANDS_stats_close_4H_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSStatsClose4H id={self.id}>"
+
+
+class BBANDSStatsClose4H6Sl(StatsStrategy, Base):
+    __tablename__ = "BBANDS_stats_close_4H_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSStatsClose4H id={self.id}>"
+
+
+class BBANDSStatsClose1D0Sl(StatsStrategy, Base):
+    __tablename__ = "BBANDS_stats_close_1D_0_0".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSStatsClose1D id={self.id}>"
+
+
+class BBANDSStatsClose1D2Sl(StatsStrategy, Base):
+    __tablename__ = "BBANDS_stats_close_1D_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSStatsClose1D id={self.id}>"
+
+
+class BBANDSStatsClose1D4Sl(StatsStrategy, Base):
+    __tablename__ = "BBANDS_stats_close_1D_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSStatsClose1D id={self.id}>"
+
+
+class BBANDSStatsClose1D6Sl(StatsStrategy, Base):
+    __tablename__ = "BBANDS_stats_close_1D_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+    def __repr__(self):
+        return f"<BBANDSStatsClose1D id={self.id}>"
+
+
+class TradeHistoryBBANDS15T0Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_bb_close_15T_0_0".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryBBANDS15T2Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_bb_close_15T_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryBBANDS15T4Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_bb_close_15T_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryBBANDS15T6Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_bb_close_15T_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryBBANDS1H0Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_bb_close_1H_0_0".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryBBANDS1H2Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_bb_close_1H_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryBBANDS1H4Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_bb_close_1H_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryBBANDS1H6Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_bb_close_1H_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryBBANDS4H0Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_bb_close_4H_0_0".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryBBANDS4H2Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_bb_close_4H_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryBBANDS4H4Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_bb_close_4H_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryBBANDS4H6Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_bb_close_4H_6_12".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryBBANDS1D0Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_bb_close_1D_0_0".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryBBANDS1D2Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_bb_close_1D_2_4".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryBBANDS1D4Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_bb_close_1D_4_8".lower()
+    id = Column(Integer, primary_key=True)
+
+
+class TradeHistoryBBANDS1D6Sl(Base, TradeHistory):
+    __tablename__ = "trade_history_bb_close_1D_6_12".lower()
+    id = Column(Integer, primary_key=True)
