@@ -7,3 +7,6 @@ __pycache__/
 project_test.db
 database_test.py
 tmp_fastapi.txt
+project.db
+data/
+py_log.log
